@@ -1,0 +1,88 @@
+/**
+ * @Author: 焦质晔
+ * @Date: 2019-06-20 10:00:00
+ * @Last Modified by: 焦质晔
+ * @Last Modified time: 2021-02-05 14:04:23
+ */
+'use strict';
+
+const path = require('path');
+const utils = require('./utils');
+const webpack = require('webpack');
+const config = require('../config');
+const merge = require('webpack-merge');
+const Dotenv = require('dotenv-webpack');
+const baseWebpackConfig = require('./webpack.base.conf');
+const ESLintPlugin = require('eslint-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+
+process.env.NODE_ENV = 'development';
+
+const HOST = process.env.HOST || config.dev.host;
+const PORT = process.env.PORT || config.dev.port;
+
+const devWebpackConfig = merge(baseWebpackConfig, {
+  mode: 'development',
+  target: 'web', // webpack5.x 加上之后热更新才有效果
+  module: {
+    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: false }),
+  },
+  devtool: config.dev.devtool,
+  devServer: {
+    clientLogLevel: 'warning',
+    /* 当使用 HTML5 History API 时，任意的 404 响应都可能需要被替代为 index.html */
+    historyApiFallback: {
+      disableDotRule: true,
+      rewrites: [{ from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') }],
+    },
+    publicPath: config.dev.assetsPublicPath,
+    contentBase: utils.resolve('dist'),
+    inline: true,
+    hot: true, // 热加载
+    compress: true, // 开启资源的 gzip 压缩
+    overlay: {
+      warnings: false,
+      errors: true,
+    },
+    host: HOST,
+    port: PORT,
+    open: config.dev.autoOpenBrowser,
+    proxy: config.dev.proxyTable,
+    watchOptions: { poll: false },
+  },
+  plugins: (config.dev.useEslint
+    ? [
+        new ESLintPlugin({
+          emitError: true,
+          emitWarning: true,
+          extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue'],
+          formatter: require('eslint-formatter-friendly'),
+        }),
+      ]
+    : []
+  ).concat([
+    new webpack.HotModuleReplacementPlugin(),
+    new CaseSensitivePathsPlugin(),
+    new Dotenv(),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'public/index.html',
+      favicon: 'public/favicon.ico',
+      inject: true,
+      templateParameters: {
+        BASE_URL: config.dev.assetsPublicPath + config.dev.assetsSubDirectory,
+      },
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: config.dev.assetsSubDirectory,
+        ignore: ['.*'],
+      },
+    ]),
+  ]),
+});
+
+module.exports = devWebpackConfig;
