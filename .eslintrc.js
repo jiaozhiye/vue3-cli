@@ -2,16 +2,16 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    es6: true,
     node: true,
   },
   parser: 'vue-eslint-parser', // the ts-eslint recommended ruleset sets the parser so we need to set it back
   parserOptions: {
     parser: '@typescript-eslint/parser',
-    ecmaVersion: 2020,
     sourceType: 'module',
-    extraFileExtensions: ['.vue'],
-    ecmaFeatures: { jsx: true },
+    ecmaFeatures: {
+      jsx: true,
+      tsx: true,
+    },
   },
   extends: [
     'plugin:vue/vue3-essential',
