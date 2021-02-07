@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-05 09:10:55
+ * @Last Modified time: 2021-02-07 09:49:29
  */
 'use strict';
 
@@ -137,7 +137,7 @@ exports.tsLoaders = function () {
       options: {
         transpileOnly: true,
         happyPackMode: true,
-        appendTsxSuffixTo: ['\\.vue$'],
+        appendTsxSuffixTo: [/\.vue$/],
       },
     },
   ];
