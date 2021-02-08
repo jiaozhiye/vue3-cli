@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-05 11:03:43
+ * @Last Modified time: 2021-02-08 16:00:43
  */
 'use strict';
 
@@ -111,7 +111,9 @@ module.exports = {
         test: /\.(svg)(\?.*)?$/,
         type: 'asset/resource',
         exclude: [utils.resolve('src/components/SvgIcon/svg')],
-        generator: { filename: 'img/[contenthash:8][ext][query]' },
+        generator: {
+          filename: utils.assetsPath('img/[contenthash:8][ext][query]'),
+        },
       },
       // images
       {

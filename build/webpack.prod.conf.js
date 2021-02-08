@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-05 10:56:58
+ * @Last Modified time: 2021-02-08 15:59:50
  */
 'use strict';
 
@@ -16,7 +16,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -95,10 +94,6 @@ const webpackConfig = merge(baseWebpackConfig, {
         BASE_URL: config.build.assetsPublicPath + config.build.assetsSubDirectory,
       },
     }),
-    new ScriptExtHtmlWebpackPlugin({
-      // `runtime` must same as runtimeChunk name. default is `runtime`
-      inline: /runtime\..*\.js$/,
-    }),
     // keep module.id stable when vendor modules does not change
     // new webpack.HashedModuleIdsPlugin(),
     // copy custom static assets
@@ -109,6 +104,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*'],
       },
     ]),
+    // clear dist resource
     new CleanWebpackPlugin(),
   ],
 });
