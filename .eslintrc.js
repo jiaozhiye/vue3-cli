@@ -4,7 +4,8 @@ module.exports = {
     browser: true,
     node: true,
   },
-  parser: 'vue-eslint-parser', // the ts-eslint recommended ruleset sets the parser so we need to set it back
+  // the ts-eslint recommended ruleset sets the parser so we need to set it back
+  parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
@@ -21,8 +22,39 @@ module.exports = {
   ],
   plugins: ['@typescript-eslint'],
   rules: {
+    // ts/js
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/ban-types': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    // vue
+    'vue/no-v-html': 'off',
+    'vue/singleline-html-element-content-newline': 'off',
+    'vue/html-self-closing': [
+      'error',
+      {
+        html: {
+          void: 'never',
+          normal: 'never',
+          component: 'always',
+        },
+      },
+    ],
+    'vue/max-attributes-per-line': [
+      'error',
+      {
+        singleline: 3,
+        multiline: 1,
+      },
+    ],
+    'vue/prop-name-casing': 'off',
+    'vue/custom-event-name-casing': 'off',
+    'vue/require-prop-types': 'off',
+    'vue/require-default-prop': 'off',
+    'vue/html-closing-bracket-spacing': 'error',
+  },
+  globals: {
+    h: true,
   },
 };
