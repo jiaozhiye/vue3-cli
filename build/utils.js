@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-07 09:49:29
+ * @Last Modified time: 2021-02-10 10:52:10
  */
 'use strict';
 
@@ -16,7 +16,9 @@ const mapDir = (d, reg) => {
   const result = [];
 
   // 获得当前文件夹下的所有的文件夹和文件
-  const [dirs, files] = _(fs.readdirSync(d)).partition((p) => fs.statSync(path.join(d, p)).isDirectory());
+  const [dirs, files] = _(fs.readdirSync(d)).partition((p) =>
+    fs.statSync(path.join(d, p)).isDirectory()
+  );
 
   dirs.forEach((dir) => {
     result.push.apply(result, mapDir(path.join(d, dir), reg));
@@ -32,7 +34,10 @@ const mapDir = (d, reg) => {
 };
 
 exports.assetsPath = function (_path) {
-  const assetsSubDirectory = process.env.NODE_ENV === 'production' ? config.build.assetsSubDirectory : config.dev.assetsSubDirectory;
+  const assetsSubDirectory =
+    process.env.NODE_ENV === 'production'
+      ? config.build.assetsSubDirectory
+      : config.dev.assetsSubDirectory;
   return path.posix.join(assetsSubDirectory, _path);
 };
 
@@ -49,6 +54,8 @@ exports.cssLoaders = function (options) {
   const cssLoader = {
     loader: 'css-loader',
     options: {
+      importLoaders: 1 + 1,
+      esModule: false,
       sourceMap: options.sourceMap,
     },
   };
@@ -124,7 +131,9 @@ exports.jsLoaders = function () {
       loader: 'babel-loader',
     },
   ];
-  return process.env.NODE_ENV === 'production' ? [{ loader: 'thread-loader' }, ...loaders] : loaders;
+  return process.env.NODE_ENV === 'production'
+    ? [{ loader: 'thread-loader' }, ...loaders]
+    : loaders;
 };
 
 exports.tsLoaders = function () {
@@ -141,5 +150,7 @@ exports.tsLoaders = function () {
       },
     },
   ];
-  return process.env.NODE_ENV === 'production' ? [{ loader: 'thread-loader' }, ...loaders] : loaders;
+  return process.env.NODE_ENV === 'production'
+    ? [{ loader: 'thread-loader' }, ...loaders]
+    : loaders;
 };
