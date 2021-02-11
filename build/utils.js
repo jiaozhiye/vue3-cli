@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-10 10:52:10
+ * @Last Modified time: 2021-02-11 16:38:24
  */
 'use strict';
 
@@ -33,16 +33,16 @@ const mapDir = (d, reg) => {
   return result;
 };
 
-exports.assetsPath = function (_path) {
+exports.assetsPath = function (dir) {
   const assetsSubDirectory =
     process.env.NODE_ENV === 'production'
       ? config.build.assetsSubDirectory
       : config.dev.assetsSubDirectory;
-  return path.posix.join(assetsSubDirectory, _path);
+  return path.posix.join(assetsSubDirectory, dir);
 };
 
-exports.resolve = function (_path) {
-  return path.join(__dirname, '..', _path);
+exports.resolve = function (dir) {
+  return path.join(__dirname, '..', dir);
 };
 
 exports.deepRequire = mapDir;
