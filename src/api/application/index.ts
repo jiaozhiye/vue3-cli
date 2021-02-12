@@ -2,13 +2,10 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 16:41:05
+ * @Last Modified time: 2021-02-13 00:21:55
  */
 import axios from '@/api/fetch';
 import config from '@/config';
-
-// 执行登录
-export const doLogin = (params) => axios.post(`${config.prefix}/sys/sysLogin/user/Login`, params);
 
 // 获取菜单
 export const getNavList = (params) =>

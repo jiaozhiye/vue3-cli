@@ -65,6 +65,7 @@ export default {
       } catch (err) {
         return err;
       }
+      // eslint-disable-next-line no-unreachable
       return false;
     },
     doAccountValidate() {
@@ -83,7 +84,9 @@ export default {
         const errMsg = await this.doAccountValidate();
         if (errMsg) return;
         this.visible = true;
-      } catch (err) {}
+      } catch (err) {
+        // ...
+      }
     },
     async successHandle() {
       await sleep(500);
@@ -110,7 +113,9 @@ export default {
       this.btnState.time = 60;
       this.btnState.disabled = disabled;
     },
-    failHandle() {},
+    failHandle() {
+      // ...
+    },
     async GET_VALUE() {
       const bool = await this.doValidate();
       return [!bool, this.form];

@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 15:39:35
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 19:47:32
+ * @Last Modified time: 2021-02-13 00:23:59
  */
 import axios, { CancelTokenStatic } from 'axios';
 import qs from 'qs';
@@ -91,7 +91,7 @@ instance.interceptors.request.use((config) => {
 
 // 响应拦截
 instance.interceptors.response.use((response) => {
-  const { config, headers, data } = response;
+  const { config, data } = response;
   // 取消相同的请求
   removePending(config);
   // 请求异常提示信息
@@ -101,10 +101,6 @@ instance.interceptors.response.use((response) => {
       store.dispatch('app/createLogout');
     }
     data.msg && notifyAction(data.msg, 'error', 10);
-  }
-  // 判断是否为导出/下载
-  if (config.responseType === 'blob') {
-    return { headers, data };
   }
   return data;
 }, errorHandler);

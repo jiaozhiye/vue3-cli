@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:18:02
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 22:24:16
+ * @Last Modified time: 2021-02-12 23:36:41
  */
 export default {
   name: 'zh-cn',
@@ -10,7 +10,12 @@ export default {
     global: {
       title: '大众MEP系统',
       home: '首页',
+      dashboard: '概览',
       noMatch: '抱歉，你访问的页面不存在或仍在开发中',
+    },
+    login: {
+      title: '系统登录',
+      weChat: '微信登录',
     },
     fetch: {
       errorCode: {
@@ -32,6 +37,25 @@ export default {
         504: '网关超时。',
       },
       errorText: '网络连接错误，请检查网络。',
+    },
+    header: {
+      fold: '收起',
+      unfold: '展开',
+    },
+    sidebar: {
+      allNavTitle: '全部导航',
+      allNavPlaceholder: '请输入菜单名称/拼音头',
+      usedNav: '常用导航',
+      starNav: '我的收藏',
+    },
+    multiTab: {
+      refresh: '刷新当前',
+      closeRight: '关闭右侧',
+      closeLeft: '关闭左侧',
+      closeOthers: '关闭其它',
+    },
+    dreadcrumb: {
+      location: '位置导航',
     },
     information: {
       title: '提示信息',

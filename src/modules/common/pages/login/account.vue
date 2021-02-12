@@ -9,7 +9,7 @@
         :type="passwordType"
         placeholder="密码"
         autocomplete="on"
-        @keyup.enter.native="enterHandle"
+        @keyup.enter="enterHandle"
       />
       <span class="show-pwd" @click="showPwdHandle">
         <i :class="['iconfont', passwordType === 'password' ? 'icon-eye-close' : 'icon-eye']"></i>
@@ -52,6 +52,7 @@ export default {
       } catch (err) {
         return err;
       }
+      // eslint-disable-next-line no-unreachable
       return false;
     },
     async handleChangeCheckCode() {

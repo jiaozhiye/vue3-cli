@@ -247,7 +247,7 @@ export default {
           if (rData.grayCode) {
             window.location = '/gray';
           } else {
-            this.$router.push({ path: '/' }).catch(() => {});
+            this.$router.push({ path: '/' });
           }
           await sleep(1000);
         }
@@ -264,7 +264,9 @@ export default {
         if (res.code === 994) {
           this.curPanel = 'bindPhone';
         }
-      } catch (err) {}
+      } catch (err) {
+        // ...
+      }
       this.loading = !1;
     },
     async bindPhoneHandle() {

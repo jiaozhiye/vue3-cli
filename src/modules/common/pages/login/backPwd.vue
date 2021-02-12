@@ -117,6 +117,7 @@ export default {
       } catch (err) {
         return err;
       }
+      // eslint-disable-next-line no-unreachable
       return false;
     },
     doAccountValidate() {
@@ -155,7 +156,9 @@ export default {
           this.setButtonState(false);
           this.form.phone = '';
         }
-      } catch (err) {}
+      } catch (err) {
+        // ...
+      }
     },
     setButtonState(disabled) {
       this.btnState.time = isPhone(this.form.phone) ? 60 : 60 * 5;
@@ -172,7 +175,9 @@ export default {
         if (res.code === 200) {
           this.stepIndex = 1;
         }
-      } catch (err) {}
+      } catch (err) {
+        // ...
+      }
     },
     async submitHandle() {
       const isPassed = await this.doValidate('formRest');

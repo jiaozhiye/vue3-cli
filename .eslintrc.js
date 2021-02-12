@@ -28,31 +28,13 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-empty': 'off',
     // vue
     'vue/no-v-html': 'off',
-    'vue/singleline-html-element-content-newline': 'off',
-    'vue/html-self-closing': [
-      'error',
-      {
-        html: {
-          void: 'never',
-          normal: 'never',
-          component: 'always',
-        },
-      },
-    ],
-    'vue/max-attributes-per-line': [
-      'error',
-      {
-        singleline: 3,
-        multiline: 1,
-      },
-    ],
     'vue/prop-name-casing': 'off',
     'vue/custom-event-name-casing': 'off',
     'vue/require-prop-types': 'off',
     'vue/require-default-prop': 'off',
-    'vue/html-closing-bracket-spacing': 'error',
   },
   globals: {
     h: true,
