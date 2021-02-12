@@ -1,0 +1,157 @@
+/*
+ * @Author: 焦质晔
+ * @Date: 2020-04-23 15:16:36
+ * @Last Modified by: 焦质晔
+ * @Last Modified time: 2020-11-30 15:15:45
+ */
+.el-notification {
+  a {
+    color: $errorColor;
+    text-decoration: underline;
+  }
+}
+.el-menu {
+  .el-menu-item {
+    a {
+      color: $menuText;
+    }
+  }
+}
+.el-button {
+  .iconfont {
+    margin-right: 5px;
+  }
+  &--mini {
+    .iconfont {
+      font-size: inherit;
+    }
+  }
+  &.el-button--text {
+    border: 0;
+    line-height: 0.75;
+  }
+}
+.el-input:not(.el-input--prefix) {
+  .el-input__inner {
+    padding-left: $modulePadding;
+  }
+}
+.el-input.el-input--suffix {
+  .el-input__inner {
+    padding-right: 20px;
+  }
+  .el-input__suffix {
+    right: 2px;
+    top: 2px;
+    bottom: 2px;
+    height: auto;
+    .el-input__suffix-inner {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 100%;
+      i.el-input__icon {
+        height: auto;
+        line-height: 1;
+        font-size: 14px;
+      }
+    }
+  }
+}
+.el-input.el-input-group--append {
+  .el-input-group__append {
+    padding: 0 13px;
+    overflow: hidden;
+    .el-button:hover,
+    .el-button:focus {
+      color: inherit !important;
+      border-color: transparent !important;
+      background-color: transparent !important;
+    }
+  }
+}
+.el-input.el-input--suffix {
+  .el-input__suffix {
+    transition: none;
+  }
+}
+.el-textarea {
+  .el-textarea__inner {
+    padding-left: $modulePadding;
+    padding-right: $modulePadding;
+  }
+}
+.el-radio-group {
+  line-height: inherit;
+}
+.el-radio,
+.el-checkbox {
+  margin-right: 20px;
+  line-height: inherit;
+  .el-radio__label,
+  .el-checkbox__label {
+    padding-left: 6px;
+  }
+}
+.el-select {
+  .el-select__tags {
+    .el-select__input {
+      margin-left: $moduleMargin;
+    }
+    .el-tag > .el-tag__close {
+      right: -3px;
+    }
+  }
+}
+.el-select-dropdown {
+  .el-select-group__wrap {
+    .el-select-group__title {
+      padding: 0 $modulePadding;
+    }
+    &::after {
+      left: $moduleMargin;
+      right: $moduleMargin;
+    }
+  }
+  .el-select-dropdown__item {
+    padding: 0 $modulePadding;
+  }
+}
+.el-autocomplete-suggestion {
+  .el-autocomplete-suggestion__list > li {
+    padding: 0 $modulePadding;
+  }
+}
+.el-tabs {
+  .el-tabs__header.is-top {
+    margin-bottom: $moduleMargin;
+  }
+  .el-tabs__nav-wrap.is-top {
+    .el-tabs__item {
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+      }
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 6px;
+      }
+    }
+    &::after {
+      height: 1px;
+    }
+  }
+  .el-tabs__nav-wrap.is-left {
+    &::after {
+      width: 1px;
+    }
+  }
+  .el-tabs__item {
+    padding: 0 $modulePadding;
+  }
+  .el-tabs__content {
+    position: static;
+  }
+}

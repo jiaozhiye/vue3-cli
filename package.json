@@ -26,10 +26,15 @@
     ]
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "dayjs": "^1.10.4",
-    "element-plus": "^1.0.2-beta.31",
+    "element-plus": "^1.0.2-beta.32",
+    "js-cookie": "^2.2.1",
+    "lodash-es": "^4.17.20",
+    "mockjs": "^1.1.0",
+    "nprogress": "^0.2.0",
     "vue": "^3.0.5",
-    "vue-i18n": "^9.0.0-rc.5",
+    "vue-i18n": "^9.0.0-rc.6",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
   },
