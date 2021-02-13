@@ -2,14 +2,14 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 21:27:35
+ * @Last Modified time: 2021-02-13 23:33:30
  */
-import { getCurrentInstance } from 'vue';
 import { uniqWith, isEqual } from 'lodash-es';
 import * as types from '../types';
 import config from '@/config';
 import { t } from '@/locale';
 import router from '@/router';
+import { hasOwn } from '@/utils';
 import {
   setToken,
   setGray,
@@ -328,14 +328,12 @@ const actions = {
     });
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  createElementSize({ commit, state }, params: ComponentSize): void {
-    const vm: any = getCurrentInstance();
-    console.log(params, vm);
-    // if ('$ELEMENT' in vm.proxy) {
-    //   vm.proxy.$ELEMENT.size = SizeEnum[params];
-    // }
-    // console.log(params, vm);
-    // this._vm.$VDESIGN.size = params;
+  createElementSize({ commit, state }, params): void {
+    const _ctx: any = params.ctx;
+    const _size: ComponentSize = params.size;
+    if (hasOwn(_ctx, '$ELEMENT')) {
+      _ctx.$ELEMENT.size = SizeEnum[_size];
+    }
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   emitThemeColor({ commit, state }, params: string): void {

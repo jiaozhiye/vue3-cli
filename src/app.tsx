@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 14:04:39
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 15:43:03
+ * @Last Modified time: 2021-02-13 23:25:55
  */
 import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
@@ -37,7 +37,7 @@ export default defineComponent({
         this.$i18n.locale = data.data;
       }
       if (data.type === 'size') {
-        this.createElementSize(data.data);
+        this.createElementSize({ ctx: this, size: data.data });
       }
       if (data.type === 'theme') {
         this.createThemeColor(data.data);
