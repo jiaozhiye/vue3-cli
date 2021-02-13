@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 11:05:12
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 22:11:00
+ * @Last Modified time: 2021-02-14 00:18:59
  */
 import { defineComponent } from 'vue';
 import SideMenu from './modules/SideMenu';
@@ -13,12 +13,12 @@ import HeadNavBar from './modules/HeadNavBar';
 import MultiTab from './modules/MultiTab';
 import Breadcrumb from './modules/Breadcrumb';
 
-import { size } from '@/mixins/sizeMixin';
+import { currentSize } from '@/mixins/sizeMixin';
 import config from '@/config';
 
 export default defineComponent({
   name: 'GlobalLayout',
-  mixins: [size],
+  mixins: [currentSize],
   data() {
     return {
       collapsed: !1,
@@ -31,8 +31,8 @@ export default defineComponent({
     headerCls(): Array<Record<string, boolean> | string> {
       return {
         [`header`]: !0,
-        [`header-sm`]: this.currentSize === 'small',
-        [`header-lg`]: this.currentSize === 'large',
+        [`header-sm`]: this.$size === 'small',
+        [`header-lg`]: this.$size === 'large',
       };
     },
     containerCls(): Array<Record<string, boolean> | string> {

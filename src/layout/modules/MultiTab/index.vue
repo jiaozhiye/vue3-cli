@@ -3,17 +3,17 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:02:14
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 21:56:27
+ * @Last Modified time: 2021-02-14 00:19:14
  */
 import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
 import addEventListener from 'add-dom-event-listener';
 import { uniqBy } from 'lodash-es';
-import { size } from '@/mixins/sizeMixin';
+import { currentSize } from '@/mixins/sizeMixin';
 
 export default defineComponent({
   name: 'MultiTab',
-  mixins: [size],
+  mixins: [currentSize],
   data() {
     // 本地路由
     const localRoutes = this.getLocalTabNav()
@@ -222,8 +222,8 @@ export default defineComponent({
     const cls = [
       `header__multi-tab`,
       {
-        [`multi-tab-sm`]: this.currentSize === 'small',
-        [`multi-tab-lg`]: this.currentSize === 'large',
+        [`multi-tab-sm`]: this.$size === 'small',
+        [`multi-tab-lg`]: this.$size === 'large',
       },
     ];
     return (

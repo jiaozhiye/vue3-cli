@@ -18,11 +18,11 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 12:48:47
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 17:03:26
+ * @Last Modified time: 2021-02-14 00:19:22
  */
 import { defineComponent } from 'vue';
 import { mapState } from 'vuex';
-import { size } from '@/mixins/sizeMixin';
+import { currentSize } from '@/mixins/sizeMixin';
 import config from '@/config';
 
 import Logo from './Logo';
@@ -40,7 +40,7 @@ export default defineComponent({
     StarMenu,
     MenuTree,
   },
-  mixins: [size],
+  mixins: [currentSize],
   props: {
     collapsed: {
       type: Boolean,
@@ -52,8 +52,8 @@ export default defineComponent({
     sideMenuCls() {
       return {
         [`sidebar-wrap`]: !0,
-        [`sidebar-wrap-sm`]: this.currentSize === 'small',
-        [`sidebar-wrap-lg`]: this.currentSize === 'large',
+        [`sidebar-wrap-sm`]: this.$size === 'small',
+        [`sidebar-wrap-lg`]: this.$size === 'large',
       };
     },
     title() {

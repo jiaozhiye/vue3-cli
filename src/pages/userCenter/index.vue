@@ -74,17 +74,17 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:01:08
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 15:34:18
+ * @Last Modified time: 2021-02-14 00:19:34
  */
 import { mapActions } from 'vuex';
 import { getUserName, getWechatAvatar } from '@/utils/cookies';
 import { getUserInfo } from '@/api/application';
 
-import { size } from '@/mixins/sizeMixin';
+import { currentSize } from '@/mixins/sizeMixin';
 
 export default {
   name: 'UserCenter',
-  mixins: [size],
+  mixins: [currentSize],
   data() {
     this.avatarImg = require('@/assets/img/avatar.jpg');
     return {
@@ -107,8 +107,8 @@ export default {
     userCenterCls() {
       return {
         [`user-center`]: !0,
-        [`user-center-sm`]: this.currentSize === 'small',
-        [`user-center-lg`]: this.currentSize === 'large',
+        [`user-center-sm`]: this.$size === 'small',
+        [`user-center-lg`]: this.$size === 'large',
       };
     },
   },

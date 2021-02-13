@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 21:29:31
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 21:31:59
+ * @Last Modified time: 2021-02-13 23:54:18
  */
 const deepMapAuth = (arr, mark) => {
   let res = null;
@@ -21,8 +21,10 @@ const deepMapAuth = (arr, mark) => {
 };
 
 export const authority = {
-  beforeCreate(): void {
-    const target = deepMapAuth(this.$store.state.app.navList, this.$route.path) || {};
-    this.$auths = target.permission || [];
+  computed: {
+    $auths(): Array<string> {
+      const target = deepMapAuth(this.$store.state.app.navList, this.$route.path) || {};
+      return target.permission || [];
+    },
   },
 };
