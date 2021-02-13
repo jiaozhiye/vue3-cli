@@ -3,9 +3,9 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 16:01:37
+ * @Last Modified time: 2021-02-13 20:18:06
  */
-import { defineComponent } from 'vue';
+import { defineComponent, KeepAlive } from 'vue';
 import { mapState, mapActions } from 'vuex';
 import GlobalLayout from './GlobalLayout';
 import config from '@/config';
@@ -55,10 +55,20 @@ export default defineComponent({
     return (
       <GlobalLayout>
         {/* <transition name="fade-transform" mode="out-in"> */}
-        <keep-alive include={this.cachedNames} max={config.maxCacheNum}>
-          <router-view key={this.key} />
-        </keep-alive>
+        {/* <keep-alive include={this.cachedNames} max={config.maxCacheNum}> */}
+        {/* <router-view key={this.key} /> */}
+        {/* </keep-alive> */}
         {/* </transition> */}
+        <router-view
+          v-slots={{
+            // 作用域插槽，结构参数 Component
+            default: ({ Component: C }) => (
+              <KeepAlive include={this.cachedNames} max={config.maxCacheNum}>
+                <C key={this.key} />
+              </KeepAlive>
+            ),
+          }}
+        />
         {this.createIframeView()}
       </GlobalLayout>
     );

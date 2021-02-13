@@ -3,7 +3,7 @@
     <el-popover
       v-model:visible="visible"
       trigger="click"
-      width="300px"
+      width="260px"
       placement="bottom-end"
       transition="el-zoom-in-top"
     >
@@ -22,7 +22,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 14:20:52
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 17:46:40
+ * @Last Modified time: 2021-02-13 18:28:13
  */
 import { defineComponent } from 'vue';
 import InsideLetter from '@/pages/insideLetter/index';

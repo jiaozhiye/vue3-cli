@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 10:22:09
+ * @Last Modified time: 2021-02-13 19:55:13
  */
 'use strict';
 
@@ -53,7 +53,7 @@ module.exports = {
     // 配置解析规则
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue', '.json'],
     alias: {
-      vue$: 'vue/dist/vue.runtime.esm-bundler.js',
+      vue$: 'vue/dist/vue.esm-bundler.js',
       '@': utils.resolve('src'),
       '@test': utils.resolve('src/modules/test'),
       '@common': utils.resolve('src/modules/common'),

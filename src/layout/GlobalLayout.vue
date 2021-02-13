@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 11:05:12
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 16:44:00
+ * @Last Modified time: 2021-02-13 19:58:10
  */
 import { defineComponent } from 'vue';
 import SideMenu from './modules/SideMenu';
@@ -45,7 +45,7 @@ export default defineComponent({
     },
   },
   render() {
-    const { collapsed, asideWidth, headerCls, containerCls, $slots } = this;
+    const { collapsed, asideWidth, headerCls, containerCls } = this;
     return (
       <el-container class="app-layout">
         <el-aside class="sidebar" width={asideWidth}>
@@ -64,7 +64,7 @@ export default defineComponent({
           </el-header>
           <el-main class={containerCls}>
             {config.showBreadcrumb && <Breadcrumb />}
-            <div class="route-view">{$slots.default()}</div>
+            <div class="route-view">{this.$slots.default()}</div>
           </el-main>
         </el-container>
       </el-container>
