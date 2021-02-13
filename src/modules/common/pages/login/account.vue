@@ -81,7 +81,7 @@ export default {
 
 <style lang="scss" scoped>
 .v-form {
-  /deep/ .el-form-item {
+  >>> .el-form-item {
     margin-bottom: 20px;
     .el-form-item__content {
       position: relative;

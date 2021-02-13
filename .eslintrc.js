@@ -28,7 +28,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-empty': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
     // vue
     'vue/no-v-html': 'off',
     'vue/prop-name-casing': 'off',

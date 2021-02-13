@@ -125,7 +125,7 @@
 <script>
 import { mapActions, mapState } from 'vuex';
 
-import { sleep, AESEncrypt } from '@/utils';
+import { sleep } from '@/utils';
 import { setWechatAvatar } from '@/utils/cookies';
 import { doLogin, bindPhone, getLoginBg } from '@common/api/login';
 
@@ -224,9 +224,7 @@ export default {
         const res = await doLogin({
           loginType,
           vLogin: data?.account ?? this.weChat.openid ?? '',
-          vPwd: data?.password
-            ? AESEncrypt(data.password, '20201010081240ff', '0102030405060708')
-            : '',
+          vPwd: data?.password ?? '',
           imgCheck: data?.vcode,
           msgCode: data?.captcha,
         });

@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-08 16:00:43
+ * @Last Modified time: 2021-02-13 10:22:09
  */
 'use strict';
 
@@ -59,6 +59,7 @@ module.exports = {
       '@common': utils.resolve('src/modules/common'),
     },
     fallback: {
+      path: false,
       crypto: false,
       stream: false,
       buffer: false,

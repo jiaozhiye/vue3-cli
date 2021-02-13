@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:53:34
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:16:11
+ * @Last Modified time: 2021-02-13 10:30:24
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import config from '@/config';

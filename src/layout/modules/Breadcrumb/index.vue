@@ -1,10 +1,10 @@
 <script>
-/**
+/*
  * @Author: 焦质晔
- * @Date: 2019-06-20 10:00:00
+ * @Date: 2021-02-13 10:11:34
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:26:10
- **/
+ * @Last Modified time: 2021-02-13 10:16:28
+ */
 import { mapState } from 'vuex';
 
 export default {
@@ -78,7 +78,7 @@ export default {
   .location {
     line-height: 1;
   }
-  /deep/ .el-breadcrumb__item {
+  >>> .el-breadcrumb__item {
     .el-breadcrumb__inner {
       color: $textColor;
     }

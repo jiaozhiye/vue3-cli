@@ -5,7 +5,7 @@
         v-model="menuPath"
         value-key="title"
         :fetch-suggestions="querySearch"
-        :placeholder="$t('sidebar.allNavPlaceholder')"
+        :placeholder="$t('app.sidebar.allNavPlaceholder')"
         @select="handleSelect"
       >
         <template v-slot:prefix>
@@ -44,13 +44,13 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:37:56
+ * @Last Modified time: 2021-02-13 11:44:26
  **/
 import { mapState, mapActions } from 'vuex';
-import { flatten } from 'lodash';
+// import { flatten } from 'lodash-es';
 import { notifyAction } from '@/utils';
-import { setStarMenuList } from '@/api/login';
-import pinyin, { STYLE_FIRST_LETTER } from '@/components/Pinyin/index';
+import { setStarMenuList } from '@/api/application';
+// import pinyin, { STYLE_FIRST_LETTER } from '@/components/Pinyin/index';
 
 export default {
   name: 'MenuList',
@@ -91,13 +91,14 @@ export default {
     },
     createFilter(queryString) {
       return (state) => {
-        const pyt = flatten(pinyin(state.title, { style: STYLE_FIRST_LETTER })).join('');
-        const str = `${state.title}|${pyt}`;
+        // const pyt = flatten(pinyin(state.title, { style: STYLE_FIRST_LETTER })).join('');
+        // const str = `${state.title}|${pyt}`;
+        const str = `${state.title}`;
         return str.toLowerCase().includes(queryString.toLowerCase());
       };
     },
     handleSelect(item) {
-      this.$router.push({ path: item.key }).catch(() => {});
+      this.$router.push({ path: item.key });
       this.clickHandle();
       setTimeout(() => {
         this.menuPath = '';
@@ -138,9 +139,9 @@ export default {
     top: 0;
     background: $menuBg;
   }
-  /deep/ .search {
+  .search {
     padding: 50px 0 20px 100px;
-    .el-autocomplete {
+    &::v-deep .el-autocomplete {
       width: 300px;
       .el-input__inner {
         color: #fff;
@@ -155,11 +156,11 @@ export default {
       }
     }
   }
-  /deep/ .main {
+  .main {
     flex: 1;
     position: relative;
     overflow-y: auto;
-    .el-tabs {
+    &::v-deep .el-tabs {
       height: 100%;
       overflow-y: auto;
       &::-webkit-scrollbar {

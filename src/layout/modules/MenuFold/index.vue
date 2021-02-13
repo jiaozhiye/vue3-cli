@@ -1,11 +1,23 @@
+<template>
+  <span
+    class="menu-fold"
+    :title="isCollapse ? $t('app.header.unfold') : $t('app.header.fold')"
+    @click="clickHandler"
+  >
+    <i :class="[isCollapse ? `el-icon-s-unfold` : `el-icon-s-fold`]" />
+  </span>
+</template>
+
 <script>
 /*
  * @Author: 焦质晔
  * @Date: 2021-02-12 23:30:14
- * @Last Modified by:   焦质晔
- * @Last Modified time: 2021-02-12 23:30:14
+ * @Last Modified by: 焦质晔
+ * @Last Modified time: 2021-02-13 13:48:58
  */
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'MenuFold',
   props: {
     collapsed: {
@@ -24,19 +36,7 @@ export default {
       this.$emit('change', this.isCollapse);
     },
   },
-  render() {
-    const cls = [this.isCollapse ? `el-icon-s-unfold` : `el-icon-s-fold`];
-    return (
-      <span
-        class="menu-fold"
-        title={this.isCollapse ? this.$t('app.header.unfold') : this.$t('app.header.fold')}
-        onClick={this.clickHandler}
-      >
-        <i class={cls} />
-      </span>
-    );
-  },
-};
+});
 </script>
 
 <style lang="scss" scoped>

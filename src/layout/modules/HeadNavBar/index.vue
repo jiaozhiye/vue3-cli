@@ -1,10 +1,11 @@
 <script>
-/**
+/*
  * @Author: 焦质晔
- * @Date: 2019-06-20 10:00:00
+ * @Date: 2021-02-13 14:02:56
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:26:19
- **/
+ * @Last Modified time: 2021-02-13 14:07:02
+ */
+import { defineComponent } from 'vue';
 import config from '@/config';
 import ScreenFull from '../ScreenFull';
 import ThemePicker from '../ThemePicker';
@@ -13,11 +14,11 @@ import SizeSelect from '../SizeSelect';
 import NoticeCenter from '../NoticeCenter';
 import UserCenter from '@/pages/userCenter/index';
 
-export default {
+export default defineComponent({
   name: 'HeadNavBar',
   render() {
     return (
-      <div class="actions">
+      <div class="header-action">
         {config.showScreenFull && <ScreenFull />}
         {config.showCustomTheme && <ThemePicker />}
         {config.showLangSelect && <LangSelect />}
@@ -27,14 +28,14 @@ export default {
       </div>
     );
   },
-};
+});
 </script>
 
-<style lang="scss" scoped>
-.actions {
-  height: 100%;
-  margin-right: $moduleMargin;
+<style lang="scss">
+.header-action {
   display: flex;
   align-items: center;
+  height: 100%;
+  margin-right: $moduleMargin;
 }
 </style>

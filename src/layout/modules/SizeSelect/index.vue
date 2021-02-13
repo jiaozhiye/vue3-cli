@@ -1,21 +1,21 @@
 <template>
   <el-dropdown
-    class="size-select"
+    class="header__size-select"
     trigger="click"
     placement="bottom-start"
     @command="languageChangeHandle"
   >
-    <i class="iconfont icon-font-size"></i>
+    <i class="iconfont icon-font-size" />
     <template v-slot:dropdown>
       <el-dropdown-menu class="size-select-dropdown">
         <el-dropdown-item class="large" :disabled="size === 'large'" command="large">
-          {{ $t('sizeSelect.large') }}&nbsp;&nbsp;</el-dropdown-item
+          &nbsp;{{ $t('app.sizeSelect.large') }}&nbsp;</el-dropdown-item
         >
-        <el-dropdown-item class="default" :disabled="size === 'default'" command="default">
-          {{ $t('sizeSelect.default') }}&nbsp;&nbsp;</el-dropdown-item
+        <el-dropdown-item class="medium" :disabled="size === 'medium'" command="medium">
+          &nbsp;{{ $t('app.sizeSelect.medium') }}&nbsp;</el-dropdown-item
         >
         <el-dropdown-item class="small" :disabled="size === 'small'" command="small">
-          {{ $t('sizeSelect.small') }}&nbsp;&nbsp;</el-dropdown-item
+          &nbsp;{{ $t('app.sizeSelect.small') }}&nbsp;</el-dropdown-item
         >
       </el-dropdown-menu>
     </template>
@@ -27,11 +27,12 @@
  * @Author: 焦质晔
  * @Date: 2020-04-30 15:17:48
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:33:16
+ * @Last Modified time: 2021-02-13 14:23:13
  */
+import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
 
-export default {
+export default defineComponent({
   name: 'SizeSelect',
   computed: {
     ...mapState('app', ['size']),
@@ -49,11 +50,11 @@ export default {
       this.refreshView({ path: this.$route.path });
     },
   },
-};
+});
 </script>
 
-<style lang="scss" scoped>
-.size-select {
+<style lang="scss">
+.header__size-select {
   display: flex;
   width: 26px;
   height: 26px;
@@ -68,7 +69,7 @@ export default {
   .large {
     font-size: $textSize + 2px;
   }
-  .default {
+  .medium {
     font-size: $textSize;
   }
   .small {

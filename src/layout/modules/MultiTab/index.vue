@@ -1,13 +1,13 @@
 <script>
-/**
+/*
  * @Author: 焦质晔
- * @Date: 2019-06-20 10:00:00
+ * @Date: 2021-02-13 10:02:14
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:32:10
- **/
+ * @Last Modified time: 2021-02-13 14:01:57
+ */
 import { mapActions } from 'vuex';
 import addEventListener from 'add-dom-event-listener';
-import { uniqBy } from 'lodash';
+import { uniqBy } from 'lodash-es';
 import { size } from '@/mixins/sizeMixin';
 
 export default {
@@ -129,7 +129,7 @@ export default {
     locationChange(val) {
       // const { query } = this.$route;
       this.activeKey = val;
-      this.$router.push({ path: val, query: {} }).catch(() => {});
+      this.$router.push({ path: val, query: {} });
     },
     refreshTagHandle() {
       const { query } = this.$route;
@@ -243,17 +243,17 @@ export default {
             style={{ left: `${this.position.x + 10}px`, top: `${this.position.y + 2}px` }}
           >
             <el-dropdown-item nativeOnClick={this.refreshTagHandle}>
-              {this.$t('multiTab.refresh')}
+              {this.$t('app.multiTab.refresh')}
             </el-dropdown-item>
             <el-dropdown-item nativeOnClick={() => this.closeTagHandle('right')}>
-              {this.$t('multiTab.closeRight')}
+              {this.$t('app.multiTab.closeRight')}
             </el-dropdown-item>
             <el-dropdown-item nativeOnClick={() => this.closeTagHandle('left')}>
-              {this.$t('multiTab.closeLeft')}
+              {this.$t('app.multiTab.closeLeft')}
             </el-dropdown-item>
             {this.pages.length > 1 && (
               <el-dropdown-item nativeOnClick={this.closeOtherTagHandle}>
-                {this.$t('multiTab.closeOthers')}
+                {this.$t('app.multiTab.closeOthers')}
               </el-dropdown-item>
             )}
           </ul>
@@ -264,11 +264,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .multi-wrap {
-  /deep/ .multi-tab {
+  .multi-tab {
     position: relative;
-    .el-tabs__header {
+    &::v-deep .el-tabs__header {
       margin: 0;
       border-bottom-color: $borderColor;
       .el-tabs__nav-prev,
@@ -302,7 +302,7 @@ export default {
       display: none !important;
     }
   }
-  /deep/ .contextmenu {
+  .contextmenu {
     list-style: none;
     min-width: 90px;
     position: fixed;
@@ -316,7 +316,7 @@ export default {
     z-index: 9999;
   }
   &.multi-wrap-lg {
-    /deep/ .multi-tab {
+    &::v-deep .multi-tab {
       .el-tabs__item {
         padding: 0 18px !important;
         height: 42px !important;
@@ -325,7 +325,7 @@ export default {
     }
   }
   &.multi-wrap-sm {
-    /deep/ .multi-tab {
+    &::v-deep .multi-tab {
       .el-tabs__item {
         padding: 0 14px !important;
         height: 34px !important;

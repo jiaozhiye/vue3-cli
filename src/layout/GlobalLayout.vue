@@ -1,9 +1,9 @@
 <script lang="ts">
-/**
+/*
  * @Author: 焦质晔
- * @Date: 2019-06-20 10:00:00
+ * @Date: 2021-02-13 11:05:12
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:10:45
+ * @Last Modified time: 2021-02-13 13:45:29
  */
 import { defineComponent } from 'vue';
 import SideMenu from './modules/SideMenu';
@@ -28,12 +28,15 @@ export default defineComponent({
     asideWidth(): string {
       return !this.collapsed ? '200px' : '64px';
     },
-    headerCls() {
+    headerCls(): Array<Record<string, boolean> | string> {
       return {
         [`header`]: !0,
         [`header-sm`]: this.currentSize === 'small',
         [`header-lg`]: this.currentSize === 'large',
       };
+    },
+    containerCls(): Array<Record<string, boolean> | string> {
+      return [`container`, { [`bg-color`]: this.$route.meta.bgColor }];
     },
   },
   methods: {
@@ -42,21 +45,22 @@ export default defineComponent({
     },
   },
   render() {
-    const { collapsed, asideWidth, headerCls, $route, $slots } = this;
-    const containerCls = [`container`, { [`bg-color`]: $route.meta.bgColor }];
+    const { collapsed, asideWidth, headerCls, containerCls, $slots } = this;
     return (
-      <el-container id="app" class="layout">
+      <el-container class="app-layout">
         <el-aside class="sidebar" width={asideWidth}>
           <SideMenu collapsed={collapsed} />
         </el-aside>
         {/* width: 0 -> 解决 IE bug */}
         <el-container style={{ width: 0 }}>
           <el-header class={headerCls} height="">
-            <GlobalHeader>
-              <MenuFold slot="collapse" collapsed={collapsed} onChange={this.changeHandle} />
-              <MultiTab slot="menu" />
-              <HeadNavBar slot="action" />
-            </GlobalHeader>
+            <GlobalHeader
+              v-slots={{
+                collapse: () => <MenuFold collapsed={collapsed} onChange={this.changeHandle} />,
+                menu: () => <MultiTab />,
+                action: () => <HeadNavBar />,
+              }}
+            />
           </el-header>
           <el-main class={containerCls}>
             {config.showBreadcrumb && <Breadcrumb />}
@@ -69,8 +73,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
-.layout {
+<style lang="scss">
+.app-layout {
   height: 100%;
   .header {
     height: 52px;

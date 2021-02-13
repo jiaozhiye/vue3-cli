@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:18:02
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:36:41
+ * @Last Modified time: 2021-02-13 15:06:54
  */
 export default {
   name: 'zh-cn',
@@ -11,6 +11,7 @@ export default {
       title: '大众MEP系统',
       home: '首页',
       dashboard: '概览',
+      emptyText: '暂无数据',
       noMatch: '抱歉，你访问的页面不存在或仍在开发中',
     },
     login: {
@@ -57,11 +58,26 @@ export default {
     dreadcrumb: {
       location: '位置导航',
     },
+    insideLetter: {
+      notice: '通知',
+      message: '消息',
+      waiting: '待办',
+    },
     information: {
       title: '提示信息',
       confirm: '确认进行此操作？',
       maxCache: '最多支持 {total} 个菜单项！',
       maxStar: '最多只能收藏 {total} 个菜单！',
+    },
+    sizeSelect: {
+      large: '大尺寸',
+      medium: '中等',
+      small: '小尺寸',
+    },
+    settings: {
+      usercenter: '个人中心',
+      clearcache: '清理缓存',
+      logout: '退出登录',
     },
     button: {
       confirm: '确定',

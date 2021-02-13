@@ -1,8 +1,8 @@
 /*
  * @Author: 焦质晔
  * @Date: 2021-02-12 20:40:51
- * @Last Modified by:   焦质晔
- * @Last Modified time: 2021-02-12 20:40:51
+ * @Last Modified by: 焦质晔
+ * @Last Modified time: 2021-02-13 11:28:53
  */
 /**
  * public
@@ -97,6 +97,10 @@ textarea:-ms-input-placeholder {
 /**
  * app style
  */
+#app {
+  height: 100%;
+}
+
 .iframe {
   padding: 10px 10px 0 !important;
 }

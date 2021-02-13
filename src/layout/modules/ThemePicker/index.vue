@@ -1,7 +1,7 @@
 <template>
   <el-color-picker
     v-model="theme"
-    class="theme-picker"
+    class="header__theme-picker"
     popper-class="theme-picker-dropdown"
     :predefine="[
       '#0d74b5',
@@ -24,11 +24,12 @@
  * @Author: 焦质晔
  * @Date: 2020-04-23 19:44:29
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:33:47
+ * @Last Modified time: 2021-02-13 14:22:57
  */
+import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
 
-export default {
+export default defineComponent({
   name: 'ThemePicker',
   data() {
     return {
@@ -42,22 +43,22 @@ export default {
       this.createThemeColor(newColor);
     },
   },
-};
+});
 </script>
 
 <style lang="scss">
-.theme-picker {
+.header__theme-picker {
   width: 26px;
   height: 26px;
   .el-color-picker__trigger {
     height: 100%;
     width: 100%;
     border: 0;
+    outline: 0;
   }
 }
 .theme-picker-dropdown {
-  margin-top: 10px;
-  margin-left: -230px;
+  margin-top: 10px !important;
   .el-color-dropdown__link-btn {
     display: none;
   }

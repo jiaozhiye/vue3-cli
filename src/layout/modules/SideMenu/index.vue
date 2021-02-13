@@ -14,12 +14,12 @@
 </template>
 
 <script>
-/**
+/*
  * @Author: 焦质晔
- * @Date: 2019-06-20 10:00:00
- * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:34:07
- **/
+ * @Date: 2021-02-13 12:48:47
+ * @Last Modified by:   焦质晔
+ * @Last Modified time: 2021-02-13 12:48:47
+ */
 import { mapState } from 'vuex';
 import { size } from '@/mixins/sizeMixin';
 import config from '@/config';
@@ -80,7 +80,7 @@ export default {
     }
   }
   /* 侧栏菜单导航 */
-  /deep/ .el-menu {
+  >>> .el-menu {
     border: none;
     height: 100%;
     width: 100% !important;
@@ -130,7 +130,7 @@ export default {
   }
   /* 导航菜单，不包含 我的收藏/常用导航 */
   .side-menu {
-    /deep/ .el-menu {
+    >>> .el-menu {
       .is-active {
         & > .el-submenu__title {
           color: $subMenuActiveText !important;
@@ -142,10 +142,10 @@ export default {
     }
   }
   &-lg {
-    /deep/ .logo {
+    >>> .logo {
       height: 56px;
     }
-    /deep/ .all-menu {
+    >>> .all-menu {
       height: 40px;
       .title {
         line-height: 40px;
@@ -154,7 +154,7 @@ export default {
     .scroll {
       height: calc(100% - 56px - 40px);
     }
-    /deep/ .el-menu {
+    >>> .el-menu {
       .el-menu-item {
         height: 40px;
         line-height: 40px;
@@ -168,10 +168,10 @@ export default {
     }
   }
   &-sm {
-    /deep/ .logo {
+    >>> .logo {
       height: 48px;
     }
-    /deep/ .all-menu {
+    >>> .all-menu {
       height: 32px;
       .title {
         line-height: 32px;
@@ -180,7 +180,7 @@ export default {
     .scroll {
       height: calc(100% - 48px - 32px);
     }
-    /deep/ .el-menu {
+    >>> .el-menu {
       .el-menu-item {
         height: 32px;
         line-height: 32px;

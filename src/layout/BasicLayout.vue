@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:13:03
+ * @Last Modified time: 2021-02-13 15:44:13
  */
 import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
@@ -67,7 +67,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 /* iframe */
 .iframe-wrapper {
   margin: -10px -10px 0;

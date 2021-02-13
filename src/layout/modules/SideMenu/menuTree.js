@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:35:42
+ * @Last Modified time: 2021-02-13 12:45:20
  */
 import variables from '@/assets/css/variables.scss';
 
@@ -51,10 +51,10 @@ export default {
           // 判断是否为 http 链接
           const httpLink = /^https?:\/\//.test(key);
           const menuItemNode = !httpLink ? (
-            <template slot="title">
+            <>
               {icon && <i class={`iconfont ${icon}`} />}
               <span title={title}>{title}</span>
-            </template>
+            </>
           ) : (
             <a href={key} title={title} target="_blank">
               {icon && <i class={`iconfont ${icon}`} />}
@@ -64,16 +64,25 @@ export default {
           const uniqueKey = depth + (index + 1);
           if (Array.isArray(item.children)) {
             return (
-              <el-submenu key={uniqueKey} index={uniqueKey}>
-                {menuItemNode}
+              <el-submenu
+                key={uniqueKey}
+                index={uniqueKey}
+                v-slots={{
+                  title: () => menuItemNode,
+                }}
+              >
                 {this.createMenuTree(item.children, `${uniqueKey}-`)}
               </el-submenu>
             );
           }
           return (
-            <el-menu-item key={uniqueKey} index={!httpLink ? key : ''}>
-              {menuItemNode}
-            </el-menu-item>
+            <el-menu-item
+              key={uniqueKey}
+              index={!httpLink ? key : ''}
+              v-slots={{
+                title: () => menuItemNode,
+              }}
+            />
           );
         });
     },
@@ -84,16 +93,14 @@ export default {
   render() {
     const { collapsed, syncActive, selectedKey, defaultOpenedKeys, variables } = this;
     const wrapProps = {
-      props: {
-        collapse: collapsed,
-        router: true,
-        collapseTransition: false,
-        backgroundColor: variables.menuBg,
-        textColor: variables.menuText,
-        activeTextColor: variables.menuActiveText,
-        defaultActive: syncActive ? selectedKey : null,
-        defaultOpeneds: defaultOpenedKeys,
-      },
+      collapse: collapsed,
+      router: true,
+      collapseTransition: false,
+      backgroundColor: variables.menuBg,
+      textColor: variables.menuText,
+      activeTextColor: variables.menuActiveText,
+      defaultActive: syncActive ? selectedKey : null,
+      defaultOpeneds: defaultOpenedKeys,
       style: { borderRight: 'none' },
     };
     return (

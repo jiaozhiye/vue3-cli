@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-11 17:22:56
+ * @Last Modified time: 2021-02-13 08:44:32
  */
 'use strict';
 
@@ -15,7 +15,7 @@ const baseWebpackConfig = require('./webpack.base.conf');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssnanoPlugin = require('@intervolga/optimize-cssnano-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -50,6 +50,11 @@ const webpackConfig = merge(baseWebpackConfig, {
           },
         },
       }),
+      new CssMinimizerPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: config.build.productionSourceMap,
+      }),
     ],
     splitChunks: {
       cacheGroups: {
@@ -74,19 +79,6 @@ const webpackConfig = merge(baseWebpackConfig, {
     new MiniCssExtractPlugin({
       filename: utils.assetsPath('css/[name].[contenthash:8].css'),
       chunkFilename: utils.assetsPath('css/[name].[contenthash:8].css'),
-    }),
-    // optimize css
-    new OptimizeCssnanoPlugin({
-      sourceMap: config.build.productionSourceMap,
-      cssnanoOptions: {
-        preset: [
-          'default',
-          {
-            mergeLonghand: false,
-            cssDeclarationSorter: false,
-          },
-        ],
-      },
     }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html

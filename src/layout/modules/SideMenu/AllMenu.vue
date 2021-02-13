@@ -2,7 +2,7 @@
   <div class="all-menu">
     <div class="title" :class="{ selected: visible ? !0 : !1 }" @click.stop="clickHandle">
       <i class="el-icon-menu"></i>
-      <span v-if="!collapsed" class="text">{{ $t('sidebar.allNavTitle') }}</span>
+      <span v-if="!collapsed" class="text">{{ $t('app.sidebar.allNavTitle') }}</span>
     </div>
     <div :class="['mask', poperShow]" :style="{ left: asideWidth }"></div>
     <div :style="{ left: asideWidth }" :class="['popper', poperShow]" @click.stop>
@@ -14,14 +14,13 @@
 </template>
 
 <script>
-/**
- * @Author: 焦质晔
- * @Date: 2019-06-20 10:00:00
- * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:34:04
- **/
 import addEventListener from 'add-dom-event-listener';
-
+/*
+ * @Author: 焦质晔
+ * @Date: 2021-02-13 11:33:24
+ * @Last Modified by: 焦质晔
+ * @Last Modified time: 2021-02-13 11:34:04
+ */
 export default {
   name: 'AllMenu',
   props: {

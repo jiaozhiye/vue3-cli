@@ -2,17 +2,19 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 12:43:43
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 21:02:34
+ * @Last Modified time: 2021-02-13 15:47:13
  */
 import { t } from '@/locale';
+import { ComponentSize } from '@/utils/types';
 
-const BASE_URL = process.env.ENV_CONFIG === 'gray' ? '/gray' : '/';
+const BASE_URL: string = process.env.ENV_CONFIG === 'gray' ? '/gray' : '/';
+const SIZE_MAP: ComponentSize = 'medium';
 
 export default {
   systemName: t('app.global.title'),
   baseUrl: BASE_URL,
   lang: 'zh-cn', // 语言
-  size: 'default', // 尺寸
+  size: SIZE_MAP, // 尺寸
   prefix: '/api', // ajax 请求前缀
   maxCacheNum: 10, // 路由组件最大缓存数量
   showBreadcrumb: false, // 是否显示面包屑

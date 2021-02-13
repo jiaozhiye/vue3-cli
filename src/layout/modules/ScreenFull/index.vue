@@ -1,13 +1,14 @@
 <script>
-/**
+/*
  * @Author: 焦质晔
- * @Date: 2019-06-20 10:00:00
+ * @Date: 2021-02-13 14:07:44
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:33:05
- **/
+ * @Last Modified time: 2021-02-13 14:09:49
+ */
 import screenfull from 'screenfull';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'ScreenFull',
   data() {
     return {
@@ -41,16 +42,16 @@ export default {
   render() {
     const cls = [`iconfont`, this.isFullscreen ? `icon-fullscreen-exit` : `icon-fullscreen`];
     return (
-      <div class="v-screen-full" onClick={this.clickHandle}>
+      <div class="header__screen-full" onClick={this.clickHandle}>
         <i class={cls} />
       </div>
     );
   },
-};
+});
 </script>
 
-<style lang="scss" scoped>
-.v-screen-full {
+<style lang="scss">
+.header__screen-full {
   display: flex;
   width: 26px;
   height: 26px;

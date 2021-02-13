@@ -13,7 +13,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:35:50
+ * @Last Modified time: 2021-02-13 11:44:42
  **/
 import { mapState, mapActions } from 'vuex';
 import MenuTree from './menuTree';
@@ -38,13 +38,13 @@ export default {
     navList() {
       return [
         {
-          title: this.$t('sidebar.usedNav'),
+          title: this.$t('app.sidebar.usedNav'),
           key: null,
           icon: 'icon-flag-fill',
           children: this.commonMenuList,
         },
         {
-          title: this.$t('sidebar.starNav'),
+          title: this.$t('app.sidebar.starNav'),
           key: null,
           icon: 'icon-star-fill',
           children: this.starMenuList,
@@ -65,7 +65,7 @@ export default {
     },
   },
   mounted() {
-    this.starMenuRef = this.$refs.starMenu.$children[0];
+    this.starMenuRef = this.$refs.starMenu;
   },
 };
 </script>

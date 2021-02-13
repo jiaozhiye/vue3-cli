@@ -1,14 +1,14 @@
 <template>
   <el-dropdown
-    class="lang-select"
+    class="header__lang-select"
     trigger="click"
     placement="bottom-start"
     @command="languageChangeHandle"
   >
-    <i class="iconfont icon-earth"></i>
+    <i class="iconfont icon-earth" />
     <template v-slot:dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item :disabled="lang === 'zh'" command="zh">
+        <el-dropdown-item :disabled="lang === 'zh-cn'" command="zh-cn">
           CN&nbsp;&nbsp;简体中文
         </el-dropdown-item>
         <el-dropdown-item :disabled="lang === 'en'" command="en">
@@ -24,7 +24,7 @@
  * @Author: 焦质晔
  * @Date: 2020-04-30 15:17:48
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 23:29:01
+ * @Last Modified time: 2021-02-13 14:16:50
  */
 import { mapState, mapActions } from 'vuex';
 
@@ -49,8 +49,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.lang-select {
+<style lang="scss">
+.header__lang-select {
   display: flex;
   width: 26px;
   height: 26px;

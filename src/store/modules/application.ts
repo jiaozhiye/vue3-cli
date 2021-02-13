@@ -2,8 +2,9 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 00:20:19
+ * @Last Modified time: 2021-02-13 15:05:23
  */
+import { getCurrentInstance } from 'vue';
 import { uniqWith, isEqual } from 'lodash-es';
 import * as types from '../types';
 import config from '@/config';
@@ -31,7 +32,7 @@ import {
 import client from 'webpack-custom-theme/client';
 import forElementUI from 'webpack-custom-theme/forElementUI';
 
-import { Indexable, Dictionary } from '@/utils/types';
+import { Dictionary, ComponentSize, SizeEnum } from '@/utils/types';
 
 const deepMapRoute = (arr, mark) => {
   let res = null;
@@ -141,7 +142,7 @@ const actions = {
       data = res;
     } else {
       try {
-        const res = await getNavList({});
+        const res: any = await getNavList({});
         if (res.code === 200) {
           data = res.data.length
             ? res.data
@@ -175,7 +176,7 @@ const actions = {
       const res = require('@/mock/starMenu').default;
       data = res;
     } else {
-      const res = await getStarMenuList({});
+      const res: any = await getStarMenuList({});
       if (res.code === 200) {
         data = res.data ?? [];
       }
@@ -191,7 +192,7 @@ const actions = {
       const res = require('@/mock/starMenu').default;
       data = res;
     } else {
-      const res = await getCommonMenuList({});
+      const res: any = await getCommonMenuList({});
       if (res.code === 200) {
         data = res.data ?? [];
       }
@@ -214,11 +215,11 @@ const actions = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async createDictData({ commit, state }, params): Promise<void> {
     if (Object.keys(state.dict).length) return;
-    let data: Indexable<Array<Dictionary>> = {};
+    let data: Record<string, Array<Dictionary>> = {};
     if (process.env.MOCK_DATA === 'true') {
       data = { ...localDict };
     } else {
-      const res = await getAllDict({});
+      const res: any = await getAllDict({});
       if (res.code === 200) {
         // 数据字典规则：如果有重复的 Code，服务端覆盖客户端
         data = {
@@ -315,7 +316,7 @@ const actions = {
       data: params,
     });
   },
-  setSize({ commit, state }, params: string): void {
+  setSize({ commit, state }, params: ComponentSize): void {
     state.iframeList.forEach((x) => {
       const $iframe: HTMLIFrameElement = document.getElementById(x.key) as HTMLIFrameElement;
       if (!$iframe) return;
@@ -327,8 +328,13 @@ const actions = {
     });
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  createElementSize({ commit, state }, params: string): void {
-    // this._vm.$ELEMENT.size = config.toElementSize[params];
+  createElementSize({ commit, state }, params: ComponentSize): void {
+    const vm: any = getCurrentInstance();
+    console.log(params, vm);
+    // if ('$ELEMENT' in vm.proxy) {
+    //   vm.proxy.$ELEMENT.size = SizeEnum[params];
+    // }
+    // console.log(params, vm);
     // this._vm.$VDESIGN.size = params;
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
