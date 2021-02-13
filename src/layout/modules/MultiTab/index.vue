@@ -3,14 +3,15 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:02:14
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 17:44:25
+ * @Last Modified time: 2021-02-13 18:01:45
  */
+import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
 import addEventListener from 'add-dom-event-listener';
 import { uniqBy } from 'lodash-es';
 import { size } from '@/mixins/sizeMixin';
 
-export default {
+export default defineComponent({
   name: 'MultiTab',
   mixins: [size],
   data() {
@@ -261,7 +262,7 @@ export default {
       </div>
     );
   },
-};
+});
 </script>
 
 <style lang="scss">

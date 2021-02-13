@@ -24,11 +24,12 @@
  * @Author: 焦质晔
  * @Date: 2020-04-30 15:17:48
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 14:16:50
+ * @Last Modified time: 2021-02-13 18:03:22
  */
+import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
 
-export default {
+export default defineComponent({
   name: 'LangSelect',
   computed: {
     ...mapState('app', ['lang']),
@@ -46,7 +47,7 @@ export default {
       // ...
     },
   },
-};
+});
 </script>
 
 <style lang="scss">

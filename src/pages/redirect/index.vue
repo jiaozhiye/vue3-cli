@@ -9,7 +9,7 @@ export default defineComponent({
     // refresh view
     this.$router.replace({ path: `/${path}`, query });
   },
-  render(h) {
+  render() {
     return h();
   },
 });
