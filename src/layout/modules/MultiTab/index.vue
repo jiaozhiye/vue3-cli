@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:02:14
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 18:01:45
+ * @Last Modified time: 2021-02-13 21:56:27
  */
 import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
@@ -232,7 +232,7 @@ export default defineComponent({
           ref="multiTab"
           type="card"
           class="multi-wrap"
-          value={this.activeKey}
+          modelValue={this.activeKey}
           onTabClick={this.handleClick}
           onTabRemove={this.removeTab}
         >
@@ -271,7 +271,7 @@ export default defineComponent({
     position: relative;
     .el-tabs__header {
       margin: 0;
-      border-bottom-color: $borderColor;
+      border-bottom-color: transparent;
       .el-tabs__nav-prev,
       .el-tabs__nav-next {
         display: flex;
@@ -292,6 +292,7 @@ export default defineComponent({
           border-left-color: $borderColor;
           &.is-active {
             font-weight: 700;
+            border-bottom-color: transparent;
           }
           .el-icon-close {
             line-height: 14px;

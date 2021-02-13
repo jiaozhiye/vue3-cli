@@ -13,12 +13,13 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 23:30:14
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 17:15:11
+ * @Last Modified time: 2021-02-13 22:11:34
  */
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'MenuFold',
+  emits: ['change'],
   props: {
     collapsed: {
       type: Boolean,

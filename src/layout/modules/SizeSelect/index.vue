@@ -9,13 +9,13 @@
     <template v-slot:dropdown>
       <el-dropdown-menu class="size-select-dropdown">
         <el-dropdown-item class="large" :disabled="size === 'large'" command="large">
-          &nbsp;{{ $t('app.sizeSelect.large') }}&nbsp;</el-dropdown-item
+          {{ $t('app.sizeSelect.large') }}</el-dropdown-item
         >
         <el-dropdown-item class="medium" :disabled="size === 'medium'" command="medium">
-          &nbsp;{{ $t('app.sizeSelect.medium') }}&nbsp;</el-dropdown-item
+          {{ $t('app.sizeSelect.medium') }}</el-dropdown-item
         >
         <el-dropdown-item class="small" :disabled="size === 'small'" command="small">
-          &nbsp;{{ $t('app.sizeSelect.small') }}&nbsp;</el-dropdown-item
+          {{ $t('app.sizeSelect.small') }}</el-dropdown-item
         >
       </el-dropdown-menu>
     </template>
@@ -27,7 +27,7 @@
  * @Author: 焦质晔
  * @Date: 2020-04-30 15:17:48
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 14:23:13
+ * @Last Modified time: 2021-02-13 22:06:12
  */
 import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';

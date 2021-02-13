@@ -2,12 +2,13 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:02:43
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 15:58:48
+ * @Last Modified time: 2021-02-13 21:27:16
  */
 import { App } from 'vue';
 import i18n from '@/locale';
 import router from '@/router';
 import store from '@/store';
+import '@/router/permission';
 
 import { SizeEnum } from '@/utils/types';
 

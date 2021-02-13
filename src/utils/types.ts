@@ -2,13 +2,13 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 14:26:46
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 16:15:47
+ * @Last Modified time: 2021-02-13 21:09:25
  */
+import { VNodeChild } from 'vue';
+
 export type Nullable<T> = T | null;
 
-export type Indexable<T> = {
-  [key: string]: T;
-};
+export type VueNode = VNodeChild | JSX.Element;
 
 export type AnyFunction<T> = (...args: any[]) => T;
 

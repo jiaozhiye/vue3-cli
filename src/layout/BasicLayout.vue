@@ -3,12 +3,13 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 20:18:06
+ * @Last Modified time: 2021-02-13 21:02:32
  */
 import { defineComponent, KeepAlive } from 'vue';
 import { mapState, mapActions } from 'vuex';
 import GlobalLayout from './GlobalLayout';
 import config from '@/config';
+import { VueNode } from '@/utils/types';
 
 export default defineComponent({
   name: 'BasicLayout',
@@ -62,7 +63,7 @@ export default defineComponent({
         <router-view
           v-slots={{
             // 作用域插槽，结构参数 Component
-            default: ({ Component: C }) => (
+            default: ({ Component: C }): VueNode => (
               <KeepAlive include={this.cachedNames} max={config.maxCacheNum}>
                 <C key={this.key} />
               </KeepAlive>

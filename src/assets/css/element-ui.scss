@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2020-04-23 15:16:36
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2020-11-30 15:15:45
+ * @Last Modified time: 2021-02-13 21:44:32
  */
 .el-notification {
   a {
@@ -131,12 +131,12 @@
       &::before {
         content: '';
         display: inline-block;
-        width: 6px;
+        width: 5px;
       }
       &::after {
         content: '';
         display: inline-block;
-        width: 6px;
+        width: 5px;
       }
     }
     &::after {

@@ -2,13 +2,12 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-11 16:38:24
+ * @Last Modified time: 2021-02-13 22:53:31
  */
 'use strict';
 
 const fs = require('fs');
 const path = require('path');
-const _ = require('lodash');
 const config = require('../config');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -16,9 +15,12 @@ const mapDir = (d, reg) => {
   const result = [];
 
   // 获得当前文件夹下的所有的文件夹和文件
-  const [dirs, files] = _(fs.readdirSync(d)).partition((p) =>
-    fs.statSync(path.join(d, p)).isDirectory()
-  );
+  // const [dirs, files] = _(fs.readdirSync(d)).partition((p) =>
+  //   fs.statSync(path.join(d, p)).isDirectory()
+  // );
+  const all = fs.readdirSync(d) || [];
+  const dirs = all.filter((p) => fs.statSync(path.join(d, p)).isDirectory());
+  const files = all.filter((p) => !dirs.includes(p));
 
   dirs.forEach((dir) => {
     result.push.apply(result, mapDir(path.join(d, dir), reg));
