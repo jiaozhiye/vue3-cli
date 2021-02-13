@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 14:26:46
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 11:22:49
+ * @Last Modified time: 2021-02-13 16:15:47
  */
 export type Nullable<T> = T | null;
 
@@ -26,11 +26,6 @@ export type Dictionary = {
   text: string;
   value: string | number;
   stoped?: boolean;
-};
-
-export type TabNavItem = {
-  key: string;
-  title: string;
 };
 
 export type RegionItem = {

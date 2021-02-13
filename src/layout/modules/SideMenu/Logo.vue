@@ -1,5 +1,5 @@
 <template>
-  <router-link class="side-logo" to="/" :title="title">
+  <router-link class="aside__logo" to="/" :title="title">
     <img :src="imgUrl" :class="imgClas" />
   </router-link>
 </template>
@@ -9,12 +9,13 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 12:52:32
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 13:16:18
+ * @Last Modified time: 2021-02-13 16:51:57
  */
+import { defineComponent } from 'vue';
 import logo1 from './assets/logo1.svg';
 import logo2 from './assets/logo2.svg';
 
-export default {
+export default defineComponent({
   name: 'Logo',
   props: {
     title: {
@@ -45,17 +46,16 @@ export default {
       this.isInitial = false;
     },
   },
-};
+});
 </script>
 
-<style lang="scss" scoped>
-.side-logo {
+<style lang="scss">
+.aside__logo {
   display: flex;
   align-items: center;
   height: 52px;
   padding-left: 15px;
   background-color: $logoBgColor;
-  border-bottom: 1px solid $logoBgColor;
   overflow: hidden;
   .img1 {
     width: 170px;

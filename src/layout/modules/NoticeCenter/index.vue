@@ -4,7 +4,6 @@
       v-model:visible="visible"
       trigger="click"
       width="300px"
-      :offset="20"
       placement="bottom-end"
       transition="el-zoom-in-top"
     >
@@ -23,7 +22,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 14:20:52
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 15:34:35
+ * @Last Modified time: 2021-02-13 17:46:40
  */
 import { defineComponent } from 'vue';
 import InsideLetter from '@/pages/insideLetter/index';
@@ -58,7 +57,7 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   .badge {
-    &::v-deep .el-badge__content {
+    .el-badge__content {
       right: 10px;
       top: 2px;
       transform: translateY(-50%) translateX(100%) scale(0.9);

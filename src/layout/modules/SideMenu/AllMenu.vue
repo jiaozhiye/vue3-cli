@@ -1,27 +1,29 @@
 <template>
-  <div class="all-menu">
+  <div class="aside__all-menu">
     <div class="title" :class="{ selected: visible ? !0 : !1 }" @click.stop="clickHandle">
-      <i class="el-icon-menu"></i>
+      <i class="el-icon-menu" />
       <span v-if="!collapsed" class="text">{{ $t('app.sidebar.allNavTitle') }}</span>
     </div>
-    <div :class="['mask', poperShow]" :style="{ left: asideWidth }"></div>
+    <div :class="['masker', poperShow]" :style="{ left: asideWidth }"></div>
     <div :style="{ left: asideWidth }" :class="['popper', poperShow]" @click.stop>
-      <div class="box">
-        <slot :visible="visible"></slot>
+      <div class="container">
+        <slot :visible="visible" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import addEventListener from 'add-dom-event-listener';
 /*
  * @Author: 焦质晔
  * @Date: 2021-02-13 11:33:24
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 11:34:04
+ * @Last Modified time: 2021-02-13 17:06:16
  */
-export default {
+import { defineComponent } from 'vue';
+import addEventListener from 'add-dom-event-listener';
+
+export default defineComponent({
   name: 'AllMenu',
   props: {
     collapsed: {
@@ -54,7 +56,7 @@ export default {
       this.visible = !this.visible;
     },
     bindEvent() {
-      this.evHandler = addEventListener(document, 'click', (ev) => {
+      this.evHandler = addEventListener(document, 'click', () => {
         this.visible = false;
       });
     },
@@ -62,11 +64,11 @@ export default {
       this.visible = false;
     },
   },
-};
+});
 </script>
 
-<style lang="scss" scoped>
-.all-menu {
+<style lang="scss">
+.aside__all-menu {
   height: 36px;
   background-color: $menuBg;
   .title {
@@ -89,7 +91,7 @@ export default {
       vertical-align: middle;
     }
   }
-  .mask {
+  .masker {
     position: fixed;
     top: 0;
     right: 0;
@@ -123,7 +125,7 @@ export default {
       opacity: 1;
       visibility: visible;
     }
-    .box {
+    .container {
       height: 100%;
     }
   }

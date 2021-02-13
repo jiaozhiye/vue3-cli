@@ -2,11 +2,12 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 12:45:20
+ * @Last Modified time: 2021-02-13 16:35:19
  */
+import { defineComponent } from 'vue';
 import variables from '@/assets/css/variables.scss';
 
-export default {
+export default defineComponent({
   name: 'MenuTree',
   props: {
     menu: {
@@ -109,4 +110,4 @@ export default {
       </div>
     );
   },
-};
+});

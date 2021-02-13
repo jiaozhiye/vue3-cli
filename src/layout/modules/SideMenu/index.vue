@@ -7,7 +7,7 @@
     <div class="scroll">
       <div class="inner">
         <star-menu :collapsed="collapsed" />
-        <menu-tree class="side-menu" :menu="navList" :collapsed="collapsed" />
+        <menu-tree class="aside-menu" :menu="navList" :collapsed="collapsed" />
       </div>
     </div>
   </div>
@@ -17,9 +17,10 @@
 /*
  * @Author: 焦质晔
  * @Date: 2021-02-13 12:48:47
- * @Last Modified by:   焦质晔
- * @Last Modified time: 2021-02-13 12:48:47
+ * @Last Modified by: 焦质晔
+ * @Last Modified time: 2021-02-13 17:03:26
  */
+import { defineComponent } from 'vue';
 import { mapState } from 'vuex';
 import { size } from '@/mixins/sizeMixin';
 import config from '@/config';
@@ -30,7 +31,7 @@ import MenuList from './MenuList';
 import StarMenu from './StarMenu';
 import MenuTree from './menuTree';
 
-export default {
+export default defineComponent({
   name: 'SideMenu',
   components: {
     Logo,
@@ -50,20 +51,20 @@ export default {
     ...mapState('app', ['navList']),
     sideMenuCls() {
       return {
-        [`side-wrap`]: !0,
-        [`side-wrap-sm`]: this.currentSize === 'small',
-        [`side-wrap-lg`]: this.currentSize === 'large',
+        [`sidebar-wrap`]: !0,
+        [`sidebar-wrap-sm`]: this.currentSize === 'small',
+        [`sidebar-wrap-lg`]: this.currentSize === 'large',
       };
     },
     title() {
       return config.systemName;
     },
   },
-};
+});
 </script>
 
-<style lang="scss" scoped>
-.side-wrap {
+<style lang="scss">
+.sidebar-wrap {
   position: relative;
   height: 100%;
   background-color: $menuBg;
@@ -80,7 +81,7 @@ export default {
     }
   }
   /* 侧栏菜单导航 */
-  >>> .el-menu {
+  .el-menu {
     border: none;
     height: 100%;
     width: 100% !important;
@@ -129,8 +130,8 @@ export default {
     }
   }
   /* 导航菜单，不包含 我的收藏/常用导航 */
-  .side-menu {
-    >>> .el-menu {
+  .aside-menu {
+    .el-menu {
       .is-active {
         & > .el-submenu__title {
           color: $subMenuActiveText !important;
@@ -142,10 +143,10 @@ export default {
     }
   }
   &-lg {
-    >>> .logo {
+    .aside__logo {
       height: 56px;
     }
-    >>> .all-menu {
+    .aside__all-menu {
       height: 40px;
       .title {
         line-height: 40px;
@@ -154,7 +155,7 @@ export default {
     .scroll {
       height: calc(100% - 56px - 40px);
     }
-    >>> .el-menu {
+    .el-menu {
       .el-menu-item {
         height: 40px;
         line-height: 40px;
@@ -168,10 +169,10 @@ export default {
     }
   }
   &-sm {
-    >>> .logo {
+    .aside__logo {
       height: 48px;
     }
-    >>> .all-menu {
+    .aside__all-menu {
       height: 32px;
       .title {
         line-height: 32px;
@@ -180,7 +181,7 @@ export default {
     .scroll {
       height: calc(100% - 48px - 32px);
     }
-    >>> .el-menu {
+    .el-menu {
       .el-menu-item {
         height: 32px;
         line-height: 32px;
@@ -194,9 +195,6 @@ export default {
     }
   }
 }
-</style>
-
-<style lang="scss">
 .el-menu--vertical {
   .el-submenu__title,
   .el-menu-item {

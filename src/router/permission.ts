@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 20:11:18
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 20:32:22
+ * @Last Modified time: 2021-02-13 16:15:43
  */
 import router from '@/router';
 import store from '@/store';
@@ -12,8 +12,6 @@ import { notifyAction } from '@/utils';
 import { t } from '@/locale';
 import NProgress from 'nprogress'; // Progress 进度条
 import 'nprogress/nprogress.css'; // Progress 进度条样式
-
-import { TabNavItem } from '@/utils/types';
 
 // 设置 NProgress 样式
 NProgress.configure({ showSpinner: false });
@@ -63,7 +61,7 @@ router.beforeEach(async (to, from, next) => {
         const bool: boolean = await store.dispatch('app/createNavList');
         bool ? next({ ...to, replace: true }) : redirect(next, false);
       } else {
-        const tabNavList: Array<TabNavItem> = store.state.app.tabNavList;
+        const tabNavList = store.state.app.tabNavList;
         if (tabNavList.length >= config.maxCacheNum && !tabNavList.some((x) => x.key === to.path)) {
           notifyAction(t('app.information.maxCache', { total: config.maxCacheNum }), 'warning');
           return redirect(next, false);

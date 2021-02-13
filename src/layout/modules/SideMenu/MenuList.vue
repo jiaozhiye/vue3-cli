@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-list">
+  <div class="aside__all-menu--panel">
     <div class="search">
       <el-autocomplete
         v-model="menuPath"
@@ -27,7 +27,7 @@
                   <i
                     :class="[x.star ? 'el-icon-star-on' : 'el-icon-star-off']"
                     @click.stop="starClickHandle(x.star, x.key, x.title)"
-                  ></i>
+                  />
                   <router-link :to="x.key" @click="clickHandle">{{ x.title }}</router-link>
                 </li>
               </ul>
@@ -40,19 +40,20 @@
 </template>
 
 <script>
-/**
+/*
  * @Author: 焦质晔
- * @Date: 2019-06-20 10:00:00
+ * @Date: 2021-02-13 16:36:01
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 11:44:26
- **/
+ * @Last Modified time: 2021-02-13 17:07:25
+ */
+import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
 // import { flatten } from 'lodash-es';
 import { notifyAction } from '@/utils';
 import { setStarMenuList } from '@/api/application';
 // import pinyin, { STYLE_FIRST_LETTER } from '@/components/Pinyin/index';
 
-export default {
+export default defineComponent({
   name: 'MenuList',
   props: {
     menu: {
@@ -122,11 +123,11 @@ export default {
       setStarMenuList(this.starMenuList);
     },
   },
-};
+});
 </script>
 
-<style lang="scss" scoped>
-.menu-list {
+<style lang="scss">
+.aside__all-menu--panel {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -141,7 +142,7 @@ export default {
   }
   .search {
     padding: 50px 0 20px 100px;
-    &::v-deep .el-autocomplete {
+    .el-autocomplete {
       width: 300px;
       .el-input__inner {
         color: #fff;
@@ -160,7 +161,7 @@ export default {
     flex: 1;
     position: relative;
     overflow-y: auto;
-    &::v-deep .el-tabs {
+    .el-tabs {
       height: 100%;
       overflow-y: auto;
       &::-webkit-scrollbar {

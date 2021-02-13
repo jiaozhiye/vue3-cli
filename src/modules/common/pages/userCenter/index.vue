@@ -7,7 +7,9 @@ try {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     UserCenter = require('@/modules/system/pages/stm9001').default;
   }
-} catch (err) {}
+} catch (err) {
+  // ...
+}
 
 export default {
   name: 'JzyUserCenter',

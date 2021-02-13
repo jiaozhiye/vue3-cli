@@ -1,6 +1,6 @@
 <template>
   <span
-    class="menu-fold"
+    class="header__menu-fold"
     :title="isCollapse ? $t('app.header.unfold') : $t('app.header.fold')"
     @click="clickHandler"
   >
@@ -13,7 +13,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 23:30:14
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 13:48:58
+ * @Last Modified time: 2021-02-13 17:15:11
  */
 import { defineComponent } from 'vue';
 
@@ -39,8 +39,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
-.menu-fold {
+<style lang="scss">
+.header__menu-fold {
   display: flex;
   align-items: center;
   height: 100%;

@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2020-07-17 15:08:13
+ * @Last Modified time: 2021-02-13 16:30:35
  */
 // 全局主色
 $primaryColor: #0d74b5;
@@ -34,10 +34,6 @@ $textSize: 14px;
 // 次文本大小
 $textSizeSecondary: 12px;
 
-// 文本尺寸大小
-$textSizeLarge: $textSize;
-$textSizeSmall: $textSize - 2px;
-
 // 主边框色
 $borderColor: #d9d9d9;
 
@@ -47,14 +43,25 @@ $borderColorSecondary: #e8e8e8;
 // 组件/浮层圆角
 $borderRadius: 2px;
 
+// 模块之间距离
+$moduleMargin: 10px;
+$modulePadding: 10px;
+
 // 浮层阴影
-$boxShadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+$shadow-up: 0 -2px 8px rgba(0, 0, 0, 0.15);
+$shadow-down: 0 2px 8px rgba(0, 0, 0, 0.15);
+$shadow-left: -2px 0 8px rgba(0, 0, 0, 0.15);
+$shadow-right: 2px 0 8px rgba(0, 0, 0, 0.15);
+$boxShadow: $shadow-down;
 
 // 主背景色
 $backgroundColor: #f2f2f2;
 
 // 次背景色
 $backgroundColorSecondary: #f5f5f5;
+
+// Logo 背景色
+$logoBgColor: #1f1f1f;
 
 // sidebar 侧栏颜色
 $menuText: rgba(255, 255, 255, 0.65);
@@ -67,15 +74,8 @@ $menuHover: #292929;
 $subMenuBg: #1a1a1a;
 $subMenuHover: #2e2e2e;
 
-// Logo 背景色
-$logoBgColor: #1f1f1f;
-
 // AllMenu 划出面板背景色
 $allMenuBgColor: #313538;
-
-// 模块之间距离
-$moduleMargin: 10px;
-$modulePadding: 10px;
 
 // the :export directive is the magic sauce for webpack
 // https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass

@@ -221,7 +221,7 @@ export default {
     transition: transform 0.3s ease;
     .box {
       width: 50%;
-      >>> .el-form {
+      &::v-deep .el-form {
         position: relative;
         .hidden-input {
           opacity: 0;

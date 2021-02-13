@@ -1,7 +1,7 @@
 <template>
   <menu-tree
     ref="starMenu"
-    class="star-menu"
+    class="aside__star-menu"
     :menu="navList"
     :sync-active="false"
     :collapsed="collapsed"
@@ -9,16 +9,17 @@
 </template>
 
 <script>
-/**
+/*
  * @Author: 焦质晔
- * @Date: 2019-06-20 10:00:00
+ * @Date: 2021-02-13 16:34:05
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 11:44:42
- **/
-import { mapState, mapActions } from 'vuex';
+ * @Last Modified time: 2021-02-13 16:54:16
+ */
+import { defineComponent } from 'vue';
+import { mapState } from 'vuex';
 import MenuTree from './menuTree';
 
-export default {
+export default defineComponent({
   name: 'StarMenu',
   components: {
     MenuTree,
@@ -67,5 +68,5 @@ export default {
   mounted() {
     this.starMenuRef = this.$refs.starMenu;
   },
-};
+});
 </script>

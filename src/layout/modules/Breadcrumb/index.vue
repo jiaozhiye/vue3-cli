@@ -3,11 +3,12 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:11:34
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 10:16:28
+ * @Last Modified time: 2021-02-13 17:07:32
  */
+import { defineComponent } from 'vue';
 import { mapState } from 'vuex';
 
-export default {
+export default defineComponent({
   name: 'Breadcrumb',
   computed: {
     ...mapState('app', ['navList']),
@@ -68,17 +69,17 @@ export default {
       </div>
     );
   },
-};
+});
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .breadcrumb-wrap {
   display: flex;
   padding: $modulePadding $modulePadding 0;
   .location {
     line-height: 1;
   }
-  >>> .el-breadcrumb__item {
+  .el-breadcrumb__item {
     .el-breadcrumb__inner {
       color: $textColor;
     }

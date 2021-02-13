@@ -17,7 +17,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 13:31:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 13:59:17
+ * @Last Modified time: 2021-02-13 16:30:52
  */
 import { defineComponent } from 'vue';
 
@@ -32,7 +32,7 @@ export default defineComponent({
   height: 100%;
   margin: 0 -20px;
   background-color: #fff;
-  border-bottom: 1px solid $borderColor;
+  box-shadow: $boxShadow;
   box-sizing: border-box;
   z-index: 3;
   .wrap__tab-menu {

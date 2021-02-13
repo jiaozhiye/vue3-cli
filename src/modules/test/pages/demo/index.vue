@@ -10,5 +10,3 @@ export default {
   mixins: [language],
 };
 </script>
-
-<style lang="scss" scoped></style>

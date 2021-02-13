@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:02:14
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 14:01:57
+ * @Last Modified time: 2021-02-13 17:44:25
  */
 import { mapActions } from 'vuex';
 import addEventListener from 'add-dom-event-listener';
@@ -121,7 +121,7 @@ export default {
       }
     },
     handleClick(tab) {
-      this.locationChange(tab.name);
+      this.locationChange(tab.paneName);
     },
     findCurTagIndex() {
       return this.pages.findIndex((x) => x.path === this.currentKey);
@@ -219,21 +219,21 @@ export default {
   },
   render() {
     const cls = [
-      `multi-wrap`,
+      `header__multi-tab`,
       {
-        [`multi-wrap-sm`]: this.currentSize === 'small',
-        [`multi-wrap-lg`]: this.currentSize === 'large',
+        [`multi-tab-sm`]: this.currentSize === 'small',
+        [`multi-tab-lg`]: this.currentSize === 'large',
       },
     ];
     return (
       <div class={cls}>
         <el-tabs
           ref="multiTab"
-          class="multi-tab"
           type="card"
+          class="multi-wrap"
           value={this.activeKey}
-          on-tab-click={this.handleClick}
-          on-tab-remove={this.removeTab}
+          onTabClick={this.handleClick}
+          onTabRemove={this.removeTab}
         >
           {this.createPanelList()}
         </el-tabs>
@@ -265,10 +265,10 @@ export default {
 </script>
 
 <style lang="scss">
-.multi-wrap {
-  .multi-tab {
+.header__multi-tab {
+  .multi-wrap {
     position: relative;
-    &::v-deep .el-tabs__header {
+    .el-tabs__header {
       margin: 0;
       border-bottom-color: $borderColor;
       .el-tabs__nav-prev,
@@ -315,8 +315,8 @@ export default {
     box-shadow: $boxShadow;
     z-index: 9999;
   }
-  &.multi-wrap-lg {
-    &::v-deep .multi-tab {
+  &.multi-tab-lg {
+    .multi-wrap {
       .el-tabs__item {
         padding: 0 18px !important;
         height: 42px !important;
@@ -324,8 +324,8 @@ export default {
       }
     }
   }
-  &.multi-wrap-sm {
-    &::v-deep .multi-tab {
+  &.multi-tab-sm {
+    .multi-wrap {
       .el-tabs__item {
         padding: 0 14px !important;
         height: 34px !important;

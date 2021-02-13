@@ -23,7 +23,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .nomatch-wrap {
   display: flex;
   align-items: center;

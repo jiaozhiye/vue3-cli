@@ -24,7 +24,7 @@
  * @Author: 焦质晔
  * @Date: 2020-04-23 19:44:29
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 14:22:57
+ * @Last Modified time: 2021-02-13 17:47:44
  */
 import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
@@ -58,7 +58,7 @@ export default defineComponent({
   }
 }
 .theme-picker-dropdown {
-  margin-top: 10px !important;
+  margin-top: 12px !important;
   .el-color-dropdown__link-btn {
     display: none;
   }
