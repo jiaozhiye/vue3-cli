@@ -74,7 +74,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:01:08
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 15:17:01
+ * @Last Modified time: 2021-02-14 16:13:16
  */
 import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
@@ -147,7 +147,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .header__user-center {
   display: flex;
   width: 26px;
@@ -250,6 +250,8 @@ export default defineComponent({
     .content {
       font-size: $textSizeSecondary;
     }
+  }
+  &-lg {
   }
 }
 </style>

@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 11:05:12
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 15:27:17
+ * @Last Modified time: 2021-02-14 15:36:54
  */
 import { defineComponent } from 'vue';
 import SideMenu from './modules/SideMenu';
@@ -29,13 +29,13 @@ export default defineComponent({
     },
     headerCls(): Array<Record<string, boolean> | string> {
       return {
-        [`header`]: !0,
-        [`header-sm`]: this.$size === 'small',
-        [`header-lg`]: this.$size === 'large',
+        [`app-layout__header`]: !0,
+        [`app-layout__header-sm`]: this.$size === 'small',
+        [`app-layout__header-lg`]: this.$size === 'large',
       };
     },
     containerCls(): Array<Record<string, boolean> | string> {
-      return [`container`, { [`bg-color`]: this.$route.meta.bgColor }];
+      return [`app-layout__container`, { [`bg-color`]: this.$route.meta.bgColor }];
     },
   },
   methods: {
@@ -47,7 +47,7 @@ export default defineComponent({
     const { collapsed, asideWidth, headerCls, containerCls } = this;
     return (
       <el-container class="app-layout">
-        <el-aside class="sidebar" width={asideWidth}>
+        <el-aside class="app-layout__sidebar" width={asideWidth}>
           <SideMenu collapsed={collapsed} />
         </el-aside>
         {/* width: 0 -> 解决 IE bug */}
@@ -75,14 +75,14 @@ export default defineComponent({
 <style lang="scss">
 .app-layout {
   height: 100%;
-  .header {
+  &__header {
     height: 52px;
   }
-  .sidebar {
+  &__sidebar {
     transition: width 0.3s ease;
     overflow: visible;
   }
-  .container {
+  &__.container {
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -96,10 +96,10 @@ export default defineComponent({
       background-color: $backgroundColorSecondary;
     }
   }
-  .header-sm {
+  &__header-sm {
     height: 48px;
   }
-  .header-lg {
+  &__header-lg {
     height: 56px;
   }
 }

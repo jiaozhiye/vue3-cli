@@ -1,5 +1,5 @@
 <template>
-  <router-link class="aside__logo" to="/" :title="title">
+  <router-link class="app-aside__logo" to="/" :title="title">
     <img :src="imgUrl" :class="imgClas" />
   </router-link>
 </template>
@@ -9,7 +9,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 12:52:32
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 16:51:57
+ * @Last Modified time: 2021-02-14 15:52:03
  */
 import { defineComponent } from 'vue';
 import logo1 from './assets/logo1.svg';
@@ -50,7 +50,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.aside__logo {
+.app-aside__logo {
   display: flex;
   align-items: center;
   height: 52px;

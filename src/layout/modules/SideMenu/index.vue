@@ -4,10 +4,10 @@
     <all-menu :collapsed="collapsed">
       <MenuList :menu="navList" />
     </all-menu>
-    <div class="scroll">
-      <div class="inner">
-        <star-menu :collapsed="collapsed" />
-        <menu-tree class="aside-menu" :menu="navList" :collapsed="collapsed" />
+    <div class="app-aside__scroll">
+      <div class="app-aside__scroll_inner">
+        <star-menu class="app-aside__star-menu" :collapsed="collapsed" />
+        <menu-tree class="app-aside__menu" :menu="navList" :collapsed="collapsed" />
       </div>
     </div>
   </div>
@@ -18,7 +18,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 12:48:47
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 00:19:22
+ * @Last Modified time: 2021-02-14 16:11:19
  */
 import { defineComponent } from 'vue';
 import { mapState } from 'vuex';
@@ -51,9 +51,9 @@ export default defineComponent({
     ...mapState('app', ['navList']),
     sideMenuCls() {
       return {
-        [`sidebar-wrap`]: !0,
-        [`sidebar-wrap-sm`]: this.$size === 'small',
-        [`sidebar-wrap-lg`]: this.$size === 'large',
+        [`app-aside`]: !0,
+        [`app-aside-sm`]: this.$size === 'small',
+        [`app-aside-lg`]: this.$size === 'large',
       };
     },
     title() {
@@ -64,17 +64,17 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.sidebar-wrap {
+.app-aside {
   position: relative;
   height: 100%;
   background-color: $menuBg;
   box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   z-index: 5;
-  .scroll {
+  &__scroll {
     height: calc(100% - 52px - 36px);
     background-color: $menuBg;
     overflow-x: hidden;
-    .inner {
+    &_inner {
       width: calc(100% + 17px);
       height: 100%;
       overflow-y: scroll;
@@ -130,7 +130,7 @@ export default defineComponent({
     }
   }
   /* 导航菜单，不包含 我的收藏/常用导航 */
-  .aside-menu {
+  .app-aside__menu {
     .el-menu {
       .is-active {
         & > .el-submenu__title {
@@ -143,16 +143,16 @@ export default defineComponent({
     }
   }
   &-lg {
-    .aside__logo {
+    .app-aside__logo {
       height: 56px;
     }
-    .aside__all-menu {
+    .app-aside__all-menu {
       height: 40px;
       .title {
         line-height: 40px;
       }
     }
-    .scroll {
+    .app-aside__scroll {
       height: calc(100% - 56px - 40px);
     }
     .el-menu {
@@ -169,16 +169,16 @@ export default defineComponent({
     }
   }
   &-sm {
-    .aside__logo {
+    .app-aside__logo {
       height: 48px;
     }
-    .aside__all-menu {
+    .app-aside__all-menu {
       height: 32px;
       .title {
         line-height: 32px;
       }
     }
-    .scroll {
+    .app-aside__scroll {
       height: calc(100% - 48px - 32px);
     }
     .el-menu {

@@ -1,12 +1,12 @@
 <template>
-  <div class="header-wrap">
-    <div class="wrap__box fl">
+  <div class="app-header">
+    <div class="app-header__wrap fl">
       <slot name="collapse" />
     </div>
-    <div class="wrap__box fr">
+    <div class="app-header__wrap fr">
       <slot name="action" />
     </div>
-    <div class="wrap__tab-menu">
+    <div class="app-header__tab-menu">
       <slot name="menu" />
     </div>
   </div>
@@ -17,7 +17,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 13:31:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 16:30:52
+ * @Last Modified time: 2021-02-14 16:02:07
  */
 import { defineComponent } from 'vue';
 
@@ -27,7 +27,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.header-wrap {
+.app-header {
   position: relative;
   height: 100%;
   margin: 0 -20px;
@@ -35,13 +35,13 @@ export default defineComponent({
   box-shadow: $boxShadow;
   box-sizing: border-box;
   z-index: 3;
-  .wrap__tab-menu {
+  &__tab-menu {
     width: calc(100% - 240px);
     position: absolute;
     left: 56px;
     bottom: -1px;
   }
-  .wrap__box {
+  &__wrap {
     height: 100%;
   }
 }

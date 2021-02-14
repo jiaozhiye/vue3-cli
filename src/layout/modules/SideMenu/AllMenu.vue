@@ -1,5 +1,5 @@
 <template>
-  <div class="aside__all-menu">
+  <div class="app-aside__all-menu">
     <div class="title" :class="{ selected: visible ? !0 : !1 }" @click.stop="clickHandle">
       <i class="el-icon-menu" />
       <span v-if="!collapsed" class="text">{{ $t('app.sidebar.allNavTitle') }}</span>
@@ -18,7 +18,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 11:33:24
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 17:06:16
+ * @Last Modified time: 2021-02-14 15:50:02
  */
 import { defineComponent } from 'vue';
 import addEventListener from 'add-dom-event-listener';
@@ -68,7 +68,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.aside__all-menu {
+.app-aside__all-menu {
   height: 36px;
   background-color: $menuBg;
   .title {

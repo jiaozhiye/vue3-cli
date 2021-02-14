@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:11:34
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 17:07:32
+ * @Last Modified time: 2021-02-14 16:00:01
  */
 import { defineComponent } from 'vue';
 import { mapState } from 'vuex';
@@ -59,7 +59,7 @@ export default defineComponent({
   },
   render() {
     return (
-      <div class="breadcrumb-wrap">
+      <div class="app-breadcrumb">
         <span class="location">{this.$t('app.dreadcrumb.location')}&nbsp;:&nbsp;</span>
         <el-breadcrumb separator="/">
           {this.breadcrumbs.map((x) => (
@@ -73,7 +73,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.breadcrumb-wrap {
+.app-breadcrumb {
   display: flex;
   padding: $modulePadding $modulePadding 0;
   .location {

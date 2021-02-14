@@ -1,11 +1,5 @@
 <template>
-  <menu-tree
-    ref="starMenu"
-    class="aside__star-menu"
-    :menu="navList"
-    :sync-active="false"
-    :collapsed="collapsed"
-  />
+  <menu-tree ref="starMenu" :menu="navList" :sync-active="false" :collapsed="collapsed" />
 </template>
 
 <script>
@@ -13,7 +7,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 16:34:05
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 16:54:16
+ * @Last Modified time: 2021-02-14 15:51:04
  */
 import { defineComponent } from 'vue';
 import { mapState } from 'vuex';

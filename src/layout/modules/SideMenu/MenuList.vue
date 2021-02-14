@@ -1,5 +1,5 @@
 <template>
-  <div class="aside__all-menu--panel">
+  <div class="all-menu__panel">
     <div class="search">
       <el-autocomplete
         v-model="menuPath"
@@ -44,7 +44,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 16:36:01
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 17:07:25
+ * @Last Modified time: 2021-02-14 15:57:29
  */
 import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
@@ -127,7 +127,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.aside__all-menu--panel {
+.all-menu__panel {
   display: flex;
   flex-direction: column;
   height: 100%;
