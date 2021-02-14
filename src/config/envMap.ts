@@ -2,15 +2,11 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 21:03:36
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 15:07:01
+ * @Last Modified time: 2021-02-14 21:05:38
  */
-type IEnv<T> = Record<'dev' | 'tst' | 'uat' | 'pre' | 'prod', T>;
+type IEnvCongig = Record<'dev' | 'tst' | 'uat' | 'pre' | 'prod', Partial<{ host: string }>>;
 
-type IEnvItem = {
-  host: string;
-};
-
-const config: IEnv<IEnvItem> = {
+const config: IEnvCongig = {
   dev: {
     host: '/',
   },

@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 14:26:46
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 09:48:54
+ * @Last Modified time: 2021-02-14 19:56:14
  */
 import { VNodeChild } from 'vue';
 
@@ -13,6 +13,8 @@ export type DeepPartial<T> = {
 };
 
 export type VueNode = VNodeChild | JSX.Element;
+
+export type LooseObject<T> = { [key: string]: T };
 
 export type AnyFunction<T> = (...args: any[]) => T;
 

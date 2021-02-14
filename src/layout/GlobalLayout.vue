@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 11:05:12
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 15:36:54
+ * @Last Modified time: 2021-02-14 20:59:00
  */
 import { defineComponent } from 'vue';
 import SideMenu from './modules/SideMenu';
@@ -82,7 +82,7 @@ export default defineComponent({
     transition: width 0.3s ease;
     overflow: visible;
   }
-  &__.container {
+  &__container {
     display: flex;
     flex-direction: column;
     padding: 0;
