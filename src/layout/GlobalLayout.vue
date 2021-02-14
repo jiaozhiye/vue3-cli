@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 11:05:12
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 00:18:59
+ * @Last Modified time: 2021-02-14 15:27:17
  */
 import { defineComponent } from 'vue';
 import SideMenu from './modules/SideMenu';
@@ -12,7 +12,6 @@ import MenuFold from './modules/MenuFold';
 import HeadNavBar from './modules/HeadNavBar';
 import MultiTab from './modules/MultiTab';
 import Breadcrumb from './modules/Breadcrumb';
-
 import { currentSize } from '@/mixins/sizeMixin';
 import config from '@/config';
 
@@ -52,8 +51,8 @@ export default defineComponent({
           <SideMenu collapsed={collapsed} />
         </el-aside>
         {/* width: 0 -> 解决 IE bug */}
-        <el-container style={{ width: 0 }}>
-          <el-header class={headerCls} height="">
+        <el-container style={{ width: '0' }}>
+          <el-header class={headerCls} height={null}>
             <GlobalHeader
               v-slots={{
                 collapse: () => <MenuFold collapsed={collapsed} onChange={this.changeHandle} />,

@@ -1,10 +1,16 @@
 /*
  * @Author: 焦质晔
  * @Date: 2021-02-12 21:03:36
- * @Last Modified by:   焦质晔
- * @Last Modified time: 2021-02-12 21:03:36
+ * @Last Modified by: 焦质晔
+ * @Last Modified time: 2021-02-14 15:07:01
  */
-const config = {
+type IEnv<T> = Record<'dev' | 'tst' | 'uat' | 'pre' | 'prod', T>;
+
+type IEnvItem = {
+  host: string;
+};
+
+const config: IEnv<IEnvItem> = {
   dev: {
     host: '/',
   },

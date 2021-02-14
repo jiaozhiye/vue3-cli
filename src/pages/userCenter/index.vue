@@ -74,15 +74,16 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:01:08
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 00:19:34
+ * @Last Modified time: 2021-02-14 15:17:01
  */
+import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
 import { getUserName, getWechatAvatar } from '@/utils/cookies';
 import { getUserInfo } from '@/api/application';
 
 import { currentSize } from '@/mixins/sizeMixin';
 
-export default {
+export default defineComponent({
   name: 'UserCenter',
   mixins: [currentSize],
   data() {
@@ -143,7 +144,7 @@ export default {
       this.createLogout();
     },
   },
-};
+});
 </script>
 
 <style lang="scss">

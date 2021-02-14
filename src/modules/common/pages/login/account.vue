@@ -12,7 +12,7 @@
         @keyup.enter="enterHandle"
       />
       <span class="show-pwd" @click="showPwdHandle">
-        <i :class="['iconfont', passwordType === 'password' ? 'icon-eye-close' : 'icon-eye']"></i>
+        <i :class="['iconfont', passwordType === 'password' ? 'icon-eye-close' : 'icon-eye']" />
       </span>
     </el-form-item>
     <el-form-item v-if="isVcode">
@@ -81,7 +81,7 @@ export default {
 
 <style lang="scss" scoped>
 .v-form {
-  &::v-deep .el-form-item {
+  ::v-deep(.el-form-item) {
     margin-bottom: 20px;
     .el-form-item__content {
       position: relative;

@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 21:02:32
+ * @Last Modified time: 2021-02-14 15:22:13
  */
 import { defineComponent, KeepAlive } from 'vue';
 import { mapState, mapActions } from 'vuex';
@@ -44,7 +44,7 @@ export default defineComponent({
       'createCommonMenuList',
       'refreshView',
     ]),
-    createIframeView() {
+    createIframeView(): VueNode {
       return this.iframeList.map((x) => (
         <div key={x.key} class="iframe-wrapper" v-show={this.key === x.key}>
           <iframe id={x.key} src={x.value} width="100%" height="100%" frameborder="0" />

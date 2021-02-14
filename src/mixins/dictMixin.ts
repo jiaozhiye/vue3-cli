@@ -2,20 +2,21 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 21:05:20
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 21:27:37
+ * @Last Modified time: 2021-02-14 15:11:50
  */
 import store from '@/store';
 import { notifyAction } from '@/utils';
 
 import { Dictionary, RegionItem } from '@/utils/types';
 
-const deepMapCity = (data, deep = 3, step = 1): Array<RegionItem> => {
+// 遍历省市区方法
+const deepMapCity = (data, step = 3, cur = 1): Array<RegionItem> => {
   const res: Array<RegionItem> = [];
   for (const key in data) {
     const target: RegionItem = { value: data[key]['regionCode'], text: data[key]['regionName'] };
     if (data[key].children && Object.keys(data[key].children).length) {
-      if (step < deep) {
-        target.children = deepMapCity(data[key].children, deep, step + 1);
+      if (cur < step) {
+        target.children = deepMapCity(data[key].children, step, cur + 1);
       }
     }
     res.push(target);
@@ -72,12 +73,12 @@ export const dictionary = {
     },
     /**
      * @description 创建省市区数据列表
-     * @param {number} deep 数据的级数，默认全部递归
+     * @param {number} step 数据的级数，默认全部递归
      * @returns {array}
      */
-    createDictRegion(deep: number): Array<RegionItem> {
+    createDictRegion(step: number): Array<RegionItem> {
       // this.$dict.region -> 数据字典中省市区的递归数据
-      return deepMapCity(this.$dict.region, deep);
+      return deepMapCity(this.$dict.region, step);
     },
   },
 };
