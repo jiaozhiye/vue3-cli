@@ -2,11 +2,15 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 14:26:46
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 21:09:25
+ * @Last Modified time: 2021-02-14 09:48:54
  */
 import { VNodeChild } from 'vue';
 
 export type Nullable<T> = T | null;
+
+export type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends Record<string, unknown> ? DeepPartial<T[P]> : T[P];
+};
 
 export type VueNode = VNodeChild | JSX.Element;
 

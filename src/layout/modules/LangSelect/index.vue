@@ -24,10 +24,11 @@
  * @Author: 焦质晔
  * @Date: 2020-04-30 15:17:48
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 18:03:22
+ * @Last Modified time: 2021-02-14 10:16:31
  */
 import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
+import { changeLocale } from '@/locale';
 
 export default defineComponent({
   name: 'LangSelect',
@@ -37,11 +38,11 @@ export default defineComponent({
   methods: {
     ...mapActions('app', ['setLanguage', 'refreshView']),
     languageChangeHandle(lang) {
-      this.$i18n.locale = lang;
+      changeLocale(lang);
       this.setLanguage(lang);
       localStorage.setItem('lang', lang);
       // 浏览器刷新，重新获取数据
-      window.history.go(0);
+      // window.history.go(0);
       // this.refreshView({ path: this.$route.path });
       // 可能需要重新获取基础信息
       // ...

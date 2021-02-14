@@ -2,9 +2,9 @@
  * @Author: 焦质晔
  * @Date: 2020-05-14 19:27:24
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 22:04:01
+ * @Last Modified time: 2021-02-14 10:16:54
  */
-import i18n from '@/locale';
+import { mergeLocaleMessage } from '@/locale';
 
 import enLocale from './en';
 import zhLocale from './zh-cn';
@@ -15,5 +15,5 @@ const messages = {
 };
 
 for (let key in messages) {
-  i18n.global.mergeLocaleMessage(key, messages[key]);
+  mergeLocaleMessage(key, messages[key]);
 }

@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:18:02
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 16:00:58
+ * @Last Modified time: 2021-02-14 10:03:26
  */
 export default {
   name: 'en',
@@ -15,7 +15,7 @@ export default {
       noMatch: '抱歉，你访问的页面不存在或仍在开发中',
     },
     sidebar: {
-      allNavTitle: '全部导航',
+      allNavTitle: 'All Nav',
       allNavPlaceholder: '请输入菜单名称/拼音头',
       usedNav: '常用导航',
       starNav: '我的收藏',

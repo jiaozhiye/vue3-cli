@@ -26,7 +26,6 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     // vue
@@ -35,8 +34,7 @@ module.exports = {
     'vue/custom-event-name-casing': 'off',
     'vue/require-prop-types': 'off',
     'vue/require-default-prop': 'off',
-  },
-  globals: {
-    h: true,
+    'vue/require-explicit-emits': 'off',
+    'vue/singleline-html-element-content-newline': 'off',
   },
 };

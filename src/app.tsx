@@ -2,10 +2,11 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 14:04:39
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 23:25:55
+ * @Last Modified time: 2021-02-14 10:16:18
  */
 import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
+import { changeLocale } from '@/locale';
 
 import '@/assets/css/reset.scss';
 import '@/assets/css/style.scss';
@@ -34,7 +35,7 @@ export default defineComponent({
     messageEventHandle({ data }): void {
       if (typeof data !== 'object') return;
       if (data.type === 'lang') {
-        this.$i18n.locale = data.data;
+        changeLocale(data.data);
       }
       if (data.type === 'size') {
         this.createElementSize({ ctx: this, size: data.data });
