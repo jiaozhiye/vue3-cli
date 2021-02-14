@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 16:26:28
+ * @Last Modified time: 2021-02-14 21:25:27
  */
 import { uniqWith, isEqual } from 'lodash-es';
 import * as types from '../types';
@@ -350,6 +350,7 @@ const actions = {
       newColors: [...forElementUI.getElementUISeries(params), params],
       // 当 router 不是 hash mode 时，它需要将 url 更改为绝对路径(以 / 开头)
       changeUrl: (cssUrl) => `/${cssUrl}`,
+      isLocalStorage: false,
     };
     commit({ type: types.THEME_COLOR, data: params });
     client.changer.changeColor(options, Promise).then(() => localStorage.setItem('theme', params));

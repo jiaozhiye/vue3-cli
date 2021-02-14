@@ -7582,10 +7582,10 @@ webpack-cli@^4.3.0:
     v8-compile-cache "^2.2.0"
     webpack-merge "^5.7.3"
 
-webpack-custom-theme@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.npm.taobao.org/webpack-custom-theme/download/webpack-custom-theme-1.0.4.tgz?cache=0&sync_timestamp=1613292061359&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwebpack-custom-theme%2Fdownload%2Fwebpack-custom-theme-1.0.4.tgz#cdb0b731199ef489b4548a44435d8994b30b4dae"
-  integrity sha1-zbC3MRme9Im0VIpEQ12JlLMLTa4=
+webpack-custom-theme@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npm.taobao.org/webpack-custom-theme/download/webpack-custom-theme-1.0.5.tgz?cache=0&sync_timestamp=1613309308316&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwebpack-custom-theme%2Fdownload%2Fwebpack-custom-theme-1.0.5.tgz#678b13ff7791e47a3f4a687dc37ceb652b10912a"
+  integrity sha1-Z4sT/3eR5Ho/Smh9w3zrZSsQkSo=
   dependencies:
     webpack-sources "*"
 
