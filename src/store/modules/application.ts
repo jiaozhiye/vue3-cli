@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 10:27:05
+ * @Last Modified time: 2021-02-14 16:26:28
  */
 import { uniqWith, isEqual } from 'lodash-es';
 import * as types from '../types';
@@ -157,6 +157,7 @@ const actions = {
     formatNavData(data, router.options.routes);
     commit({ type: types.NAVLIST, data });
     commit({ type: types.MENULIST, data: createMenuList(data) });
+    // return bool
     return !0;
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
