@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 19:55:13
+ * @Last Modified time: 2021-02-14 12:29:37
  */
 'use strict';
 
@@ -172,6 +172,7 @@ module.exports = {
         config.primaryColor, // 自定义主题色
       ],
       changeSelector: forElementUI.changeSelector,
+      isJsUgly: process.env.NODE_ENV === 'production',
     }),
     new ModuleFederationPlugin({
       name: config.moduleName,
