@@ -3,9 +3,10 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 11:05:12
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 20:59:00
+ * @Last Modified time: 2021-02-15 20:30:03
  */
 import { defineComponent } from 'vue';
+import { JSXNode } from '@/utils/types';
 import SideMenu from './modules/SideMenu';
 import GlobalHeader from './modules/GlobalHeader';
 import MenuFold from './modules/MenuFold';
@@ -43,7 +44,7 @@ export default defineComponent({
       this.collapsed = val;
     },
   },
-  render() {
+  render(): JSXNode {
     const { collapsed, asideWidth, headerCls, containerCls } = this;
     return (
       <el-container class="app-layout">

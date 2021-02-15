@@ -3,13 +3,13 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 15:22:13
+ * @Last Modified time: 2021-02-15 20:31:08
  */
 import { defineComponent, KeepAlive } from 'vue';
 import { mapState, mapActions } from 'vuex';
+import { JSXNode } from '@/utils/types';
 import GlobalLayout from './GlobalLayout';
 import config from '@/config';
-import { VueNode } from '@/utils/types';
 
 export default defineComponent({
   name: 'BasicLayout',
@@ -44,7 +44,7 @@ export default defineComponent({
       'createCommonMenuList',
       'refreshView',
     ]),
-    createIframeView(): VueNode {
+    createIframeView(): JSXNode {
       return this.iframeList.map((x) => (
         <div key={x.key} class="iframe-wrapper" v-show={this.key === x.key}>
           <iframe id={x.key} src={x.value} width="100%" height="100%" frameborder="0" />
@@ -52,7 +52,7 @@ export default defineComponent({
       ));
     },
   },
-  render() {
+  render(): JSXNode {
     return (
       <GlobalLayout>
         {/* <transition name="fade-transform" mode="out-in"> */}
@@ -63,7 +63,7 @@ export default defineComponent({
         <router-view
           v-slots={{
             // 作用域插槽，结构参数 Component
-            default: ({ Component: C }): VueNode => (
+            default: ({ Component: C }): JSXNode => (
               <KeepAlive include={this.cachedNames} max={config.maxCacheNum}>
                 <C key={this.key} />
               </KeepAlive>
