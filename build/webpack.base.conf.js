@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 12:29:37
+ * @Last Modified time: 2021-02-15 17:59:07
  */
 'use strict';
 
@@ -76,13 +76,7 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          loaders: utils.cssLoaders({
-            sourceMap:
-              process.env.NODE_ENV === 'production'
-                ? config.build.productionSourceMap
-                : config.dev.cssSourceMap,
-            extract: process.env.NODE_ENV === 'production',
-          }),
+          babelParserPlugins: ['jsx', 'classProperties', 'decorators-legacy'],
         },
       },
       // js jsx
