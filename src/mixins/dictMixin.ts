@@ -7,13 +7,16 @@
 import store from '@/store';
 import { notifyAction } from '@/utils';
 
-import { Dictionary, RegionItem } from '@/utils/types';
+import { Dictionary, DeepDictionary } from '@/utils/types';
 
 // 遍历省市区方法
-const deepMapCity = (data, step = 3, cur = 1): Array<RegionItem> => {
-  const res: Array<RegionItem> = [];
+const deepMapCity = (data, step = 3, cur = 1): Array<DeepDictionary> => {
+  const res: Array<DeepDictionary> = [];
   for (const key in data) {
-    const target: RegionItem = { value: data[key]['regionCode'], text: data[key]['regionName'] };
+    const target: DeepDictionary = {
+      value: data[key]['regionCode'],
+      text: data[key]['regionName'],
+    };
     if (data[key].children && Object.keys(data[key].children).length) {
       if (cur < step) {
         target.children = deepMapCity(data[key].children, step, cur + 1);
@@ -76,7 +79,7 @@ export const dictionary = {
      * @param {number} step 数据的级数，默认全部递归
      * @returns {array}
      */
-    createDictRegion(step: number): Array<RegionItem> {
+    createDictRegion(step: number): Array<DeepDictionary> {
       // this.$dict.region -> 数据字典中省市区的递归数据
       return deepMapCity(this.$dict.region, step);
     },

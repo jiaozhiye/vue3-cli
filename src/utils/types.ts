@@ -34,8 +34,6 @@ export type Dictionary = {
   stoped?: boolean;
 };
 
-export type RegionItem = {
-  text: string;
-  value: string | number;
-  children?: Array<Dictionary>;
+export type DeepDictionary = Dictionary & {
+  children?: Array<DeepDictionary> | Nullable<undefined>;
 };
