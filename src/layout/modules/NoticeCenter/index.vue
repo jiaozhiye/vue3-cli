@@ -6,6 +6,8 @@
       width="260px"
       placement="bottom-end"
       transition="el-zoom-in-top"
+      :stop-popper-mouse-event="false"
+      :gpu-acceleration="false"
     >
       <template v-slot:reference>
         <el-badge class="badge" :value="msgNumber || null">

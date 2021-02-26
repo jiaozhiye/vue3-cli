@@ -5,6 +5,8 @@
       placement="bottom-end"
       width="260px"
       transition="el-zoom-in-top"
+      :stop-popper-mouse-event="false"
+      :gpu-acceleration="false"
     >
       <div :class="userCenterCls">
         <div class="user-avatar">
