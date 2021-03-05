@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-15 17:59:07
+ * @Last Modified time: 2021-03-05 13:55:05
  */
 'use strict';
 
@@ -157,6 +157,8 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         ENV_CONFIG: JSON.stringify(process.env.ENV_CONFIG),
       },
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: false,
     }),
     new VueLoaderPlugin(),
     new ThemeColorReplacer({

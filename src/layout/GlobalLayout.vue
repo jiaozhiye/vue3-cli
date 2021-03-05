@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="tsx">
 /*
  * @Author: 焦质晔
  * @Date: 2021-02-13 11:05:12
