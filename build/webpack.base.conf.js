@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-03-05 13:55:05
+ * @Last Modified time: 2021-03-17 12:05:59
  */
 'use strict';
 
@@ -92,20 +92,10 @@ module.exports = {
         use: utils.tsLoaders(),
         exclude: /node_modules/,
       },
-      // SvgIcon component
-      {
-        test: /\.svg$/,
-        loader: 'svg-sprite-loader',
-        include: [utils.resolve('src/components/SvgIcon/svg')],
-        options: {
-          symbolId: 'icon-[name]',
-        },
-      },
       // do not base64-inline SVG
       {
         test: /\.(svg)(\?.*)?$/,
         type: 'asset/resource',
-        exclude: [utils.resolve('src/components/SvgIcon/svg')],
         generator: {
           filename: utils.assetsPath('img/[contenthash:8][ext][query]'),
         },
@@ -157,8 +147,8 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         ENV_CONFIG: JSON.stringify(process.env.ENV_CONFIG),
       },
-      __VUE_OPTIONS_API__: true,
-      __VUE_PROD_DEVTOOLS__: false,
+      __VUE_OPTIONS_API__: JSON.stringify(true),
+      __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
     }),
     new VueLoaderPlugin(),
     new ThemeColorReplacer({
