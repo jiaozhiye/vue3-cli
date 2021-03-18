@@ -53,8 +53,8 @@ const instance = axios.create({
   timeout: 1000 * 20,
   withCredentials: true, // 跨域请求时是否需要使用凭证
   paramsSerializer: (params): string => {
-    // 序列化 GET 请求参数 -> a: [1, 2] => a=1&a=2
-    return qs.stringify(params, { arrayFormat: 'repeat' });
+    // 序列化 GET 请求参数 -> a: [1, 2] => a[0]=1&a[1]=2
+    return qs.stringify(params, { arrayFormat: 'indices' });
   },
 });
 
