@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 14:04:39
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 10:16:18
+ * @Last Modified time: 2021-03-22 17:27:09
  */
 import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
@@ -19,7 +19,7 @@ export default defineComponent({
     ...mapState('app', ['theme']),
   },
   created() {
-    const localTheme: string = localStorage.getItem('theme');
+    const localTheme = localStorage.getItem('theme') as string;
     if (localTheme && localTheme !== this.theme) {
       this.createThemeColor(localTheme);
     }

@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 21:05:20
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 15:11:50
+ * @Last Modified time: 2021-03-22 17:33:11
  */
 import store from '@/store';
 import { notifyAction } from '@/utils';
@@ -31,7 +31,7 @@ export const dictionary = {
   beforeCreate(): void {
     this.$dict = Object.keys(store.state.app.dict).length
       ? { ...store.state.app.dict }
-      : JSON.parse(localStorage.getItem('dict')) || {};
+      : JSON.parse(localStorage.getItem('dict') as string) || {};
     if (!Object.keys(this.$dict).length) {
       notifyAction('本地数据字典被清空，请刷新当前页面！', 'warning');
     }

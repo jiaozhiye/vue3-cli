@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 21:25:27
+ * @Last Modified time: 2021-03-22 17:28:50
  */
 import { uniqWith, isEqual } from 'lodash-es';
 import * as types from '../types';
@@ -32,7 +32,7 @@ import {
 import client from 'webpack-custom-theme/client';
 import forElementUI from 'webpack-custom-theme/forElementUI';
 
-import { Dictionary, ComponentSize, SizeEnum } from '@/utils/types';
+import { Dictionary, ComponentSize, SizeEnum, Nullable } from '@/utils/types';
 
 const deepMapRoute = (arr, mark) => {
   let res = null;
@@ -51,7 +51,7 @@ const deepMapRoute = (arr, mark) => {
 };
 
 const createMenuList = (list) => {
-  const res = [];
+  const res: any[] = [];
   list.forEach((x) => {
     if (Array.isArray(x.children)) {
       res.push(...createMenuList(x.children));
@@ -134,7 +134,9 @@ const actions = {
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async createNavList({ dispatch, commit, state }, params): Promise<boolean> {
-    if (state.navList.length) return;
+    if (state.navList.length) {
+      return !1;
+    }
     let data = [];
     if (process.env.MOCK_DATA === 'true') {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -285,17 +287,17 @@ const actions = {
     });
   },
   refreshView({ dispatch, commit, state }, { path, query = {} }): void {
-    let $iframe: HTMLIFrameElement = document.getElementById(path) as HTMLIFrameElement;
+    let $iframe: Nullable<HTMLIFrameElement> = document.getElementById(path) as HTMLIFrameElement;
     if ($iframe) {
       // 释放 iframe 内存
       $iframe.src = 'about:blank';
       try {
-        $iframe.contentWindow.document.write('');
-        $iframe.contentWindow.document.clear();
+        $iframe.contentWindow?.document.write('');
+        $iframe.contentWindow?.document.clear();
       } catch (e) {
         // ...
       }
-      $iframe.parentNode.removeChild($iframe);
+      $iframe.parentNode?.removeChild($iframe);
       $iframe = null;
       // 释放 iframe 内存 END
       const data = state.iframeList.find((x) => x.key === path);
@@ -310,7 +312,7 @@ const actions = {
     state.iframeList.forEach((x) => {
       const $iframe: HTMLIFrameElement = document.getElementById(x.key) as HTMLIFrameElement;
       if (!$iframe) return;
-      $iframe.contentWindow.postMessage({ type: 'lang', data: params }, '*');
+      $iframe.contentWindow?.postMessage({ type: 'lang', data: params }, '*');
     });
     commit({
       type: types.LANGUAGE,
@@ -321,7 +323,7 @@ const actions = {
     state.iframeList.forEach((x) => {
       const $iframe: HTMLIFrameElement = document.getElementById(x.key) as HTMLIFrameElement;
       if (!$iframe) return;
-      $iframe.contentWindow.postMessage({ type: 'size', data: params }, '*');
+      $iframe.contentWindow?.postMessage({ type: 'size', data: params }, '*');
     });
     commit({
       type: types.SIZE,
@@ -341,7 +343,7 @@ const actions = {
     state.iframeList.forEach((x) => {
       const $iframe: HTMLIFrameElement = document.getElementById(x.key) as HTMLIFrameElement;
       if (!$iframe) return;
-      $iframe.contentWindow.postMessage({ type: 'theme', data: params }, '*');
+      $iframe.contentWindow?.postMessage({ type: 'theme', data: params }, '*');
     });
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 20:11:18
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 23:43:35
+ * @Last Modified time: 2021-03-22 17:31:15
  */
 import router from '@/router';
 import store from '@/store';
@@ -15,6 +15,11 @@ import 'nprogress/nprogress.css'; // Progress 进度条样式
 
 // 设置 NProgress 样式
 NProgress.configure({ showSpinner: false });
+
+type INavItem = {
+  key: string;
+  title: string;
+};
 
 // 访问白名单
 const whiteList: string[] = ['/login', '/wechat'];
@@ -53,7 +58,7 @@ router.beforeEach(async (to, from, next) => {
         const bool: boolean = await store.dispatch('app/createNavList');
         bool ? next({ ...to, replace: true }) : redirect(next, false);
       } else {
-        const tabNavList = store.state.app.tabNavList;
+        const tabNavList: INavItem[] = store.state.app.tabNavList;
         if (tabNavList.length >= config.maxCacheNum && !tabNavList.some((x) => x.key === to.path)) {
           notifyAction(t('app.information.maxCache', { total: config.maxCacheNum }), 'warning');
           return redirect(next, false);
@@ -82,7 +87,7 @@ router.beforeEach(async (to, from, next) => {
 });
 
 router.afterEach((to) => {
-  const title: string = to.meta?.title ?? '404';
+  const title: string = (to.meta?.title as string) ?? '404';
   document.title = `${config.systemName}-${title}`;
   NProgress.done();
   if (whiteList.includes(to.path) || title === '404') return;

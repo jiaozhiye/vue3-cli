@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2020-03-10 20:01:17
+ * @Last Modified time: 2021-03-22 17:32:56
  */
 import Mock from 'mockjs';
 
@@ -21,8 +21,8 @@ export default {
         'jcsl|1-50': 1,
         kq: 'A02',
         kw: 'B22',
-        xz: '免费'
-      }
+        xz: '免费',
+      },
     ],
     ckdh: 'DA4129405623',
     dydh: '9-A234672345',
@@ -33,6 +33,6 @@ export default {
     flr: '张三',
     kgy: '李四',
     llr: '王五',
-    desc: '没有问题订单，已关闭'
-  })
+    desc: '没有问题订单，已关闭',
+  }),
 };
