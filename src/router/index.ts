@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:53:34
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-03-23 15:27:29
+ * @Last Modified time: 2021-03-23 17:28:46
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import config from '@/config';
@@ -50,6 +50,7 @@ const routes: Array<RouteRecordRaw> = [
         path: '/404',
         meta: { title: '404' },
         component: Nomatch,
+        hidden: true,
       },
     ],
   },

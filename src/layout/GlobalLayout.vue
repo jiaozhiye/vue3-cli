@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 11:05:12
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-15 20:30:03
+ * @Last Modified time: 2021-03-23 18:01:19
  */
 import { defineComponent } from 'vue';
 import { JSXNode } from '@/utils/types';
@@ -65,6 +65,7 @@ export default defineComponent({
           <el-main class={containerCls}>
             {config.showBreadcrumb && <Breadcrumb />}
             <div class="route-view">{this.$slots.default()}</div>
+            <div class="watermark"></div>
           </el-main>
         </el-container>
       </el-container>
@@ -87,11 +88,24 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     padding: 0;
+    position: relative;
     overflow-x: hidden;
     .route-view {
       flex: 1;
       padding: 10px 10px 0;
       box-sizing: border-box;
+    }
+    .watermark {
+      z-index: 9;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      background-size: 332px;
+      pointer-events: none;
+      background-repeat: repeat;
+      background-image: url(../assets/img/watermark.png);
     }
     &.bg-color {
       background-color: $backgroundColorSecondary;
