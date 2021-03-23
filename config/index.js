@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 18:52:52
+ * @Last Modified time: 2021-03-23 13:24:03
  */
 'use strict';
 const path = require('path');
@@ -14,7 +14,7 @@ const PORT = 9020;
 module.exports = {
   moduleName: 'app', // 模块名
 
-  primaryColor: '#0d74b5', // 主题色
+  primaryColor: '#409eff', // 主题色
 
   dev: {
     // Paths
