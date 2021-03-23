@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:02:14
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 00:19:14
+ * @Last Modified time: 2021-03-23 15:28:30
  */
 import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
@@ -243,19 +243,19 @@ export default defineComponent({
             class="contextmenu el-dropdown-menu--small"
             style={{ left: `${this.position.x + 10}px`, top: `${this.position.y + 2}px` }}
           >
-            <el-dropdown-item nativeOnClick={this.refreshTagHandle}>
+            <li class="el-dropdown-menu__item" onClick={this.refreshTagHandle}>
               {this.$t('app.multiTab.refresh')}
-            </el-dropdown-item>
-            <el-dropdown-item nativeOnClick={() => this.closeTagHandle('right')}>
+            </li>
+            <li class="el-dropdown-menu__item" onClick={() => this.closeTagHandle('right')}>
               {this.$t('app.multiTab.closeRight')}
-            </el-dropdown-item>
-            <el-dropdown-item nativeOnClick={() => this.closeTagHandle('left')}>
+            </li>
+            <li class="el-dropdown-menu__item" onClick={() => this.closeTagHandle('left')}>
               {this.$t('app.multiTab.closeLeft')}
-            </el-dropdown-item>
+            </li>
             {this.pages.length > 1 && (
-              <el-dropdown-item nativeOnClick={this.closeOtherTagHandle}>
+              <li class="el-dropdown-menu__item" onClick={this.closeOtherTagHandle}>
                 {this.$t('app.multiTab.closeOthers')}
-              </el-dropdown-item>
+              </li>
             )}
           </ul>
         )}

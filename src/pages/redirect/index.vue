@@ -1,5 +1,5 @@
 <script>
-import { defineComponent, h } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'Redirect',
@@ -10,7 +10,7 @@ export default defineComponent({
     this.$router.replace({ path: `/${path}`, query });
   },
   render() {
-    return h();
+    return null;
   },
 });
 </script>
