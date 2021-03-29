@@ -29,7 +29,7 @@
     "add-dom-event-listener": "^1.1.0",
     "axios": "^0.21.1",
     "dayjs": "^1.10.4",
-    "element-plus": "^1.0.2-beta.35",
+    "element-plus": "^1.0.2-beta.36",
     "js-cookie": "^2.2.1",
     "lodash-es": "^4.17.20",
     "mockjs": "^1.1.0",

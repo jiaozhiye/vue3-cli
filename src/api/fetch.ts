@@ -51,7 +51,7 @@ const removePending = (config): void => {
 const instance = axios.create({
   baseURL: config.baseUrl,
   timeout: 1000 * 20,
-  withCredentials: true, // 跨域请求时是否需要使用凭证
+  withCredentials: true, // 跨域请求是否携带 cookie
   paramsSerializer: (params): string => {
     // 序列化 GET 请求参数 -> a: [1, 2] => a[0]=1&a[1]=2
     return qs.stringify(params, { arrayFormat: 'indices' });
