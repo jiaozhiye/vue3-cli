@@ -181,7 +181,7 @@ const actions = {
     } else {
       const res: any = await getStarMenuList({});
       if (res.code === 200) {
-        data = res.data ?? [];
+        data = res.data?.filter((x) => state.menuList.some((k) => k.key === x.key)) ?? [];
       }
     }
     commit({ type: types.STAR_MENU, data });
@@ -197,7 +197,7 @@ const actions = {
     } else {
       const res: any = await getCommonMenuList({});
       if (res.code === 200) {
-        data = res.data ?? [];
+        data = res.data?.filter((x) => state.menuList.some((k) => k.key === x.key)) ?? [];
       }
     }
     commit({ type: types.COMMON_MENU, data });
