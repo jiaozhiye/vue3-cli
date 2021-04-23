@@ -64,7 +64,7 @@
       </div>
       <template v-slot:reference>
         <span class="avatar">
-          <img class="img" :src="weChatAvatar || info.profileUrl || avatarImg" />
+          <img class="img" :src="weChatAvatar || info.profileUrl || avatarImg" alt="" />
         </span>
       </template>
     </el-popover>
@@ -76,13 +76,12 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:01:08
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 16:13:16
+ * @Last Modified time: 2021-04-23 14:13:45
  */
 import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
 import { getUserName, getWechatAvatar } from '@/utils/cookies';
 import { getUserInfo } from '@/api/application';
-
 import { currentSize } from '@/mixins/sizeMixin';
 
 export default defineComponent({

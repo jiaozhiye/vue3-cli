@@ -3,9 +3,6 @@
     <div class="container">
       <h2>404</h2>
       <div class="desc">{{ $t('app.global.noMatch') }}</div>
-      <!-- <div class="actions">
-        <el-button type="primary" @click="goHome">{{ $t('login.backHome') }}</el-button>
-      </div> -->
     </div>
   </div>
 </template>
@@ -15,11 +12,6 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'Nomatch',
-  methods: {
-    goHome() {
-      this.$router.push({ path: '/' });
-    },
-  },
 });
 </script>
 
@@ -35,17 +27,15 @@ export default defineComponent({
     margin-top: -10vh;
     margin-left: 50vw;
     h2 {
-      margin-bottom: 24px;
-      color: #434e59;
+      margin-bottom: 20px;
+      color: $textColor;
       font-weight: 600;
       font-size: 72px;
-      line-height: 72px;
     }
     .desc {
       margin-bottom: 16px;
-      color: $textColorSecondary;
       font-size: 20px;
-      line-height: 28px;
+      color: $textColorSecondary;
     }
   }
 }

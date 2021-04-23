@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-03-23 13:51:25
+ * @Last Modified time: 2021-04-23 14:05:41
  */
 import { uniqWith, isEqual } from 'lodash-es';
 import * as types from '../types';
@@ -97,7 +97,6 @@ const state = {
 
 // actions
 const actions = {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   createLoginInfo({ commit, state }, params): void {
     setToken(params.token);
     params.gray && setGray(params.gray);
@@ -108,7 +107,6 @@ const actions = {
       data: { name: params.name, dealerName: params.vDealerName },
     });
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   createLogout({ dispatch, commit, state }, params): void {
     removeToken();
     removeGray();
@@ -125,14 +123,12 @@ const actions = {
       setTimeout(() => (window.location.href = '/login'), 300);
     }
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   createWeChat({ commit, state }, params): void {
     commit({
       type: types.WECHAT,
       data: params || {},
     });
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async createNavList({ dispatch, commit, state }, params): Promise<boolean> {
     if (state.navList.length) {
       return !1;
@@ -162,7 +158,6 @@ const actions = {
     // return bool
     return !0;
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   clearNavList({ dispatch, commit, state }, params): void {
     commit({
       type: types.NAVLIST,
@@ -170,7 +165,6 @@ const actions = {
     });
     dispatch('createTabNavList', []);
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async createStarMenuList({ commit, state }, params): Promise<void> {
     if (state.starMenuList.length) return;
     let data = [];
@@ -186,7 +180,6 @@ const actions = {
     }
     commit({ type: types.STAR_MENU, data });
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async createCommonMenuList({ commit, state }, params): Promise<void> {
     if (state.commonMenuList.length) return;
     let data = [];
@@ -202,7 +195,6 @@ const actions = {
     }
     commit({ type: types.COMMON_MENU, data });
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   createTabNavList({ commit, state }, params): void {
     const routes = params.filter((x) => x.key !== '/404');
     commit({
@@ -211,11 +203,9 @@ const actions = {
     });
     localStorage.setItem('tab_nav', JSON.stringify(routes));
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   checkAuthority({ commit, state }, params: string): boolean {
     return state.menuList.some((x) => x.key === params);
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async createDictData({ commit, state }, params): Promise<void> {
     if (Object.keys(state.dict).length) return;
     let data: Record<string, Array<Dictionary>> = {};
@@ -239,7 +229,6 @@ const actions = {
     // vuex 状态存储
     commit({ type: types.DICT_DATA, data });
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async createMenuRecord({ commit, state }, params): Promise<void> {
     if (process.env.MOCK_DATA === 'true') return;
     await createMenuPoint({ vpath: params.path, vcaseName: params.title });
@@ -251,35 +240,30 @@ const actions = {
       data: params,
     });
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   removeKeepAliveCache({ commit, state }, params: string): void {
     commit({
       type: types.DEL_CACHE,
       data: params,
     });
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   clearKeepAliveCache({ commit, state }, params): void {
     commit({
       type: types.CLEAR_CACHE,
       data: [],
     });
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   createIframeList({ commit, state }, params): void {
     commit({
       type: types.IFRAME_NAVLIST,
       data: params,
     });
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   addStarMenuList({ commit, state }, params): void {
     commit({
       type: types.ADD_STAR_MENU,
       data: params,
     });
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   removeStarMenuList({ commit, state }, params: string): void {
     commit({
       type: types.DEL_STAR_MENU,
@@ -330,7 +314,6 @@ const actions = {
       data: params,
     });
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   createElementSize({ commit, state }, params): void {
     const _ctx: any = params.ctx;
     const _size: ComponentSize = params.size;
@@ -338,7 +321,6 @@ const actions = {
       _ctx.$ELEMENT.size = SizeEnum[_size];
     }
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   emitThemeColor({ commit, state }, params: string): void {
     state.iframeList.forEach((x) => {
       const $iframe: HTMLIFrameElement = document.getElementById(x.key) as HTMLIFrameElement;
@@ -346,7 +328,6 @@ const actions = {
       $iframe.contentWindow?.postMessage({ type: 'theme', data: params }, '*');
     });
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   createThemeColor({ commit, state }, params: string): void {
     const options = {
       newColors: [...forElementUI.getElementUISeries(params), params],
