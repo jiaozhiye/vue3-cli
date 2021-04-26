@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 16:11:23
+ * @Last Modified time: 2021-04-26 13:23:26
  */
 import { defineComponent } from 'vue';
 import variables from '@/assets/css/variables.scss';
@@ -47,17 +47,17 @@ export default defineComponent({
       return arr
         .filter((x) => !x.hideInMenu)
         .map((item, index) => {
-          let { title, icon } = item;
-          let key = item.key ?? '';
+          const { title, icon } = item;
+          const href: string = item.key ?? '';
           // 判断是否为 http 链接
-          const httpLink = /^https?:\/\//.test(key);
+          const httpLink = /^https?:\/\//.test(href);
           const menuItemNode = !httpLink ? (
             <>
               {icon && <i class={`iconfont ${icon}`} />}
-              <span title={title}>{title}</span>
+              <span>{title}</span>
             </>
           ) : (
-            <a href={key} title={title} target="_blank">
+            <a href={href} target="_blank">
               {icon && <i class={`iconfont ${icon}`} />}
               <span>{item.title}</span>
             </a>
@@ -79,7 +79,8 @@ export default defineComponent({
           return (
             <el-menu-item
               key={uniqueKey}
-              index={!httpLink ? key : ''}
+              index={!httpLink ? href : ''}
+              title={title}
               v-slots={{
                 title: () => menuItemNode,
               }}
@@ -94,8 +95,8 @@ export default defineComponent({
   render() {
     const { collapsed, syncActive, selectedKey, defaultOpenedKeys, variables } = this;
     const wrapProps = {
-      collapse: collapsed,
       router: true,
+      collapse: collapsed,
       collapseTransition: false,
       backgroundColor: variables.menuBg,
       textColor: variables.menuText,
