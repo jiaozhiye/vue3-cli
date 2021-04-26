@@ -79,7 +79,7 @@ export default defineComponent({
           return (
             <el-menu-item
               key={uniqueKey}
-              index={!httpLink ? href : ''}
+              index={!httpLink ? href : '/'}
               title={title}
               v-slots={{
                 title: () => menuItemNode,
