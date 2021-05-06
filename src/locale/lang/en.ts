@@ -71,7 +71,9 @@ export default {
         503: '服务不可用，服务器暂时过载或维护。',
         504: '网关超时。',
       },
-      errorText: '网络连接错误，请检查网络。',
+      errorText: '请求超时。',
+      lockText: '锁定请求。',
+      cancelText: '取消请求。',
     },
     information: {
       title: '提示信息',
