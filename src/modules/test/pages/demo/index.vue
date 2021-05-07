@@ -1,5 +1,5 @@
 <template>
-  <div>1234 {{ $t('demo.label1') }}</div>
+  <div>12345 {{ $t('demo.label1') }}</div>
 </template>
 
 <script>
