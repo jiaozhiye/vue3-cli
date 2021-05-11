@@ -1,5 +1,8 @@
 <template>
-  <div>12345 {{ $t('demo.label1') }}</div>
+  <div>
+    <qm-button type="primary"><i class="iconfont icon-info-circle" /> qm Button</qm-button>
+    <el-button icon="el-icon-edit">el Button</el-button>
+  </div>
 </template>
 
 <script>

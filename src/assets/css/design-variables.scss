@@ -1,0 +1,12 @@
+/*
+ * @Author: 焦质晔
+ * @Date: 2021-05-11 15:49:56
+ * @Last Modified by: 焦质晔
+ * @Last Modified time: 2021-05-11 16:18:48
+ */
+$primary-color: $primaryColor;
+
+/* 改变 icon 字体路径变量，必需 */
+$font-path: '~@jiaozhiye/qm-design/lib/style/fonts';
+
+@import '@jiaozhiye/qm-design/lib/style/src/index';
