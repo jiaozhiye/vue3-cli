@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-03-17 12:05:59
+ * @Last Modified time: 2021-05-12 22:31:53
  */
 'use strict';
 
@@ -27,10 +27,8 @@ const createModuleRemotes = () => {
 };
 
 module.exports = {
-  context: utils.resolve('/'),
   entry: {
-    // 'core-js/modules/es.array.iterator' -> https://github.com/babel/babel/issues/9872
-    app: ['core-js/modules/es.array.iterator', utils.resolve('src/index.ts')],
+    app: utils.resolve('src/index.ts'),
   },
   output: {
     path: config.build.assetsRoot,
@@ -59,7 +57,6 @@ module.exports = {
       '@common': utils.resolve('src/modules/common'),
     },
     fallback: {
-      path: false,
       crypto: false,
       stream: false,
       buffer: false,
@@ -143,10 +140,8 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        ENV_CONFIG: JSON.stringify(process.env.ENV_CONFIG),
-      },
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env.ENV_CONFIG': JSON.stringify(process.env.ENV_CONFIG),
       __VUE_OPTIONS_API__: JSON.stringify(true),
       __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
     }),
@@ -163,7 +158,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: config.moduleName,
       remotes: createModuleRemotes(),
-      shared: ['vue', 'vue-router', 'vuex'],
+      shared: ['vue', 'vuex', 'vue-router'],
     }),
   ],
 };

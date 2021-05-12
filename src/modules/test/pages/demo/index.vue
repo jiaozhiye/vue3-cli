@@ -1,15 +1,101 @@
 <template>
   <div>
-    <qm-button type="primary" icon="iconfont icon-info-circle">qm Button</qm-button>
-    <el-button type="primary" icon="el-icon-edit">el Button</el-button>
+    <qm-form
+      ref="filter"
+      uniqueKey="jzy_Demo1"
+      formType="search"
+      :list="filterList"
+      :fieldsChange="(items) => (this.filterList = items)"
+      @finish="onFinish"
+    />
+    <qm-table
+      ref="table"
+      uniqueKey="jzy_Demo2"
+      :height="500"
+      :columns="columns"
+      :dataSource="list"
+      :rowKey="(row) => row.id"
+      webPagination
+      :columnsChange="(columns) => (this.columns = columns)"
+    />
   </div>
 </template>
 
 <script>
-import { language } from '@/mixins/langMixin'; // 多语言 - mep 没有多语言功能
-import './lang'; // mep 没有多语言功能
+import './lang'; // 多语言
+import { getTableData } from '@test/api/demo';
+import tableData from '@/mock/tableData';
+
 export default {
   name: 'Demo',
-  mixins: [language],
+  data() {
+    return {
+      list: tableData.data.items,
+      filterList: this.createFilterList(),
+      columns: this.createTableColumns(),
+    };
+  },
+  methods: {
+    createFilterList() {
+      return [
+        {
+          type: 'INPUT',
+          label: this.$t('demo.label1'),
+          fieldName: 'a',
+        },
+        {
+          type: 'INPUT',
+          label: '条件2',
+          fieldName: 'b',
+        },
+        {
+          type: 'INPUT',
+          label: '条件3',
+          fieldName: 'c',
+        },
+        {
+          type: 'INPUT',
+          label: '条件4',
+          fieldName: 'd',
+        },
+        {
+          type: 'INPUT',
+          label: '条件5',
+          fieldName: 'e',
+        },
+      ];
+    },
+    createTableColumns() {
+      return [
+        {
+          title: '操作',
+          dataIndex: '__action__', // 操作列的 dataIndex 的值不能改
+          fixed: 'left',
+          width: 100,
+          render: (text, row) => {
+            return (
+              <div>
+                <el-button type="text">编辑</el-button>
+                <el-button type="text">查看</el-button>
+              </div>
+            );
+          },
+        },
+        {
+          title: '序号',
+          description: '数据索引',
+          dataIndex: 'pageIndex',
+          width: 80,
+          sorter: true,
+          render: (text) => {
+            return text + 1;
+          },
+        },
+      ];
+    },
+    onFinish(val) {
+      console.log(123, val);
+    },
+  },
 };
 </script>

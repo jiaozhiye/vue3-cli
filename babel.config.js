@@ -12,8 +12,7 @@ module.exports = {
   plugins: [
     '@vue/babel-plugin-jsx',
     '@babel/plugin-transform-runtime',
-    '@babel/plugin-syntax-dynamic-import',
-    ['@babel/plugin-proposal-private-methods', { loose: false }],
     '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-syntax-dynamic-import',
   ],
 };

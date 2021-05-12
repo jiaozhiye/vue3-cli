@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:02:43
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-11 16:21:21
+ * @Last Modified time: 2021-05-12 23:09:23
  */
 import { App } from 'vue';
 import i18n from '@/locale';
@@ -12,7 +12,7 @@ import '@/router/permission';
 
 import { SizeEnum } from '@/utils/types';
 
-import QmDesign from '@jiaozhiye/qm-design';
+import QmDesign from '@jiaozhiye/qm-design/lib/index.esm';
 import '@/assets/css/design-variables.scss';
 
 import CustomComps from '../components';
