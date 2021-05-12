@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-04-23 14:05:41
+ * @Last Modified time: 2021-05-11 16:51:20
  */
 import { uniqWith, isEqual } from 'lodash-es';
 import * as types from '../types';
@@ -317,8 +317,12 @@ const actions = {
   createElementSize({ commit, state }, params): void {
     const _ctx: any = params.ctx;
     const _size: ComponentSize = params.size;
+    // 重置 element-plus 合 qm-design 的 size
     if (hasOwn(_ctx, '$ELEMENT')) {
       _ctx.$ELEMENT.size = SizeEnum[_size];
+    }
+    if (hasOwn(_ctx, '$DESIGN')) {
+      _ctx.$DESIGN.size = SizeEnum[_size];
     }
   },
   emitThemeColor({ commit, state }, params: string): void {

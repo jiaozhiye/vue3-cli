@@ -14,8 +14,10 @@
 
 .iconfont {
   font-family: 'iconfont' !important;
-  font-size: $textSize;
   font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

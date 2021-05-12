@@ -1,7 +1,7 @@
 <template>
   <div>
-    <qm-button type="primary"><i class="iconfont icon-info-circle" /> qm Button</qm-button>
-    <el-button icon="el-icon-edit">el Button</el-button>
+    <qm-button type="primary" icon="iconfont icon-info-circle">qm Button</qm-button>
+    <el-button type="primary" icon="el-icon-edit">el Button</el-button>
   </div>
 </template>
 

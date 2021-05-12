@@ -1,7 +1,7 @@
 {
   "name": "vue3-cli",
-  "version": "0.1.0",
-  "author": "jiaohziye",
+  "version": "1.0.0",
+  "author": "jiaozhiye",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -27,12 +27,12 @@
     ]
   },
   "dependencies": {
-    "@jiaozhiye/qm-design": "^1.0.0-beta.3",
+    "@jiaozhiye/qm-design": "^1.0.0-beta.4",
     "add-dom-event-listener": "^1.1.0",
     "axios": "^0.21.1",
     "dayjs": "^1.10.4",
     "js-cookie": "^2.2.1",
-    "lodash-es": "^4.17.20",
+    "lodash-es": "^4.17.21",
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
     "screenfull": "^5.1.0",
