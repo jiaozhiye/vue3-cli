@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 20:40:51
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 11:28:53
+ * @Last Modified time: 2021-05-13 14:15:04
  */
 /**
  * public
@@ -103,4 +103,16 @@ textarea:-ms-input-placeholder {
 
 .iframe {
   padding: 10px 10px 0 !important;
+}
+
+.fixed-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9;
+  border-top: 1px solid $borderColor;
+  padding: $modulePadding $modulePadding + 5px;
+  background: #fff;
+  text-align: right;
 }

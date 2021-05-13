@@ -2,12 +2,17 @@
  * @Author: 焦质晔
  * @Date: 2020-04-23 15:16:36
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 21:44:32
+ * @Last Modified time: 2021-05-13 13:54:34
  */
 .el-notification {
   a {
     color: $errorColor;
     text-decoration: underline;
+  }
+}
+.el-popconfirm {
+  .el-popconfirm__main {
+    margin-bottom: 10px;
   }
 }
 .el-menu {
@@ -20,11 +25,6 @@
 .el-button {
   .iconfont {
     margin-right: 5px;
-  }
-  &--mini {
-    .iconfont {
-      font-size: inherit;
-    }
   }
   &.el-button--text {
     border: 0;

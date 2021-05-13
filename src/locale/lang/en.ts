@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:18:02
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 10:03:26
+ * @Last Modified time: 2021-05-13 12:24:03
  */
 export default {
   name: 'en',
@@ -13,6 +13,7 @@ export default {
       dashboard: '概览',
       emptyText: '暂无数据',
       noMatch: '抱歉，你访问的页面不存在或仍在开发中',
+      errorLoad: 'Loading error. Please refresh the page and try again',
     },
     sidebar: {
       allNavTitle: 'All Nav',
