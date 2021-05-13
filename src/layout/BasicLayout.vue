@@ -3,10 +3,11 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-15 20:31:08
+ * @Last Modified time: 2021-05-13 11:10:52
  */
 import { defineComponent, KeepAlive } from 'vue';
 import { mapState, mapActions } from 'vuex';
+import { RouterView } from 'vue-router';
 import { JSXNode } from '@/utils/types';
 import GlobalLayout from './GlobalLayout';
 import config from '@/config';
@@ -57,10 +58,10 @@ export default defineComponent({
       <GlobalLayout>
         {/* <transition name="fade-transform" mode="out-in"> */}
         {/* <keep-alive include={this.cachedNames} max={config.maxCacheNum}> */}
-        {/* <router-view key={this.key} /> */}
+        {/* <RouterView key={this.key} /> */}
         {/* </keep-alive> */}
         {/* </transition> */}
-        <router-view
+        <RouterView
           v-slots={{
             // 作用域插槽，结构参数 Component
             default: ({ Component: C }): JSXNode => (

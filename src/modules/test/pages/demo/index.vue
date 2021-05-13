@@ -2,16 +2,17 @@
   <div>
     <qm-form
       ref="filter"
-      uniqueKey="jzy_Demo1"
+      uniqueKey="jzy_Demo"
       formType="search"
       :list="filterList"
       :fieldsChange="(items) => (this.filterList = items)"
+      @collapse="this.onCollapseChange"
       @finish="onFinish"
     />
     <qm-table
       ref="table"
-      uniqueKey="jzy_Demo2"
-      :height="500"
+      uniqueKey="jzy_Demo"
+      height="auto"
       :columns="columns"
       :dataSource="list"
       :rowKey="(row) => row.id"
@@ -95,6 +96,9 @@ export default {
     },
     onFinish(val) {
       console.log(123, val);
+    },
+    onCollapseChange() {
+      this.$refs[`table`].CALCULATE_HEIGHT();
     },
   },
 };

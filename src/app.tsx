@@ -2,10 +2,11 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 14:04:39
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-03-22 17:27:09
+ * @Last Modified time: 2021-05-13 11:09:50
  */
 import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
+import { RouterView } from 'vue-router';
 import { changeLocale } from '@/locale';
 
 import '@/assets/css/reset.scss';
@@ -46,6 +47,6 @@ export default defineComponent({
     },
   },
   render() {
-    return <router-view />;
+    return <RouterView />;
   },
 });
