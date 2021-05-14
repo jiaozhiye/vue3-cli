@@ -50,19 +50,16 @@ export default defineComponent({
       this.activeKey = path;
       this.addKeepAlive(val);
       if (!this.pathList.includes(this.activeKey)) {
-        this.pages.push(val);
+        this.pages = [...this.pages, val];
       }
     },
-    pages: {
-      handler(val) {
-        this.createTabNavList(val.map((x) => ({ key: x.path, title: x.meta.title })));
-        this.createIframeList(
-          val
-            .filter((x) => !!x.meta.iframeRoutePath)
-            .map((x) => ({ key: x.path, value: x.meta.iframeRoutePath }))
-        );
-      },
-      immediate: true,
+    pages(val) {
+      this.createTabNavList(val.map((x) => ({ key: x.path, title: x.meta.title })));
+      this.createIframeList(
+        val
+          .filter((x) => !!x.meta.iframeRoutePath)
+          .map((x) => ({ key: x.path, value: x.meta.iframeRoutePath }))
+      );
     },
   },
   created() {
