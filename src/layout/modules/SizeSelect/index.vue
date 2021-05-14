@@ -38,7 +38,7 @@ export default defineComponent({
     ...mapState('app', ['size']),
   },
   methods: {
-    ...mapActions('app', ['setSize', 'createElementSize', 'clearKeepAliveCache', 'refreshView']),
+    ...mapActions('app', ['setSize', 'createElementSize', 'refreshView']),
     languageChangeHandle(size) {
       this.setSize(size);
       this.createElementSize({ ctx: this, size });
@@ -46,7 +46,6 @@ export default defineComponent({
       // 浏览器刷新，重新获取数据
       // window.history.go(0);
       // 重新加载路由页面
-      this.clearKeepAliveCache();
       this.refreshView({ path: this.$route.path });
     },
   },
