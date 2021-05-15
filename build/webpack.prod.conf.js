@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 08:44:32
+ * @Last Modified time: 2021-05-15 12:04:05
  */
 'use strict';
 
@@ -25,7 +25,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
   output: {
     filename: utils.assetsPath('js/[name].[contenthash:8].js'),
-    chunkFilename: utils.assetsPath('js/[name].[contenthash:8].js'),
+    chunkFilename: utils.assetsPath('js/[name].[contenthash:8].chunk.js'),
   },
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   module: {
@@ -78,7 +78,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // extract css into its own file
     new MiniCssExtractPlugin({
       filename: utils.assetsPath('css/[name].[contenthash:8].css'),
-      chunkFilename: utils.assetsPath('css/[name].[contenthash:8].css'),
+      chunkFilename: utils.assetsPath('css/[name].[contenthash:8].chunk.css'),
     }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
