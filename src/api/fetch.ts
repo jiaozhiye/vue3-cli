@@ -91,7 +91,7 @@ const removeLockingRequest = (config: IRequestConfig): void => {
 const instance: IAxiosInstance = axios.create({
   baseURL: config.baseUrl,
   timeout: 1000 * 20,
-  withCredentials: true, // 跨域请求是否携带 cookie
+  withCredentials: false, // 跨域请求是否携带 cookie
   paramsSerializer: (params): string => {
     // 序列化 GET 请求参数 -> a: [1, 2] => a[0]=1&a[1]=2
     return qs.stringify(params, { arrayFormat: 'indices' });
