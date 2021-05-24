@@ -25,7 +25,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
   output: {
     filename: utils.assetsPath('js/[name].[contenthash:8].js'),
-    chunkFilename: utils.assetsPath('js/[name].[contenthash:8].chunk.js'),
+    chunkFilename: utils.assetsPath('js/[name].[contenthash:8].js'),
   },
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   module: {
@@ -78,7 +78,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // extract css into its own file
     new MiniCssExtractPlugin({
       filename: utils.assetsPath('css/[name].[contenthash:8].css'),
-      chunkFilename: utils.assetsPath('css/[name].[contenthash:8].chunk.css'),
+      chunkFilename: utils.assetsPath('css/[name].[contenthash:8].css'),
     }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
