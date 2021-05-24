@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-12 22:31:53
+ * @Last Modified time: 2021-05-17 10:11:40
  */
 'use strict';
 
@@ -21,7 +21,7 @@ const forElementUI = require('webpack-custom-theme/forElementUI');
 const createModuleRemotes = () => {
   const result = {};
   // 规则：子模块: 子模块@域名:端口号/remoteEntry.js
-  // part: `part@${subEnv.part}/remoteEntry.js`
+  // dms: `dms@${subEnv.dms}/remoteEntry.js`
   Object.keys(subEnv).forEach((key) => (result[key] = `${key}@${subEnv[key]}/remoteEntry.js`));
   return result;
 };

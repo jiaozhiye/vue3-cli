@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-11 16:51:20
+ * @Last Modified time: 2021-05-24 13:12:26
  */
 import { uniqWith, isEqual } from 'lodash-es';
 import * as types from '../types';
@@ -116,12 +116,8 @@ const actions = {
       data: {},
     });
     dispatch('clearNavList');
-    if (process.env.NODE_ENV === 'development') {
-      router.push({ path: '/login' });
-    } else {
-      // 刷新浏览器，释放内存
-      setTimeout(() => (window.location.href = '/login'), 300);
-    }
+    // 刷新浏览器，释放内存
+    setTimeout(() => (window.location.href = '/login'), 300);
   },
   createWeChat({ commit, state }, params): void {
     commit({

@@ -22,10 +22,10 @@ type INavItem = {
 };
 
 // 访问白名单
-const whiteList: string[] = ['/login', '/wechat'];
+const whiteList: string[] = ['/login', '/iframe', '/wechat'];
 
 // 权限白名单
-const whiteAuth: string[] = ['/home', '/iframe', '/redirect', '/404', '/test'];
+const whiteAuth: string[] = ['/home', '/redirect', '/404', '/test'];
 
 // 路由重定向
 const redirect = (next, path): void => {
@@ -44,7 +44,7 @@ const isLogin = (): boolean => {
 
 // iframe 判断
 const isIframe = (path: string): boolean => {
-  return path.startsWith(whiteAuth[1]);
+  return path.startsWith(whiteList[1]);
 };
 
 router.beforeEach(async (to, from, next) => {
@@ -73,10 +73,8 @@ router.beforeEach(async (to, from, next) => {
       }
     }
   } else {
-    // 没有登录，清空菜单数据
-    store.dispatch('app/clearNavList');
     // 白名单，直接进入
-    if (whiteList.includes(to.path)) {
+    if (whiteList.some((x) => to.path.startsWith(x))) {
       next();
     } else {
       process.env.ENV_CONFIG === 'gray'
@@ -90,7 +88,7 @@ router.afterEach((to) => {
   const title: string = (to.meta?.title as string) ?? '404';
   document.title = `${config.systemName}-${title}`;
   NProgress.done();
-  if (whiteList.includes(to.path) || title === '404') return;
+  if (whiteList.some((x) => to.path.startsWith(x)) || title === '404') return;
   if (!config.openBuryPoint) return;
   // 菜单埋点
   store.dispatch('app/createMenuRecord', { path: to.path, title });

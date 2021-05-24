@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 21:38:08
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-13 13:11:13
+ * @Last Modified time: 2021-05-24 13:08:10
  */
 import { defineAsyncComponent } from 'vue';
 import ErrorComponent from '@/pages/errorLoad';
@@ -27,16 +27,21 @@ export default {
       component: getAsyncComponent(() =>
         import(/* webpackChunkName: "test/demo" */ '@test/pages/demo/index')
       ),
+      // import 参数：子模块/导出得组件名
+      // component: getAsyncComponent(() => import('dms/spa1001')),
     },
     // {
     //   path: '/bjgl/cggl/dd',
     //   meta: { iframeRoutePath: '/iframe/bjgl/cggl/dd' }
     // },
-    // {
-    //   path: '/bjgl/cggl/rk',
-    //   meta: { keepAlive: true },
-    //   component: () => import(/* webpackChunkName: "test/demo2" */ '@test/pages/demo/index2'),
-    // },
+    {
+      path: '/bjgl/cggl/rk',
+      meta: { keepAlive: true },
+      component: getAsyncComponent(() =>
+        import(/* webpackChunkName: "test/demo2" */ '@test/pages/demo/index2')
+      ),
+      // component: getAsyncComponent(() => import('tds/svc1001')),
+    },
     // {
     //   path: '/bjgl/cggl/tk',
     //   meta: { keepAlive: true },

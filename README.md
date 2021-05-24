@@ -34,7 +34,8 @@ $ npm run build
 | 应用名 | 说明       | 域名      | 端口号 |
 | ------ | ---------- | --------- | ------ |
 | app    | 主机应用   | localhost | 9020   |
-| part   | 备件子应用 | localhost | 9021   |
+| dms    | DMS 子应用 | localhost | 9021   |
+| tds    | TDS 子应用 | localhost | 9022   |
 
 1. 架构 维护 config/sub.env.js 文件(子应用注册)
 2. 业务 维护 src/modules/\*\*/index.route.js 路由文件(子应用路由表注册)

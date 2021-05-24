@@ -2,25 +2,30 @@
  * @Author: 焦质晔
  * @Date: 2020-12-03 09:16:26
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-01-17 17:35:10
+ * @Last Modified time: 2021-05-17 14:45:05
  */
 const config = {
   dev: {
     // 格式：子模块: 域名+端口号
-    part: 'http://localhost:9021'
+    dms: 'http://localhost:9021',
+    tds: 'http://localhost:9022',
   },
   tst: {
-    part: '/'
+    dms: '/',
+    tds: '/',
   },
   uat: {
-    part: '/'
+    dms: '/',
+    tds: '/',
   },
   pre: {
-    part: '/'
+    dms: '/',
+    tds: '/',
   },
   prod: {
-    part: 'http://localhost:9021'
-  }
+    dms: 'http://localhost:9021',
+    tds: 'http://localhost:9022',
+  },
 };
 
 module.exports = config[process.env.ENV_CONFIG] || config[`prod`];

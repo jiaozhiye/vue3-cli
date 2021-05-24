@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-04-23 14:30:41
+ * @Last Modified time: 2021-05-17 14:46:42
  */
 'use strict';
 const path = require('path');
@@ -63,7 +63,9 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath:
-      process.env.ENV_CONFIG === 'gray' ? 'http://localhost:9020/gray/' : 'http://localhost:9020/',
+      process.env.ENV_CONFIG === 'gray'
+        ? `http://localhost:${PORT}/gray/`
+        : `http://localhost:${PORT}/`,
 
     // Source Maps
     productionSourceMap: false,
