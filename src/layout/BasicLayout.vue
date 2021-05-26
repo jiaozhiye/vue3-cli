@@ -3,11 +3,12 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-13 11:10:52
+ * @Last Modified time: 2021-05-26 18:40:2110:52
  */
 import { defineComponent, KeepAlive } from 'vue';
 import { mapState, mapActions } from 'vuex';
 import { RouterView } from 'vue-router';
+import { start } from 'qiankun';
 import { JSXNode } from '@/utils/types';
 import GlobalLayout from './GlobalLayout';
 import config from '@/config';
@@ -37,6 +38,19 @@ export default defineComponent({
     window.$$refresh = this.refreshView;
     // 子窗口
     // window.parent.$$refresh({ path: window.parent.location.pathname });
+    if (!(window as any).qiankunStarted) {
+      (window as any).qiankunStarted = true;
+      start({
+        fetch(url, ...args) {
+          if ((url as string).includes('CLodopfuncs.js')) {
+            return Promise.resolve({
+              text: () => '',
+            });
+          }
+          return window.fetch(url, ...args);
+        },
+      });
+    }
   },
   methods: {
     ...mapActions('app', [
@@ -72,6 +86,7 @@ export default defineComponent({
           }}
         />
         {this.createIframeView()}
+        <div id="container"></div>
       </GlobalLayout>
     );
   },

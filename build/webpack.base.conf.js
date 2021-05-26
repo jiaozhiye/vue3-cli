@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-17 10:11:40
+ * @Last Modified time: 2021-05-26 11:16:25
  */
 'use strict';
 
@@ -155,10 +155,10 @@ module.exports = {
       changeSelector: forElementUI.changeSelector,
       isJsUgly: process.env.NODE_ENV === 'production',
     }),
-    new ModuleFederationPlugin({
-      name: config.moduleName,
-      remotes: createModuleRemotes(),
-      shared: ['vue', 'vuex', 'vue-router'],
-    }),
+    // new ModuleFederationPlugin({
+    //   name: config.moduleName,
+    //   remotes: createModuleRemotes(),
+    //   shared: ['vue', 'vuex', 'vue-router'],
+    // }),
   ],
 };

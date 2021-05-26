@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 20:11:18
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-03-22 17:31:15
+ * @Last Modified time: 2021-05-26 15:37:29
  */
 import router from '@/router';
 import store from '@/store';
@@ -56,6 +56,7 @@ router.beforeEach(async (to, from, next) => {
       if (!store.state.app.navList.length) {
         // 通过 vuex 管理导航数据
         const bool: boolean = await store.dispatch('app/createNavList');
+        // next(`/login?redirect=${to.path}`)
         bool ? next({ ...to, replace: true }) : redirect(next, false);
       } else {
         const tabNavList: INavItem[] = store.state.app.tabNavList;

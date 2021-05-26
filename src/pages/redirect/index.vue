@@ -1,13 +1,15 @@
 <script>
 import { defineComponent } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'Redirect',
   beforeCreate() {
-    const { params, query } = this.$route;
+    const { params, query } = useRoute();
     const { path } = params;
-    // refresh view
-    this.$router.replace({ path: `/${path}`, query });
+    useRouter()
+      .replace({ path: `/${path}`, query })
+      .catch((err) => console.warn(err));
   },
   render() {
     return null;

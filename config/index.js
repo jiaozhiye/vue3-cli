@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-17 14:46:42
+ * @Last Modified time: 2021-05-26 18:02:57
  */
 'use strict';
 const path = require('path');
@@ -19,7 +19,7 @@ module.exports = {
   dev: {
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: `http://${HOST}:${PORT}/`,
+    assetsPublicPath: `//${HOST}:${PORT}/`,
 
     // 请求代理配置 -> can be modified
     proxyTable: {
@@ -30,13 +30,6 @@ module.exports = {
         pathRewrite: {
           '^/api': '/api', // 连接开发环境，走网关的那种
           // '^/api/[a-zA-Z_]+/': '/' // 本地开发，不走网关，直接调本地服务
-        },
-      },
-      '/ws': {
-        target: 'ws://62.234.197.49:80',
-        ws: true,
-        pathRewrite: {
-          '^/ws': '/ws',
         },
       },
     },
@@ -62,10 +55,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath:
-      process.env.ENV_CONFIG === 'gray'
-        ? `http://localhost:${PORT}/gray/`
-        : `http://localhost:${PORT}/`,
+    assetsPublicPath: process.env.ENV_CONFIG === 'gray' ? `//localhost/gray/` : `//localhost/`,
 
     // Source Maps
     productionSourceMap: false,

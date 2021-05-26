@@ -5,7 +5,7 @@
  * @Last Modified time: 2021-02-12 17:15:03
  */
 import { ElMessageBox, ElNotification, ElMessage } from 'element-plus';
-import { debounce, throttle } from 'lodash-es';
+import { debounce, throttle, round } from 'lodash-es';
 import { t } from '@/locale';
 import { AnyFunction } from './types';
 
@@ -53,7 +53,7 @@ export const errorCapture = async (asyncFn: AnyFunction<any>, ...params: any[]):
 };
 
 // 函数的 防抖 和 节流，使用 lodash 工具函数
-export { debounce, throttle };
+export { debounce, throttle, round };
 
 /**
  * @description 判断表单控件的值是否为空

@@ -29,6 +29,8 @@ $ npm run build
 
 ## 微前端
 
+### 微应用 + 微模块
+
 ### 主机应用充当路由注册中心和分发调度的角色，来调用各子应用页面
 
 | 应用名 | 说明       | 域名      | 端口号 |
@@ -37,8 +39,7 @@ $ npm run build
 | dms    | DMS 子应用 | localhost | 9021   |
 | tds    | TDS 子应用 | localhost | 9022   |
 
-1. 架构 维护 config/sub.env.js 文件(子应用注册)
-2. 业务 维护 src/modules/\*\*/index.route.js 路由文件(子应用路由表注册)
+注意：架构 维护 config/sub.env.js 文件(子应用注册)
 
 ## 自定义主题
 

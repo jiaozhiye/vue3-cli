@@ -2,11 +2,11 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:53:34
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-03-23 17:28:46
+ * @Last Modified time: 2021-05-26 20:23:28
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import config from '@/config';
 import { t } from '@/locale';
+import config from '@/config';
 import moduleRoutes from './routes';
 
 const BasicLayout = () => import('@/layout/BasicLayout.vue');
@@ -54,7 +54,12 @@ const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
-  { path: '/:pathMatch(.*)*', redirect: '/404', hidden: true },
+  {
+    path: '/dms/:path(.*)',
+    component: BasicLayout,
+    hidden: true,
+  },
+  // { path: '/:pathMatch(.*)*', redirect: '/404', hidden: true },
 ];
 
 const router = createRouter({

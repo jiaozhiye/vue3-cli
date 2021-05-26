@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "cross-env NODE_ENV=development ENV_CONFIG=dev node --max-old-space-size=4096 build/dev.js",
-    "dev": "cross-env NODE_ENV=development ENV_CONFIG=dev webpack serve --inline --hot --progress --config build/webpack.dev.conf.js",
+    "dev": "cross-env NODE_ENV=development ENV_CONFIG=dev webpack serve --progress --config build/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=production ENV_CONFIG=prod node --max-old-space-size=32768 build/prod.js",
     "build-dev": "cross-env NODE_ENV=production ENV_CONFIG=dev node --max-old-space-size=32768 build/prod.js",
     "build-tst": "cross-env NODE_ENV=production ENV_CONFIG=tst node --max-old-space-size=32768 build/prod.js",
@@ -35,6 +35,7 @@
     "lodash-es": "^4.17.21",
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
+    "qiankun": "^2.4.2",
     "screenfull": "^5.1.0",
     "vue": "^3.0.11",
     "vue-i18n": "^9.1.6",
@@ -89,7 +90,7 @@
     "webpack": "^5.36.2",
     "webpack-cli": "^4.7.0",
     "webpack-custom-theme": "^1.0.7",
-    "webpack-dev-server": "^3.11.2",
+    "webpack-dev-server": "^4.0.0-beta.3",
     "webpack-merge": "^4.2.2"
   },
   "engines": {

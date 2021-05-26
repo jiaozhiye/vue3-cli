@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 10:31:59
+ * @Last Modified time: 2021-05-26 17:58:18
  */
 'use strict';
 
@@ -31,26 +31,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   },
   devtool: config.dev.devtool,
   devServer: {
-    clientLogLevel: 'warning',
     /* 当使用 HTML5 History API 时，任意的 404 响应都可能需要被替代为 index.html */
     historyApiFallback: {
       disableDotRule: true,
       rewrites: [{ from: /.*/, to: '/index.html' }],
     },
-    publicPath: config.dev.assetsPublicPath,
-    contentBase: utils.resolve('dist'),
-    inline: true,
-    hot: true, // 热加载
-    compress: true, // 开启资源的 gzip 压缩
-    overlay: {
-      warnings: false,
-      errors: true,
-    },
+    public: config.dev.assetsPublicPath,
     host: HOST,
     port: PORT,
+    hot: true, // 热加载
     open: config.dev.autoOpenBrowser,
     proxy: config.dev.proxyTable,
-    watchOptions: { poll: false },
   },
   plugins: (config.dev.useEslint
     ? [
