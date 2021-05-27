@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-26 18:02:57
+ * @Last Modified time: 2021-05-27 18:54:22
  */
 'use strict';
 const path = require('path');
@@ -41,7 +41,7 @@ module.exports = {
     autoOpenBrowser: true,
 
     // Use Eslint
-    useEslint: false,
+    useEslint: true,
 
     // Source Maps
     devtool: 'eval-cheap-source-map',

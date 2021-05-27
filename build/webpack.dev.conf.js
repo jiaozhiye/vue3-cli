@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-27 16:44:05
+ * @Last Modified time: 2021-05-27 19:18:30
  */
 'use strict';
 
@@ -54,14 +54,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     proxy: config.dev.proxyTable,
   },
   plugins: (config.dev.useEslint
-    ? [
-        new ESLintPlugin({
-          emitError: true,
-          emitWarning: true,
-          extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue'],
-          formatter: require('eslint-formatter-friendly'),
-        }),
-      ]
+    ? [new ESLintPlugin({ extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue'] })]
     : []
   ).concat([
     new webpack.HotModuleReplacementPlugin(),

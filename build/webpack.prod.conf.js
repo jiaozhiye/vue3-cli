@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-15 12:04:05
+ * @Last Modified time: 2021-05-27 18:54:08
  */
 'use strict';
 
@@ -70,6 +70,13 @@ const webpackConfig = merge(baseWebpackConfig, {
           priority: -20,
           chunks: 'initial',
           reuseExistingChunk: true,
+        },
+        libs: {
+          name: 'chunk-libs',
+          test: (module) => {
+            return /echarts|exceljs/.test(module.context);
+          },
+          priority: 10,
         },
       },
     },
