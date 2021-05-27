@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:53:34
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-26 20:23:28
+ * @Last Modified time: 2021-05-27 17:49:33
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import { t } from '@/locale';
@@ -50,16 +50,10 @@ const routes: Array<RouteRecordRaw> = [
         path: '/404',
         meta: { title: '404' },
         component: Nomatch,
-        hidden: true,
       },
     ],
   },
-  {
-    path: '/dms/:path(.*)',
-    component: BasicLayout,
-    hidden: true,
-  },
-  // { path: '/:pathMatch(.*)*', redirect: '/404', hidden: true },
+  { path: '/:pathMatch(.*)*', redirect: '/404', hidden: true },
 ];
 
 const router = createRouter({

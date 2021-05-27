@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-26 20:21:42
+ * @Last Modified time: 2021-05-27 17:52:51
  */
 export default [
   {
@@ -25,7 +25,7 @@ export default [
           },
           {
             title: '备件采购退库',
-            key: '/dms/bjgl/cggl/tk',
+            key: '/bjgl/cggl/tk',
           },
         ],
       },

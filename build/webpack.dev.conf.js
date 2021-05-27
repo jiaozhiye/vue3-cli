@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-26 17:58:18
+ * @Last Modified time: 2021-05-27 16:44:05
  */
 'use strict';
 
@@ -37,9 +37,19 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       rewrites: [{ from: /.*/, to: '/index.html' }],
     },
     public: config.dev.assetsPublicPath,
+    static: [
+      {
+        directory: path.resolve(__dirname, '../', config.dev.assetsSubDirectory),
+        publicPath: config.dev.assetsPublicPath + config.dev.assetsSubDirectory,
+        serveIndex: true,
+        watch: true,
+      },
+    ],
+
     host: HOST,
     port: PORT,
     hot: true, // 热加载
+    client: { overlay: false },
     open: config.dev.autoOpenBrowser,
     proxy: config.dev.proxyTable,
   },

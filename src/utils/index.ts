@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 14:22:31
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-12 17:15:03
+ * @Last Modified time: 2021-05-27 17:49:15
  */
 import { ElMessageBox, ElNotification, ElMessage } from 'element-plus';
 import { debounce, throttle, round } from 'lodash-es';
@@ -35,6 +35,15 @@ export const hasOwn = (obj: unknown, key: string): boolean => {
  */
 export const sleep = async (delay: number): Promise<void> => {
   return new Promise((resolve) => setTimeout(resolve, delay));
+};
+
+/**
+ * @description 延迟回调
+ * @param {function} cb 回调函数
+ * @returns
+ */
+export const nextTick = (cb: AnyFunction<void>): void => {
+  Promise.resolve().then(cb);
 };
 
 /**

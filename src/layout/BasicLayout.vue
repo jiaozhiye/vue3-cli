@@ -8,7 +8,6 @@
 import { defineComponent, KeepAlive } from 'vue';
 import { mapState, mapActions } from 'vuex';
 import { RouterView } from 'vue-router';
-import { start } from 'qiankun';
 import { JSXNode } from '@/utils/types';
 import GlobalLayout from './GlobalLayout';
 import config from '@/config';
@@ -38,19 +37,6 @@ export default defineComponent({
     window.$$refresh = this.refreshView;
     // 子窗口
     // window.parent.$$refresh({ path: window.parent.location.pathname });
-    if (!(window as any).qiankunStarted) {
-      (window as any).qiankunStarted = true;
-      start({
-        fetch(url, ...args) {
-          if ((url as string).includes('CLodopfuncs.js')) {
-            return Promise.resolve({
-              text: () => '',
-            });
-          }
-          return window.fetch(url, ...args);
-        },
-      });
-    }
   },
   methods: {
     ...mapActions('app', [
@@ -86,7 +72,6 @@ export default defineComponent({
           }}
         />
         {this.createIframeView()}
-        <div id="container"></div>
       </GlobalLayout>
     );
   },
