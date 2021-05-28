@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-27 22:16:46
+ * @Last Modified time: 2021-05-28 13:47:04
  */
 'use strict';
 
@@ -45,7 +45,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         watch: true,
       },
     ],
-    client: { overlay: false },
+    client: {
+      overlay: false,
+      progress: true,
+    },
     host: HOST,
     port: PORT,
     hot: true, // 热加载
