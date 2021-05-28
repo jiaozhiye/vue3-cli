@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-27 18:54:08
+ * @Last Modified time: 2021-05-28 10:40:12
  */
 'use strict';
 
@@ -17,6 +17,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 process.env.NODE_ENV = 'production';
@@ -101,6 +102,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         BASE_URL: config.build.assetsPublicPath + config.build.assetsSubDirectory,
       },
     }),
+    // new Dotenv(),
     // keep module.id stable when vendor modules does not change
     // new webpack.HashedModuleIdsPlugin(),
     // copy custom static assets

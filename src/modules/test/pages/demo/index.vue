@@ -42,7 +42,7 @@
  * @Author: 焦质晔
  * @Date: 2021-05-13 14:08:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-13 14:39:21
+ * @Last Modified time: 2021-05-28 10:02:32
  */
 import './lang'; // 多语言
 import { dictionary } from '@/mixins/dictMixin'; // 数据字典

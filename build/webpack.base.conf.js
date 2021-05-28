@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-27 17:50:47
+ * @Last Modified time: 2021-05-28 10:43:25
  */
 'use strict';
 
@@ -38,15 +38,6 @@ module.exports = {
         ? config.build.assetsPublicPath
         : config.dev.assetsPublicPath,
   },
-  // node: {
-  //   setImmediate: false,
-  //   process: 'mock',
-  //   dgram: 'empty',
-  //   fs: 'empty',
-  //   net: 'empty',
-  //   tls: 'empty',
-  //   child_process: 'empty'
-  // },
   resolve: {
     // 配置解析规则
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue', '.json'],
