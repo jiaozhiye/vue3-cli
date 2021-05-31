@@ -21,7 +21,13 @@
     :columnsChange="(columns) => (this.columns = columns)"
   >
     <qm-space>
-      <el-button type="primary" icon="el-icon-plus" @click="addHandle">新增</el-button>
+      <el-button
+        v-permission="'base:backup:clear'"
+        type="primary"
+        icon="el-icon-plus"
+        @click="addHandle"
+        >新增</el-button
+      >
       <qm-button type="danger" icon="el-icon-delete" :confirm="{}" :click="removeHandle"
         >删除</qm-button
       >
@@ -42,7 +48,7 @@
  * @Author: 焦质晔
  * @Date: 2021-05-13 14:08:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-28 10:02:32
+ * @Last Modified time: 2021-05-31 13:30:07
  */
 import './lang'; // 多语言
 import { dictionary } from '@/mixins/dictMixin'; // 数据字典
