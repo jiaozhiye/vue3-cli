@@ -16,7 +16,7 @@ export type DeepPartial<T> = {
 
 export type JSXNode = VNode | JSX.Element;
 
-export type LooseObject<T> = { [key: string]: T };
+export type AnyObject<T> = { [key: string]: T };
 
 export type AnyFunction<T> = (...args: any[]) => T;
 
