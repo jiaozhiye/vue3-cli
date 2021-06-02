@@ -39,7 +39,7 @@
     destroyOnClose
     :containerStyle="{ paddingBottom: '60px' }"
   >
-    <AddInfo />
+    <AddInfo @close="closeHandle" />
   </qm-drawer>
 </template>
 
@@ -507,6 +507,9 @@ export default {
     },
     addHandle() {
       this.visible = true;
+    },
+    closeHandle(val) {
+      this.visible = val;
     },
   },
 };
