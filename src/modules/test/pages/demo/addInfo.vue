@@ -1,25 +1,25 @@
 <template>
   <qm-anchor style="height: 100%">
-    <qm-anchor-item label="标题名称">
+    <qm-anchor-item label="标题名称" showDivider>
       <div>
         <qm-form ref="form" :list="formList" />
       </div>
     </qm-anchor-item>
     <qm-anchor-item label="页签名称" showDivider>
       <div style="margin-bottom: 10px">
-        <qm-table
+        <!-- <qm-table
           :columns="columns"
           :fetch="fetch"
           :rowKey="(row) => row.id"
           :rowSelection="selection"
           :columnsChange="(columns) => (this.columns = columns)"
         >
-        </qm-table>
+        </qm-table> -->
       </div>
     </qm-anchor-item>
     <qm-anchor-item label="导航名称" showDivider>
       <div>
-        <qm-table
+        <!-- <qm-table
           ref="table"
           :height="400"
           :columns="columns1"
@@ -30,7 +30,7 @@
           <qm-space>
             <el-button type="primary" icon="el-icon-plus" @click="insertHandle">新建</el-button>
           </qm-space>
-        </qm-table>
+        </qm-table> -->
       </div>
     </qm-anchor-item>
   </qm-anchor>
@@ -45,7 +45,7 @@
  * @Author: 焦质晔
  * @Date: 2021-05-13 14:08:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-01 15:59:01
+ * @Last Modified time: 2021-06-03 13:34:03
  */
 import './lang'; // 多语言
 import { dictionary } from '@/mixins/dictMixin'; // 数据字典
@@ -59,25 +59,25 @@ export default {
   data() {
     return {
       formList: this.createFilterList(),
-      columns: this.createTableColumns(),
-      fetch: {
-        api: getTableData,
-        params: {},
-        dataKey: 'records',
-      },
-      selection: {
-        type: 'checkbox',
-        filterable: true,
-        selectedRowKeys: this.selectedKeys || [],
-        disabled: (row) => {
-          return row.id === 3;
-        },
-        onChange: (val, rows) => {
-          this.selectedKeys = val;
-        },
-      },
-      columns1: this.createTableColumns1(),
-      list: [],
+      // columns: this.createTableColumns(),
+      // fetch: {
+      //   api: getTableData,
+      //   params: {},
+      //   dataKey: 'records',
+      // },
+      // selection: {
+      //   type: 'checkbox',
+      //   filterable: true,
+      //   selectedRowKeys: this.selectedKeys || [],
+      //   disabled: (row) => {
+      //     return row.id === 3;
+      //   },
+      //   onChange: (val, rows) => {
+      //     this.selectedKeys = val;
+      //   },
+      // },
+      // columns1: this.createTableColumns1(),
+      // list: [],
     };
   },
   methods: {
@@ -86,111 +86,119 @@ export default {
     },
     createFilterList() {
       return [
-        {
-          type: 'BREAK_SPACE',
-          label: '标题名称',
-          collapse: {
-            showLimit: 4,
-            remarkItems: [{ fieldName: 'e1' }, { fieldName: 'f1', isLabel: true }],
-          },
-        },
-        {
-          type: 'INPUT',
-          label: this.$t('demo.label1'),
-          labelOptions: {
-            description: 'Label 描述信息',
-          },
-          fieldName: 'a1',
-          rules: [{ required: true, message: '不能为空', trigger: 'change' }],
-        },
-        {
-          type: 'INPUT',
-          label: '条件2',
-          fieldName: 'b1',
-          searchHelper: {
-            filters: [
-              {
-                type: 'INPUT',
-                label: '条件1',
-                fieldName: 's1',
-              },
-              {
-                type: 'INPUT',
-                label: '条件2',
-                fieldName: 's2',
-              },
-              {
-                type: 'INPUT',
-                label: '条件3',
-                fieldName: 's3',
-              },
-              {
-                type: 'INPUT',
-                label: '条件4',
-                fieldName: 's4',
-              },
-            ],
-            table: {
-              columns: [
-                {
-                  title: '创建时间',
-                  dataIndex: 'date',
-                },
-                {
-                  title: '姓名',
-                  dataIndex: 'person.name',
-                },
-              ],
-              rowKey: (record) => record.id,
-              fetch: {
-                api: getTableData,
-                params: {},
-                dataKey: 'records',
-              },
-            },
-            filterAliasMap: () => {
-              return ['s1'];
-            },
-            fieldAliasMap: () => {
-              return { b1: 'date', code: 'id', b1__desc: 'date', c1: 'date', c1__desc: 'date' };
-            },
-          },
-          style: { width: `calc(100% - 80px)` },
-          descOptions: {
-            style: { width: '70px' },
-          },
-        },
-        {
-          type: 'INPUT',
-          label: '条件3',
-          fieldName: 'c1',
-          style: { width: `calc(100% - 80px)` },
-          descOptions: {
-            style: { width: '70px' },
-          },
-        },
-        {
-          type: 'SELECT',
-          label: '条件4',
-          fieldName: 'd1',
-          request: {
-            fetchApi: getSelectData,
-            params: {},
-            datakey: 'records',
-            valueKey: 'value',
-            textKey: 'text',
-          },
-        },
-        {
-          type: 'MULTIPLE_TREE_SELECT',
-          label: '条件5',
-          fieldName: 'e1',
-          request: {
-            fetchApi: getTreeData,
-            params: {},
-            datakey: 'records',
-          },
-        },
+        // {
+        //   type: 'INPUT_NUMBER',
+        //   label: this.$t('demo.label1'),
+        //   labelOptions: {
+        //     description: 'Label 描述信息',
+        //   },
+        //   fieldName: 'a1',
+        // },
+        // {
+        //   type: 'BREAK_SPACE',
+        //   label: '标题名称',
+        //   collapse: {
+        //     showLimit: 4,
+        //     remarkItems: [{ fieldName: 'e1' }, { fieldName: 'f1', isLabel: true }],
+        //   },
+        // },
+        // {
+        //   type: 'INPUT',
+        //   label: this.$t('demo.label1'),
+        //   labelOptions: {
+        //     description: 'Label 描述信息',
+        //   },
+        //   fieldName: 'a1',
+        //   rules: [{ required: true, message: '不能为空', trigger: 'change' }],
+        // },
+        // {
+        //   type: 'INPUT',
+        //   label: '条件2',
+        //   fieldName: 'b1',
+        //   searchHelper: {
+        //     filters: [
+        //       {
+        //         type: 'INPUT',
+        //         label: '条件1',
+        //         fieldName: 's1',
+        //       },
+        //       {
+        //         type: 'INPUT',
+        //         label: '条件2',
+        //         fieldName: 's2',
+        //       },
+        //       {
+        //         type: 'INPUT',
+        //         label: '条件3',
+        //         fieldName: 's3',
+        //       },
+        //       {
+        //         type: 'INPUT',
+        //         label: '条件4',
+        //         fieldName: 's4',
+        //       },
+        //     ],
+        //     table: {
+        //       columns: [
+        //         {
+        //           title: '创建时间',
+        //           dataIndex: 'date',
+        //         },
+        //         {
+        //           title: '姓名',
+        //           dataIndex: 'person.name',
+        //         },
+        //       ],
+        //       rowKey: (record) => record.id,
+        //       fetch: {
+        //         api: getTableData,
+        //         params: {},
+        //         dataKey: 'records',
+        //       },
+        //     },
+        //     filterAliasMap: () => {
+        //       return ['s1'];
+        //     },
+        //     fieldAliasMap: () => {
+        //       return { b1: 'date', code: 'id', b1__desc: 'date', c1: 'date', c1__desc: 'date' };
+        //     },
+        //   },
+        //   style: { width: `calc(100% - 80px)` },
+        //   descOptions: {
+        //     style: { width: '70px' },
+        //   },
+        // },
+        // {
+        //   type: 'INPUT',
+        //   label: '条件3',
+        //   fieldName: 'c1',
+        //   style: { width: `calc(100% - 80px)` },
+        //   descOptions: {
+        //     style: { width: '70px' },
+        //   },
+        // },
+        // {
+        //   type: 'SELECT',
+        //   label: '条件4',
+        //   fieldName: 'd1',
+        //   request: {
+        //     fetchApi: getSelectData,
+        //     params: {},
+        //     datakey: 'records',
+        //     valueKey: 'value',
+        //     textKey: 'text',
+        //   },
+        // },
+        // {
+        //   type: 'MULTIPLE_TREE_SELECT',
+        //   label: '条件5',
+        //   fieldName: 'e1',
+        //   request: {
+        //     fetchApi: getTreeData,
+        //     params: {},
+        //     datakey: 'records',
+        //   },
+        // },
         {
           type: 'REGION_SELECT',
           label: '条件6',
@@ -203,11 +211,11 @@ export default {
             textKey: 'text',
           },
         },
-        {
-          type: 'CITY_SELECT',
-          label: '条件7',
-          fieldName: 'g1',
-        },
+        // {
+        //   type: 'CITY_SELECT',
+        //   label: '条件7',
+        //   fieldName: 'g1',
+        // },
       ];
     },
     createTableColumns() {

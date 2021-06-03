@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-28 10:43:25
+ * @Last Modified time: 2021-06-03 15:23:51
  */
 'use strict';
 
@@ -79,6 +79,7 @@ module.exports = {
         test: /\.ts(x)?$/,
         use: utils.tsLoaders(),
         exclude: /node_modules/,
+        include: [utils.resolve('src')],
       },
       // do not base64-inline SVG
       {

@@ -18,7 +18,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 12:48:47
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 16:11:19
+ * @Last Modified time: 2021-06-03 16:54:03
  */
 import { defineComponent } from 'vue';
 import { mapState } from 'vuex';
@@ -72,7 +72,6 @@ export default defineComponent({
   z-index: 5;
   &__scroll {
     height: calc(100% - 52px - 36px);
-    background-color: $menuBg;
     overflow-x: hidden;
     &_inner {
       width: calc(100% + 17px);
@@ -85,6 +84,7 @@ export default defineComponent({
     border: none;
     height: 100%;
     width: 100% !important;
+    background-color: transparent;
     [class^='el-icon-'],
     [class^='iconfont'] {
       display: inline-block;
@@ -108,11 +108,13 @@ export default defineComponent({
       .el-submenu__title {
         height: 36px;
         line-height: 36px;
+        color: $menuText;
         &:hover {
           background-color: $menuHover !important;
         }
       }
       .el-menu-item {
+        color: $menuText;
         padding-right: $modulePadding !important;
         background-color: $subMenuBg !important;
         a {
