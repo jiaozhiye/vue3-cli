@@ -2,10 +2,9 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-04-26 13:23:26
+ * @Last Modified time: 2021-06-05 10:51:23
  */
 import { defineComponent } from 'vue';
-import variables from '@/assets/css/variables.scss';
 
 export default defineComponent({
   name: 'MenuTree',
@@ -31,11 +30,6 @@ export default defineComponent({
     return {
       selectedKey: '',
     };
-  },
-  computed: {
-    variables() {
-      return variables;
-    },
   },
   watch: {
     $route({ path }) {
@@ -93,14 +87,11 @@ export default defineComponent({
     this.selectedKey = this.$route.path;
   },
   render() {
-    const { collapsed, syncActive, selectedKey, defaultOpenedKeys, variables } = this;
+    const { collapsed, syncActive, selectedKey, defaultOpenedKeys } = this;
     const wrapProps = {
       router: true,
       collapse: collapsed,
       collapseTransition: false,
-      backgroundColor: variables.menuBg,
-      textColor: variables.menuText,
-      activeTextColor: variables.menuActiveText,
       defaultActive: syncActive ? selectedKey : null,
       defaultOpeneds: defaultOpenedKeys,
       style: { borderRight: 'none' },

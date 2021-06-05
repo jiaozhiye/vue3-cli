@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-03 15:23:51
+ * @Last Modified time: 2021-06-05 13:15:36
  */
 'use strict';
 
@@ -134,6 +134,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       'process.env.ENV_CONFIG': JSON.stringify(process.env.ENV_CONFIG),
+      'process.env.THEME_COLOR': JSON.stringify(config.primaryColor),
       __VUE_OPTIONS_API__: JSON.stringify(true),
       __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
     }),

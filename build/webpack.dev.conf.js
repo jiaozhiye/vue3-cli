@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-28 13:47:04
+ * @Last Modified time: 2021-06-05 13:16:03
  */
 'use strict';
 
@@ -39,7 +39,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     public: config.dev.assetsPublicPath,
     static: [
       {
-        directory: path.resolve(__dirname, '../', config.dev.assetsSubDirectory),
+        directory: utils.resolve(config.dev.assetsSubDirectory),
         publicPath: config.dev.assetsPublicPath + config.dev.assetsSubDirectory,
         serveIndex: true,
         watch: true,
@@ -55,13 +55,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     open: config.dev.autoOpenBrowser,
     proxy: config.dev.proxyTable,
   },
-  plugins: (config.dev.useEslint
-    ? [new ESLintPlugin({ extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue'] })]
-    : []
-  ).concat([
+  plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new CaseSensitivePathsPlugin(),
-    new Dotenv(),
+    new Dotenv({
+      path: utils.resolve('.env.dev'),
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'public/index.html',
@@ -69,6 +68,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       inject: true,
       templateParameters: {
         BASE_URL: config.dev.assetsPublicPath + config.dev.assetsSubDirectory,
+        THEME_COLOR: config.primaryColor,
       },
     }),
     new CopyWebpackPlugin([
@@ -78,7 +78,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*'],
       },
     ]),
-  ]),
+  ],
 });
+
+if (config.dev.useEslint) {
+  devWebpackConfig.plugins.push(
+    new ESLintPlugin({ extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue'] })
+  );
+}
 
 module.exports = devWebpackConfig;

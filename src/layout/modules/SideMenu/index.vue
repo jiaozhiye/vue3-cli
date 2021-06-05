@@ -18,7 +18,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 12:48:47
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-03 16:54:03
+ * @Last Modified time: 2021-06-05 10:49:02
  */
 import { defineComponent } from 'vue';
 import { mapState } from 'vuex';
@@ -72,6 +72,7 @@ export default defineComponent({
   z-index: 5;
   &__scroll {
     height: calc(100% - 52px - 36px);
+    background-color: inherit;
     overflow-x: hidden;
     &_inner {
       width: calc(100% + 17px);

@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:48:27
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 00:07:09
+ * @Last Modified time: 2021-06-05 12:46:57
  */
 // app
 export const LOGININFO = 'LOGININFO';
@@ -24,4 +24,4 @@ export const ADD_STAR_MENU = 'ADD_STAR_MENU';
 export const DEL_STAR_MENU = 'DEL_STAR_MENU';
 export const LANGUAGE = 'LANGUAGE';
 export const SIZE = 'SIZE';
-export const THEME_COLOR = 'THEME_COLOR';
+export const THEME = 'THEME';

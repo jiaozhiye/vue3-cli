@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-28 10:40:12
+ * @Last Modified time: 2021-06-05 13:16:08
  */
 'use strict';
 
@@ -15,7 +15,7 @@ const baseWebpackConfig = require('./webpack.base.conf');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const OptimizeCssnanoPlugin = require('@intervolga/optimize-cssnano-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -51,11 +51,6 @@ const webpackConfig = merge(baseWebpackConfig, {
           },
         },
       }),
-      new CssMinimizerPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: config.build.productionSourceMap,
-      }),
     ],
     splitChunks: {
       cacheGroups: {
@@ -88,23 +83,38 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: utils.assetsPath('css/[name].[contenthash:8].css'),
       chunkFilename: utils.assetsPath('css/[name].[contenthash:8].css'),
     }),
-    // generate dist index.html with correct asset hash for caching.
-    // you can customize output by editing /index.html
+    // css build and minimize
+    new OptimizeCssnanoPlugin({
+      sourceMap: config.build.productionSourceMap,
+      cssnanoOptions: {
+        preset: [
+          'default',
+          {
+            mergeLonghand: false,
+            cssDeclarationSorter: false,
+          },
+        ],
+      },
+    }),
+    new webpack.ids.HashedModuleIdsPlugin({
+      hashDigest: 'hex',
+    }),
     new HtmlWebpackPlugin({
       filename: config.build.index,
       template: 'public/index.html',
-      favicon: utils.resolve('public/favicon.ico'),
+      favicon: 'public/favicon.ico',
       inject: true,
       minify: {
         removeComments: true,
       },
       templateParameters: {
         BASE_URL: config.build.assetsPublicPath + config.build.assetsSubDirectory,
+        THEME_COLOR: config.primaryColor,
       },
     }),
-    // new Dotenv(),
-    // keep module.id stable when vendor modules does not change
-    // new webpack.HashedModuleIdsPlugin(),
+    new Dotenv({
+      path: utils.resolve('.env.prod'),
+    }),
     // copy custom static assets
     new CopyWebpackPlugin([
       {

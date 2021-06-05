@@ -76,7 +76,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:01:08
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-04-23 14:13:45
+ * @Last Modified time: 2021-06-05 13:37:17
  */
 import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
@@ -124,7 +124,7 @@ export default defineComponent({
     },
     clearCacheHandle() {
       this.clearKeepAliveCache();
-      setTimeout(() => window.history.go(0), 0);
+      setTimeout(() => window.history.go(0));
     },
     async getUserData() {
       if (process.env.MOCK_DATA === 'true') {

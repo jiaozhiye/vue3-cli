@@ -43,17 +43,9 @@ $ npm run build
 
 ## 自定义主题
 
-### 修改以下三个文件对应的主题色值即可
-
 ```bash
 # config/index.js
 primaryColor: '#409eff'
-
-# src/assets/css/variables.scss
-$primaryColor: #409eff
-
-# public/index.html
-替换默认颜色值
 ```
 
 ## 目录结构

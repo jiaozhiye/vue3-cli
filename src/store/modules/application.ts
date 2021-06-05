@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-24 13:12:26
+ * @Last Modified time: 2021-06-05 12:47:08
  */
 import { uniqWith, isEqual } from 'lodash-es';
 import * as types from '../types';
@@ -19,7 +19,6 @@ import {
   removeWechatAvatar,
   set_vDealerName,
 } from '@/utils/cookies';
-import variables from '@/assets/css/variables.scss';
 import localDict from '@/utils/localDict';
 import {
   getNavList,
@@ -83,7 +82,7 @@ const formatNavData = (list, routes) => {
 const state = {
   lang: localStorage.getItem('lang') || config.lang, // 多语言
   size: localStorage.getItem('size') || config.size, // 尺寸
-  theme: variables.theme, // 主题色
+  theme: process.env.THEME_COLOR, // 主题色
   navList: [], // 导航菜单树
   menuList: [], // 可点击(三级)的子菜单列表
   tabNavList: [], // 导航选项卡列表
@@ -335,7 +334,7 @@ const actions = {
       changeUrl: (cssUrl) => `/${cssUrl}`,
       openLocalStorage: false,
     };
-    commit({ type: types.THEME_COLOR, data: params });
+    commit({ type: types.THEME, data: params });
     client.changer.changeColor(options, Promise).then(() => localStorage.setItem('theme', params));
   },
 };
@@ -399,7 +398,7 @@ const mutations = {
   [types.SIZE](state, { data }): void {
     state.size = data;
   },
-  [types.THEME_COLOR](state, { data }): void {
+  [types.THEME](state, { data }): void {
     state.theme = data;
   },
 };

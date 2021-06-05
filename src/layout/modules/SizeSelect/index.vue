@@ -27,7 +27,7 @@
  * @Author: 焦质晔
  * @Date: 2020-04-30 15:17:48
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-13 23:19:48
+ * @Last Modified time: 2021-06-05 13:36:35
  */
 import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
@@ -43,8 +43,6 @@ export default defineComponent({
       this.setSize(size);
       this.createElementSize({ ctx: this, size });
       localStorage.setItem('size', size);
-      // 浏览器刷新，重新获取数据
-      // window.history.go(0);
       // 重新加载路由页面
       this.refreshView({ path: this.$route.path });
     },

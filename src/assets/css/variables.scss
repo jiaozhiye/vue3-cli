@@ -2,10 +2,10 @@
  * @Author: 焦质晔
  * @Date: 2021-02-14 15:02:26
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-04-23 14:30:44
+ * @Last Modified time: 2021-06-05 12:39:11
  */
 // 全局主色
-$primaryColor: #409eff;
+$primaryColor: $THEME_COLOR;
 
 // 成功色
 $successColor: #52c41a;
@@ -63,7 +63,7 @@ $backgroundColorSecondary: #f5f5f5;
 // Logo 背景色
 $logoBgColor: #1f1f1f;
 
-// sidebar 侧栏颜色
+// Sidebar 侧栏颜色
 $menuText: rgba(255, 255, 255, 0.65);
 $menuActiveText: #fff;
 $subMenuActiveText: #fff;
@@ -81,11 +81,4 @@ $allMenuBgColor: #313538;
 // https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
 :export {
   theme: $primaryColor;
-  menuText: $menuText;
-  menuActiveText: $menuActiveText;
-  subMenuActiveText: $subMenuActiveText;
-  menuBg: $menuBg;
-  menuHover: $menuHover;
-  subMenuBg: $subMenuBg;
-  subMenuHover: $subMenuHover;
 }

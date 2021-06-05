@@ -41,8 +41,6 @@ export default defineComponent({
       changeLocale(lang);
       this.setLanguage(lang);
       localStorage.setItem('lang', lang);
-      // 浏览器刷新，重新获取数据
-      // window.history.go(0);
       // 重新加载路由页面
       this.refreshView({ path: this.$route.path });
     },

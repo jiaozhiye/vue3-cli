@@ -29,7 +29,7 @@
         position: absolute;
         width: 14px;
         height: 14px;
-        background-color: #409eff;
+        background-color: <%= THEME_COLOR %>;
         border-radius: 100%;
         transform: scale(0.75);
         transform-origin: 50% 50%;
@@ -62,7 +62,7 @@
       .spin-wrapper .spin-text {
         padding-top: 10px;
         font-size: 16px;
-        color: #409eff;
+        color: <%= THEME_COLOR %>;
       }
       @keyframes antSpinMove {
         to {
@@ -92,7 +92,7 @@
     <script type="text/javascript">
       (function() {
         var aSpinDotList = document.getElementById('spin-dot').children;
-        var theme = localStorage.getItem('theme') || '#409eff';
+        var theme = localStorage.getItem('theme') || '<%= THEME_COLOR %>';
         for (var i = 0; i < aSpinDotList.length; i++) {
           aSpinDotList[i].style.backgroundColor = theme;
         }
