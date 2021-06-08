@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:48:27
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-05 12:46:57
+ * @Last Modified time: 2021-06-08 14:57:54
  */
 // app
 export const LOGININFO = 'LOGININFO';
@@ -11,7 +11,6 @@ export const WECHAT = 'WECHAT';
 export const NAVLIST = 'NAVLIST';
 export const MENULIST = 'MENULIST';
 export const TAB_NAVLIST = 'TAB_NAVLIST';
-export const IFRAME_NAVLIST = 'IFRAME_NAVLIST';
 export const STAR_MENU = 'STAR_MENU';
 export const COMMON_MENU = 'COMMON_MENU';
 export const DICT_DATA = 'DICT_DATA';

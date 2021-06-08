@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-05 12:47:08
+ * @Last Modified time: 2021-06-08 15:58:54
  */
 import { uniqWith, isEqual } from 'lodash-es';
 import * as types from '../types';
@@ -116,7 +116,10 @@ const actions = {
     });
     dispatch('clearNavList');
     // 刷新浏览器，释放内存
-    setTimeout(() => (window.location.href = '/login'), 300);
+    setTimeout(
+      () => (window.location.href = `/login?redirect=${router.currentRoute.value.path}`),
+      300
+    );
   },
   createWeChat({ commit, state }, params): void {
     commit({
@@ -192,6 +195,9 @@ const actions = {
   },
   createTabNavList({ commit, state }, params): void {
     const routes = params.filter((x) => x.key !== '/404');
+    state.iframeList
+      .filter((x) => !routes.some((k) => k.key === x.key))
+      .forEach((x) => commit({ type: types.DEL_IFRAME, data: x.key }));
     commit({
       type: types.TAB_NAVLIST,
       data: routes,
@@ -248,8 +254,9 @@ const actions = {
     });
   },
   createIframeList({ commit, state }, params): void {
+    if (state.iframeList.some((x) => x.key === params.key)) return;
     commit({
-      type: types.IFRAME_NAVLIST,
+      type: types.ADD_IFRAME,
       data: params,
     });
   },
@@ -364,9 +371,6 @@ const mutations = {
   },
   [types.TAB_NAVLIST](state, { data }): void {
     state.tabNavList = data;
-  },
-  [types.IFRAME_NAVLIST](state, { data }): void {
-    state.iframeList = data;
   },
   [types.DICT_DATA](state, { data }): void {
     state.dict = data;

@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:02:14
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-08 10:13:34
+ * @Last Modified time: 2021-06-08 15:50:33
  */
 import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
@@ -44,27 +44,24 @@ export default defineComponent({
     },
   },
   watch: {
-    $route(val) {
-      const { path } = val;
-      if (path.startsWith('/redirect')) return;
-      this.activeKey = path;
-      this.addKeepAlive(val);
-      if (!this.pathList.includes(this.activeKey)) {
-        this.pages = [...this.pages, val];
-      }
-    },
-    pages: {
+    $route: {
       handler(val) {
-        this.createTabNavList(val.map((x) => ({ key: x.path, title: x.meta.title })));
-        this.createIframeList(
-          val.filter((x) => x.meta.iframe).map((x) => ({ key: x.path, value: x.meta.iframe }))
-        );
+        const { path, meta } = val;
+        if (path.startsWith('/redirect')) return;
+        this.activeKey = path;
+        this.addKeepAlive(val);
+        if (!this.pathList.includes(this.activeKey)) {
+          this.pages = [...this.pages, val];
+        }
+        if (meta.iframe) {
+          this.createIframeList({ key: path, value: meta.iframe });
+        }
       },
       immediate: true,
     },
-  },
-  created() {
-    this.addKeepAlive(this.$route);
+    pages(val) {
+      this.createTabNavList(val.map((x) => ({ key: x.path, title: x.meta.title })));
+    },
   },
   mounted() {
     this.bindContextmenuEvent();

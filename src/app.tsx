@@ -2,12 +2,13 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 14:04:39
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-27 17:39:57
+ * @Last Modified time: 2021-06-08 14:45:26
  */
 import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
 import { RouterView } from 'vue-router';
 import { changeLocale } from '@/locale';
+import { isIframe } from './router/permission';
 
 import '@/assets/css/reset.scss';
 import '@/assets/css/style.scss';
@@ -47,6 +48,13 @@ export default defineComponent({
     },
   },
   render() {
+    if (isIframe(this.$route.path)) {
+      return (
+        <section class="iframe">
+          <RouterView />
+        </section>
+      );
+    }
     return <RouterView />;
   },
 });

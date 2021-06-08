@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 21:38:08
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-08 11:36:46
+ * @Last Modified time: 2021-06-08 14:03:46
  */
 import { defineAsyncComponent } from 'vue';
 import ErrorComponent from '@/pages/errorLoad';
@@ -40,11 +40,11 @@ export default {
       meta: { keepAlive: true },
       iframeRoutePath: '/iframe/bjgl/cggl/dd',
     },
-    // {
-    //   path: '/bjgl/cggl/tk',
-    //   meta: { keepAlive: true },
-    //   component: () => import(/* webpackChunkName: "test/demo3" */ '@test/pages/demo/index3'),
-    // },
+    {
+      path: '/bjgl/cggl/tk',
+      meta: { keepAlive: true },
+      iframeRoutePath: '/iframe/bjgl/cggl/dd',
+    },
   ],
   // 注意：通过 iframe 形式加载的路由页面，路由路径必须以 /iframe 开头，
   // path 的值与 iframeRoutePath 相等
