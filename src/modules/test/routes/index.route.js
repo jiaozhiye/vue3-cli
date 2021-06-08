@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 21:38:08
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-24 13:32:42
+ * @Last Modified time: 2021-06-08 11:36:46
  */
 import { defineAsyncComponent } from 'vue';
 import ErrorComponent from '@/pages/errorLoad';
@@ -32,13 +32,14 @@ export default {
     },
     // {
     //   path: '/bjgl/cggl/dd',
-    //   meta: { iframeRoutePath: '/iframe/bjgl/cggl/dd' }
-    // },
-    // {
-    //   path: '/bjgl/cggl/rk',
     //   meta: { keepAlive: true },
-    //   component: getAsyncComponent(() => import('tds/svc1001')),
+    //   iframeRoutePath: '/iframe/bjgl/cggl/dd',
     // },
+    {
+      path: '/bjgl/cggl/rk',
+      meta: { keepAlive: true },
+      iframeRoutePath: '/iframe/bjgl/cggl/dd',
+    },
     // {
     //   path: '/bjgl/cggl/tk',
     //   meta: { keepAlive: true },

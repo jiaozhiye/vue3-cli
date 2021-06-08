@@ -56,22 +56,19 @@ export default defineComponent({
   render(): JSXNode {
     return (
       <GlobalLayout>
-        {/* <transition name="fade-transform" mode="out-in"> */}
-        {/* <keep-alive include={this.cachedNames} max={config.maxCacheNum}> */}
-        {/* <RouterView key={this.key} /> */}
-        {/* </keep-alive> */}
-        {/* </transition> */}
-        <RouterView
-          v-slots={{
-            // 作用域插槽，结构参数 Component
-            default: ({ Component: C }): JSXNode => (
-              <KeepAlive include={this.cachedNames} max={config.maxCacheNum}>
-                <C key={this.key} />
-              </KeepAlive>
-            ),
-          }}
-        />
-        {this.createIframeView()}
+        <div class="route-view">
+          <RouterView
+            v-slots={{
+              // 作用域插槽，结构参数 Component
+              default: ({ Component: C }): JSXNode => (
+                <KeepAlive include={this.cachedNames} max={config.maxCacheNum}>
+                  <C key={this.key} />
+                </KeepAlive>
+              ),
+            }}
+          />
+          {this.createIframeView()}
+        </div>
       </GlobalLayout>
     );
   },
@@ -79,6 +76,11 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+.route-view {
+  flex: 1;
+  padding: 10px 10px 0;
+  box-sizing: border-box;
+}
 /* iframe */
 .iframe-wrapper {
   margin: -10px -10px 0;

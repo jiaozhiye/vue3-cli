@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:53:34
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-27 17:49:33
+ * @Last Modified time: 2021-06-08 09:45:10
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import { t } from '@/locale';
@@ -10,6 +10,7 @@ import config from '@/config';
 import moduleRoutes from './routes';
 
 const BasicLayout = () => import('@/layout/BasicLayout.vue');
+const RouteView = () => import('@/layout/RouteView.vue');
 const Login = () => import('@/modules/common/pages/login/index.vue');
 const Dashboard = () => import('@/pages/dashboard/index.vue');
 const Redirect = () => import('@/pages/redirect/index.vue');
@@ -41,7 +42,19 @@ const routes: Array<RouteRecordRaw> = [
         meta: { title: t('app.global.dashboard'), affix: true, bgColor: true, keepAlive: false },
         component: Dashboard,
       },
-      ...moduleRoutes.map((x) => x.routes).flat(),
+      ...moduleRoutes
+        .map((x) => x.routes)
+        .flat()
+        .map((x) => {
+          if (!x.component && x.iframeRoutePath) {
+            return {
+              path: x.path,
+              meta: { ...x.meta, iframe: x.iframeRoutePath },
+              component: RouteView,
+            };
+          }
+          return x;
+        }),
       {
         path: '/redirect/:path(.*)',
         component: Redirect,

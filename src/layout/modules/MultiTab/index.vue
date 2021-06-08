@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:02:14
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-03-23 15:28:30
+ * @Last Modified time: 2021-06-08 10:13:34
  */
 import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
@@ -53,13 +53,14 @@ export default defineComponent({
         this.pages = [...this.pages, val];
       }
     },
-    pages(val) {
-      this.createTabNavList(val.map((x) => ({ key: x.path, title: x.meta.title })));
-      this.createIframeList(
-        val
-          .filter((x) => !!x.meta.iframeRoutePath)
-          .map((x) => ({ key: x.path, value: x.meta.iframeRoutePath }))
-      );
+    pages: {
+      handler(val) {
+        this.createTabNavList(val.map((x) => ({ key: x.path, title: x.meta.title })));
+        this.createIframeList(
+          val.filter((x) => x.meta.iframe).map((x) => ({ key: x.path, value: x.meta.iframe }))
+        );
+      },
+      immediate: true,
     },
   },
   created() {
