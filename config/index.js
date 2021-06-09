@@ -2,10 +2,11 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-27 18:54:22
+ * @Last Modified time: 2021-06-09 15:39:31
  */
 'use strict';
 const path = require('path');
+const subEnv = require('../config/sub.env');
 
 // 配置常量
 const HOST = 'localhost';
@@ -55,7 +56,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: process.env.ENV_CONFIG === 'gray' ? `//localhost/gray/` : `//localhost/`,
+    assetsPublicPath: process.env.ENV_CONFIG === 'gray' ? `${subEnv.app}/gray/` : `${subEnv.app}/`,
 
     // Source Maps
     productionSourceMap: false,
