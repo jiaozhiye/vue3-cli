@@ -2,14 +2,13 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-09 11:45:08
+ * @Last Modified time: 2021-06-09 12:58:22
  */
 import { uniqWith, isEqual } from 'lodash-es';
 import * as types from '../types';
 import config from '@/config';
 import { t } from '@/locale';
 import router from '@/router';
-import { hasOwn } from '@/utils';
 import {
   setToken,
   setGray,
@@ -325,12 +324,8 @@ const actions = {
     const _ctx: any = params.ctx;
     const _size: ComponentSize = params.size;
     // 重置 element-plus 合 qm-design 的 size
-    if (hasOwn(_ctx, '$ELEMENT')) {
-      _ctx.$ELEMENT.size = SizeEnum[_size];
-    }
-    if (hasOwn(_ctx, '$DESIGN')) {
-      _ctx.$DESIGN.size = SizeEnum[_size];
-    }
+    _ctx.$ELEMENT.size = SizeEnum[_size];
+    _ctx.$DESIGN.size = SizeEnum[_size];
   },
   emitThemeColor({ commit, state }, params: string): void {
     state.iframeList.forEach((x) => {
