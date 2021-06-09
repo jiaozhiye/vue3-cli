@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 21:38:08
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-09 08:37:47
+ * @Last Modified time: 2021-06-09 09:45:32
  */
 import { defineAsyncComponent } from 'vue';
 import ErrorComponent from '@/pages/errorLoad';
@@ -24,9 +24,7 @@ export default {
     {
       path: '/bjgl/cggl/dd',
       meta: { keepAlive: true },
-      component: getAsyncComponent(() =>
-        import(/* webpackChunkName: "test/demo" */ '@test/pages/demo/index')
-      ),
+      component: import(/* webpackChunkName: "test/demo" */ '@test/pages/demo/index'),
       // import 参数：子模块/导出得组件名
       // component: getAsyncComponent(() => import('dms/spa1001')),
     },

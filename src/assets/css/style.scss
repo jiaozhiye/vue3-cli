@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 20:40:51
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-08 11:25:21
+ * @Last Modified time: 2021-06-09 09:26:32
  */
 /**
  * public
@@ -105,6 +105,7 @@ textarea:-ms-input-placeholder {
 
 .iframe {
   padding: 10px 10px 0 !important;
+  box-sizing: border-box;
 }
 
 .fixed-footer {

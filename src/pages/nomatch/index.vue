@@ -19,13 +19,12 @@ export default defineComponent({
 .nomatch-wrap {
   display: flex;
   align-items: center;
-  height: 100%;
-  background: url(../../assets/img/not-found.svg) 30% 40% no-repeat;
+  height: calc(100vh - 60px);
+  background: url(../../assets/img/not-found.svg) 30% 45% no-repeat;
   .container {
     flex: 1;
     margin: 0;
-    margin-top: -10vh;
-    margin-left: 50vw;
+    margin-left: 52%;
     h2 {
       margin-bottom: 20px;
       color: $textColor;

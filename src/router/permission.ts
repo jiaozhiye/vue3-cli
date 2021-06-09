@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 20:11:18
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-08 13:27:18
+ * @Last Modified time: 2021-06-09 09:08:25
  */
 import router from '@/router';
 import store from '@/store';
@@ -47,7 +47,7 @@ router.beforeEach(async (to, from, next) => {
     if (to.path === '/login') {
       next({ path: '/' });
     } else {
-      if (!store.state.app.navList.length) {
+      if (!store.state.app.navList.length && !isIframe(to.path)) {
         // 通过 vuex 管理导航数据
         const bool: boolean = await store.dispatch('app/createNavList');
         bool ? next({ ...to, replace: true }) : next(false);
