@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 20:11:18
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-09 09:08:25
+ * @Last Modified time: 2021-06-09 12:22:14
  */
 import router from '@/router';
 import store from '@/store';
@@ -41,6 +41,10 @@ export const isIframe = (path: string): boolean => {
   return path.startsWith(whiteAuth[1]);
 };
 
+const isMatch = (arr, path) => {
+  return arr.some((x) => path.startsWith(x));
+};
+
 router.beforeEach(async (to, from, next) => {
   !isIframe(to.path) && NProgress.start();
   if (isLogin()) {
@@ -59,7 +63,7 @@ router.beforeEach(async (to, from, next) => {
         }
         const isAuth: boolean = await store.dispatch('app/checkAuthority', to.path);
         // 权限校验
-        if (isAuth || [...whiteList, ...whiteAuth].some((x) => to.path.startsWith(x))) {
+        if (isAuth || isMatch([...whiteList, ...whiteAuth], to.path)) {
           next();
         } else {
           next({ path: '/404' });
@@ -68,7 +72,7 @@ router.beforeEach(async (to, from, next) => {
     }
   } else {
     // 白名单，直接进入
-    if (whiteList.some((x) => to.path.startsWith(x))) {
+    if (isMatch(whiteList, to.path)) {
       next();
     } else {
       next({ path: '/login' });
@@ -77,11 +81,10 @@ router.beforeEach(async (to, from, next) => {
 });
 
 router.afterEach((to) => {
-  const title: string = (to.meta?.title as string) ?? '404';
+  const title = to.meta?.title || '404';
   document.title = `${config.systemName}-${title}`;
   NProgress.done();
-  if (whiteList.some((x) => to.path.startsWith(x)) || title === '404') return;
-  if (!config.openBuryPoint) return;
+  if (!config.openBuryPoint || isMatch(whiteList, to.path) || title === '404') return;
   // 菜单埋点
   store.dispatch('app/createMenuRecord', { path: to.path, title });
 });

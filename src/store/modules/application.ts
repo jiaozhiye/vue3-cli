@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-08 15:58:54
+ * @Last Modified time: 2021-06-09 11:45:08
  */
 import { uniqWith, isEqual } from 'lodash-es';
 import * as types from '../types';
@@ -209,19 +209,21 @@ const actions = {
   },
   async createDictData({ commit, state }, params): Promise<void> {
     if (Object.keys(state.dict).length) return;
-    let data: Record<string, Array<Dictionary>> = {};
+    // 每隔 24h 获取一次数据字典
+    const lastTime: number = JSON.parse(localStorage.getItem('dict') as string)?._t ?? 0;
+    if (+new Date() - lastTime < 24 * 3600 * 1000) return;
+    // 数据
+    let data: Record<string, Array<Dictionary> | number> = {};
     if (process.env.MOCK_DATA === 'true') {
-      data = { ...localDict };
+      data = { _t: +new Date(), ...localDict };
     } else {
       const res: any = await getAllDict({});
       if (res.code === 200) {
         // 数据字典规则：如果有重复的 Code，服务端覆盖客户端
         data = {
+          _t: +new Date(),
           ...localDict,
           ...res.data.dict,
-          dealerBranch: res.data.branch?.map((x) => ({ value: x.ID, cnText: x.VBranchName })) ?? [],
-          userBranch:
-            res.data.userbranch?.map((x) => ({ value: x.ID, cnText: x.VBranchName })) ?? [],
         };
       }
     }
@@ -293,6 +295,9 @@ const actions = {
       router.replace({ path: `/redirect${path}`, query });
     }
     dispatch('removeKeepAliveCache', path);
+  },
+  refresParentView() {
+    window.parent?.postMessage({ type: 'refresh', data: '' }, '*');
   },
   setLanguage({ commit, state }, params: string): void {
     state.iframeList.forEach((x) => {
