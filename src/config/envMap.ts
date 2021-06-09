@@ -2,11 +2,15 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 21:03:36
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-03-22 17:28:17
+ * @Last Modified time: 2021-06-09 14:33:32
  */
+import subEnv from '../../config/sub.env';
+
 type IEnvCongig = Record<'dev' | 'tst' | 'uat' | 'pre' | 'prod', Partial<{ host: string }>>;
 
-const config: IEnvCongig = {
+const env: string = process.env.ENV_CONFIG || 'prod';
+
+const config: IEnvCongig = Object.assign({}, subEnv, {
   dev: {
     host: '/',
   },
@@ -22,6 +26,6 @@ const config: IEnvCongig = {
   prod: {
     host: '/',
   },
-};
+});
 
-export default config[process.env.ENV_CONFIG as string] || config[`prod`];
+export default Object.assign({}, config[env], subEnv);
