@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 14:04:39
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-08 14:45:26
+ * @Last Modified time: 2021-06-09 08:56:27
  */
 import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
@@ -33,7 +33,7 @@ export default defineComponent({
     window.removeEventListener('message', this.messageEventHandle);
   },
   methods: {
-    ...mapActions('app', ['createElementSize', 'createThemeColor']),
+    ...mapActions('app', ['createElementSize', 'createThemeColor', 'refreshView']),
     messageEventHandle({ data }): void {
       if (typeof data !== 'object') return;
       if (data.type === 'lang') {
@@ -44,6 +44,9 @@ export default defineComponent({
       }
       if (data.type === 'theme') {
         this.createThemeColor(data.data);
+      }
+      if (data.type === 'refresh') {
+        this.refreshView({ path: this.$route.path });
       }
     },
   },

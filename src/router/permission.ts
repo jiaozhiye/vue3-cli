@@ -22,10 +22,10 @@ type INavItem = {
 };
 
 // 访问白名单
-const whiteList: string[] = ['/login', '/iframe', '/wechat'];
+const whiteList: string[] = ['/login', '/public', '/wechat'];
 
 // 权限白名单
-const whiteAuth: string[] = ['/home', '/redirect', '/404', '/test'];
+const whiteAuth: string[] = ['/home', '/iframe', '/redirect', '/404', '/test'];
 
 // 登录判断
 export const isLogin = (): boolean => {
@@ -38,7 +38,7 @@ export const isLogin = (): boolean => {
 
 // iframe 判断
 export const isIframe = (path: string): boolean => {
-  return path.startsWith(whiteList[1]);
+  return path.startsWith(whiteAuth[1]);
 };
 
 router.beforeEach(async (to, from, next) => {

@@ -33,10 +33,6 @@ export default defineComponent({
     this.createStarMenuList();
     // 获取常用导航
     // this.createCommonMenuList();
-    // 挂载刷新方法
-    window.$$refresh = this.refreshView;
-    // 子窗口
-    // window.parent.$$refresh({ path: window.parent.location.pathname });
   },
   methods: {
     ...mapActions('app', [

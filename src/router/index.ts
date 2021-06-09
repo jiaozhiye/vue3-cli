@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:53:34
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-08 09:45:10
+ * @Last Modified time: 2021-06-09 08:49:54
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import { t } from '@/locale';
@@ -30,7 +30,15 @@ const routes: Array<RouteRecordRaw> = [
     component: WeChatCb,
     hidden: true,
   },
-  ...moduleRoutes.map((x) => x.iframes).flat(),
+  ...moduleRoutes.map((x) => x.public).flat(),
+  ...moduleRoutes
+    .map((x) => x.routes)
+    .flat()
+    .map((x) => ({
+      path: '/iframe' + x.path,
+      meta: x.meta || {},
+      component: x.component,
+    })),
   {
     path: '/',
     meta: { title: t('app.global.home') },
@@ -46,10 +54,10 @@ const routes: Array<RouteRecordRaw> = [
         .map((x) => x.routes)
         .flat()
         .map((x) => {
-          if (!x.component && x.iframeRoutePath) {
+          if (config.useIframe || x.iframeRoutePath) {
             return {
               path: x.path,
-              meta: { ...x.meta, iframe: x.iframeRoutePath },
+              meta: { ...x.meta, iframe: x.iframeRoutePath || '/iframe' + x.path },
               component: RouteView,
             };
           }
