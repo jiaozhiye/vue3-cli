@@ -24,7 +24,7 @@
  * @Author: 焦质晔
  * @Date: 2020-04-30 15:17:48
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 10:16:31
+ * @Last Modified time: 2021-06-09 14:09:11
  */
 import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
@@ -36,13 +36,12 @@ export default defineComponent({
     ...mapState('app', ['lang']),
   },
   methods: {
-    ...mapActions('app', ['setLanguage', 'refreshView']),
+    ...mapActions('app', ['emitLanguage', 'refreshView']),
     languageChangeHandle(lang) {
       changeLocale(lang);
-      this.setLanguage(lang);
-      localStorage.setItem('lang', lang);
+      this.emitLanguage(lang);
       // 重新加载路由页面
-      this.refreshView({ path: this.$route.path });
+      setTimeout(() => this.refreshView({ path: this.$route.path }));
     },
   },
 });

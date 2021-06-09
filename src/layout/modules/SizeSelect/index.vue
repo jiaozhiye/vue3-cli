@@ -27,7 +27,7 @@
  * @Author: 焦质晔
  * @Date: 2020-04-30 15:17:48
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-05 13:36:35
+ * @Last Modified time: 2021-06-09 14:09:02
  */
 import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
@@ -38,13 +38,12 @@ export default defineComponent({
     ...mapState('app', ['size']),
   },
   methods: {
-    ...mapActions('app', ['setSize', 'createElementSize', 'refreshView']),
+    ...mapActions('app', ['emitElementSize', 'createElementSize', 'refreshView']),
     languageChangeHandle(size) {
-      this.setSize(size);
+      this.emitElementSize(size);
       this.createElementSize({ ctx: this, size });
-      localStorage.setItem('size', size);
       // 重新加载路由页面
-      this.refreshView({ path: this.$route.path });
+      setTimeout(() => this.refreshView({ path: this.$route.path }));
     },
   },
 });

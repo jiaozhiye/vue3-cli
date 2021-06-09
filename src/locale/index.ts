@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:14:12
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 10:16:00
+ * @Last Modified time: 2021-06-09 14:00:30
  */
 import { createI18n } from 'vue-i18n';
 
@@ -28,6 +28,7 @@ const { t, mergeLocaleMessage } = i18n.global;
 
 const changeLocale = (lang: string): void => {
   i18n.global.locale = lang;
+  localStorage.setItem('lang', lang);
 };
 
 export { t, mergeLocaleMessage, changeLocale };

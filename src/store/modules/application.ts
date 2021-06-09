@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-09 12:58:22
+ * @Last Modified time: 2021-06-09 14:01:16
  */
 import { uniqWith, isEqual } from 'lodash-es';
 import * as types from '../types';
@@ -298,7 +298,7 @@ const actions = {
   refresParentView() {
     window.parent?.postMessage({ type: 'refresh', data: '' }, '*');
   },
-  setLanguage({ commit, state }, params: string): void {
+  emitLanguage({ commit, state }, params: string): void {
     state.iframeList.forEach((x) => {
       const $iframe: HTMLIFrameElement = document.getElementById(x.key) as HTMLIFrameElement;
       if (!$iframe) return;
@@ -309,7 +309,7 @@ const actions = {
       data: params,
     });
   },
-  setSize({ commit, state }, params: ComponentSize): void {
+  emitElementSize({ commit, state }, params: ComponentSize): void {
     state.iframeList.forEach((x) => {
       const $iframe: HTMLIFrameElement = document.getElementById(x.key) as HTMLIFrameElement;
       if (!$iframe) return;
@@ -326,6 +326,8 @@ const actions = {
     // 重置 element-plus 合 qm-design 的 size
     _ctx.$ELEMENT.size = SizeEnum[_size];
     _ctx.$DESIGN.size = SizeEnum[_size];
+    // 本地存储
+    localStorage.setItem('size', _size);
   },
   emitThemeColor({ commit, state }, params: string): void {
     state.iframeList.forEach((x) => {

@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 12:43:43
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-09 12:26:45
+ * @Last Modified time: 2021-06-09 13:37:25
  */
 import { t } from '@/locale';
 import { ComponentSize } from '@/utils/types';
@@ -16,7 +16,7 @@ export default {
   lang: 'zh-cn', // 语言
   size: SIZE_MAP, // 尺寸
   prefix: '/api', // ajax 请求前缀
-  useIframe: false, // 是否使用 iframe 承载路由页面
+  useIframe: true, // 是否使用 iframe 承载路由页面
   maxCacheNum: 10, // 路由组件最大缓存数量
   showBreadcrumb: false, // 是否显示面包屑
   showScreenFull: true, // 是否显示全屏按钮
