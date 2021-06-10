@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:02:14
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-10 10:20:14
+ * @Last Modified time: 2021-06-10 10:43:13
  */
 import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
@@ -167,7 +167,7 @@ export default defineComponent({
       this.visible = true;
     },
     closeContextMenu() {
-      setTimeout(() => (this.visible = false), 60);
+      setTimeout(() => (this.visible = false), 100);
     },
     bindContextmenuEvent() {
       this.contextmenuEvent = addEventListener(this.$multiTab, 'contextmenu', (ev) => {
@@ -175,9 +175,7 @@ export default defineComponent({
         const classNames = [...ev.target.classList];
         if (classNames.includes('el-tabs__item')) {
           const path = ev.target.getAttribute('aria-controls').replace(/^pane-/, '');
-          // if (this.activeKey !== path) {
-          //   return this.closeContextMenu();
-          // }
+          if (this.activeKey !== path) return;
           this.position.x = ev.clientX || ev.pageX;
           this.position.y = ev.clientY || ev.pageY;
           this.showContextMenu(path);
@@ -185,7 +183,7 @@ export default defineComponent({
       });
     },
     bindDocumentEvent() {
-      this.clickEvent = addEventListener(document, 'mousedown', this.closeContextMenu);
+      this.clickEvent = addEventListener(document, 'click', this.closeContextMenu);
     },
     deepMapRoutes(arr, mark) {
       let res = null;
@@ -239,17 +237,17 @@ export default defineComponent({
             class="contextmenu el-dropdown-menu--small"
             style={{ left: `${this.position.x + 10}px`, top: `${this.position.y + 2}px` }}
           >
-            <li class="el-dropdown-menu__item" onMousedown={this.refreshTagHandle}>
+            <li class="el-dropdown-menu__item" onClick={this.refreshTagHandle}>
               {this.$t('app.multiTab.refresh')}
             </li>
-            <li class="el-dropdown-menu__item" onMousedown={() => this.closeTagHandle('right')}>
+            <li class="el-dropdown-menu__item" onClick={() => this.closeTagHandle('right')}>
               {this.$t('app.multiTab.closeRight')}
             </li>
-            <li class="el-dropdown-menu__item" onMousedown={() => this.closeTagHandle('left')}>
+            <li class="el-dropdown-menu__item" onClick={() => this.closeTagHandle('left')}>
               {this.$t('app.multiTab.closeLeft')}
             </li>
             {this.pages.length > 1 && (
-              <li class="el-dropdown-menu__item" onMousedown={this.closeOtherTagHandle}>
+              <li class="el-dropdown-menu__item" onClick={this.closeOtherTagHandle}>
                 {this.$t('app.multiTab.closeOthers')}
               </li>
             )}
