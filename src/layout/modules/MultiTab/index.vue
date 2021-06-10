@@ -19,8 +19,6 @@ export default defineComponent({
     const localRoutes = this.getLocalTabNav()
       .map((x) => this.getRouteByPath(x.key))
       .filter((x) => !!x);
-    // 定时器
-    this.timer = null;
     return {
       activeKey: this.$route.path,
       pages: uniqBy(
@@ -169,8 +167,7 @@ export default defineComponent({
       this.visible = true;
     },
     closeContextMenu() {
-      this.timer && clearTimeout(this.timer);
-      this.timer = setTimeout(() => (this.visible = false), 100);
+      this.visible = false;
     },
     bindContextmenuEvent() {
       this.contextmenuEvent = addEventListener(this.$multiTab, 'contextmenu', (ev) => {
@@ -240,17 +237,17 @@ export default defineComponent({
             class="contextmenu el-dropdown-menu--small"
             style={{ left: `${this.position.x + 10}px`, top: `${this.position.y + 2}px` }}
           >
-            <li class="el-dropdown-menu__item" onClick={this.refreshTagHandle}>
+            <li class="el-dropdown-menu__item" onMousedown={this.refreshTagHandle}>
               {this.$t('app.multiTab.refresh')}
             </li>
-            <li class="el-dropdown-menu__item" onClick={() => this.closeTagHandle('right')}>
+            <li class="el-dropdown-menu__item" onMousedown={() => this.closeTagHandle('right')}>
               {this.$t('app.multiTab.closeRight')}
             </li>
-            <li class="el-dropdown-menu__item" onClick={() => this.closeTagHandle('left')}>
+            <li class="el-dropdown-menu__item" onMousedown={() => this.closeTagHandle('left')}>
               {this.$t('app.multiTab.closeLeft')}
             </li>
             {this.pages.length > 1 && (
-              <li class="el-dropdown-menu__item" onClick={this.closeOtherTagHandle}>
+              <li class="el-dropdown-menu__item" onMousedown={this.closeOtherTagHandle}>
                 {this.$t('app.multiTab.closeOthers')}
               </li>
             )}
