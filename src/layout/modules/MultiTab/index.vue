@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:02:14
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-10 10:43:13
+ * @Last Modified time: 2021-06-10 10:58:17
  */
 import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
@@ -19,6 +19,8 @@ export default defineComponent({
     const localRoutes = this.getLocalTabNav()
       .map((x) => this.getRouteByPath(x.key))
       .filter((x) => !!x);
+    // 定时器
+    this.timer = null;
     return {
       activeKey: this.$route.path,
       pages: uniqBy(
@@ -167,7 +169,8 @@ export default defineComponent({
       this.visible = true;
     },
     closeContextMenu() {
-      setTimeout(() => (this.visible = false), 100);
+      this.timer && clearTimeout(this.timer);
+      this.timer = setTimeout(() => (this.visible = false), 100);
     },
     bindContextmenuEvent() {
       this.contextmenuEvent = addEventListener(this.$multiTab, 'contextmenu', (ev) => {
