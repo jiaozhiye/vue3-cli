@@ -3,7 +3,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 10:02:14
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-08 15:50:33
+ * @Last Modified time: 2021-06-10 10:01:48
  */
 import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
@@ -227,6 +227,7 @@ export default defineComponent({
           ref="multiTab"
           type="card"
           class="multi-wrap"
+          v-focus-outside={this.closeContextMenu}
           modelValue={this.activeKey}
           onTabClick={this.handleClick}
           onTabRemove={this.removeTab}
