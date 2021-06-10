@@ -62,6 +62,7 @@ primaryColor: '#409eff'
 │   ├── assets                 # 静态资源
 │   ├── charts                 # 图表组件
 │   ├── components             # 全局公用组件
+│   ├── directive              # 全局自定义指令
 │   ├── config                 # 全局配置
 │   ├── layout                 # 全局 layout
 │   ├── locale                 # 多语言支持
@@ -79,7 +80,8 @@ primaryColor: '#409eff'
 ├── babel.config.js            # babel-loader 配置
 ├── .browserslistrc            # 浏览器兼容配置
 ├── .editorconfig              # EditorConfig 配置
-├── .env                       # 开发环境环境常量
+├── .env.dev                   # 开发环境环境常量
+├── .env.prod                  # 生产环境环境常量
 ├── .eslintignore              # Eslint 忽略清单
 ├── .eslintrc.js               # Eslint 校验规则
 ├── .gitignore                 # git 忽略清单
