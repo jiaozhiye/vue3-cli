@@ -1,6 +1,6 @@
 ## 说明
 
-- EP 管理系统，基于 Vue3.x 的前端集成解决方案。
+- EP 管理系统，车厂上下游互通及厂店一体化建设的集成解决方案。
 
 ## 前序准备
 
@@ -21,7 +21,7 @@
 $ yarn install 或 npm install
 
 # 启动本地服务
-$ npm run start 或 npm run dev
+$ npm run dev
 
 # 发布，构建生产环境代码
 $ npm run build
@@ -29,7 +29,7 @@ $ npm run build
 
 ## 微前端
 
-### 微应用 + 微模块
+### 微应用(子系统) + 微模块(业务模块)
 
 ### 主机应用充当路由注册中心和分发调度的角色，来调用各子应用页面
 
@@ -74,9 +74,8 @@ primaryColor: '#409eff'
 │   ├── store                  # 全局 store 管理
 │   ├── utils                  # 全局公用方法
 │   ├── app.tsx                # 根组件
-│   ├── bootstrap.ts           #
 │   ├── index.ts               # 应用入口
-│   └── shims-vue.d.ts         #
+│   └── shims-vue.d.ts         # 声明文件
 ├── babel.config.js            # babel-loader 配置
 ├── .browserslistrc            # 浏览器兼容配置
 ├── .editorconfig              # EditorConfig 配置
