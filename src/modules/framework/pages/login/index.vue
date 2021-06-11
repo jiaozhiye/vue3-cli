@@ -17,7 +17,7 @@
           <div class="container">
             <div class="scroll" :style="scrollTranslate">
               <div class="box">
-                <Account ref="sign-account" @enter="() => this.loginHandle()" />
+                <Account ref="sign-account" @enter="loginHandle" />
                 <div class="forget-pwd">
                   <a href="javascript:;" @click="forgetPwdHandle">忘记密码</a>
                 </div>

@@ -115,7 +115,7 @@ export default {
       try {
         return await this.$refs[formType].validate();
       } catch (err) {
-        return err;
+        return false;
       }
       // eslint-disable-next-line no-unreachable
       return false;
