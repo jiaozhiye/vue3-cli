@@ -2,7 +2,9 @@
   <div class="app-aside__all-menu">
     <div class="title" :class="{ selected: visible ? !0 : !1 }" @click.stop="clickHandle">
       <i class="el-icon-menu" />
-      <span v-if="!collapsed" class="text">{{ $t('app.sidebar.allNavTitle') }}</span>
+      <span v-if="!collapsed" class="text text_overflow_cut">{{
+        $t('app.sidebar.allNavTitle')
+      }}</span>
     </div>
     <div :class="['masker', poperShow]" :style="{ left: asideWidth }"></div>
     <div :style="{ left: asideWidth }" :class="['popper', poperShow]" @click.stop>
@@ -18,7 +20,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 11:33:24
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 15:50:02
+ * @Last Modified time: 2021-06-11 15:33:49
  */
 import { defineComponent } from 'vue';
 import addEventListener from 'add-dom-event-listener';
