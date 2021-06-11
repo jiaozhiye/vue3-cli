@@ -7,8 +7,9 @@
 import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
 import { RouterView } from 'vue-router';
-import { changeLocale } from '@/locale';
+import { messageEvent } from '@/mixins/messageMixin';
 import { isIframe } from './router/permission';
+import { JSXNode } from './utils/types';
 
 import '@/assets/css/reset.scss';
 import '@/assets/css/style.scss';
@@ -17,52 +18,27 @@ import '@/assets/css/element-ui.scss';
 
 export default defineComponent({
   name: 'App',
+  mixins: [messageEvent],
   computed: {
     ...mapState('app', ['theme']),
   },
   created() {
-    const localTheme = localStorage.getItem('theme') as string;
+    const localTheme: string = localStorage.getItem('theme') || '';
     if (localTheme && localTheme !== this.theme) {
       this.createThemeColor(localTheme);
     }
   },
-  mounted() {
-    window.addEventListener('message', this.messageEventHandle, false);
-  },
   updated() {
     this.getDictData();
   },
-  beforeUnmount() {
-    window.removeEventListener('message', this.messageEventHandle);
-  },
   methods: {
-    ...mapActions('app', [
-      'createDictData',
-      'createElementSize',
-      'createThemeColor',
-      'refreshView',
-    ]),
+    ...mapActions('app', ['createDictData', 'createThemeColor']),
     getDictData(): void {
       if (!isIframe(this.$route.path)) return;
       this.createDictData();
     },
-    messageEventHandle({ data }): void {
-      if (typeof data !== 'object') return;
-      if (data.type === 'lang') {
-        changeLocale(data.data);
-      }
-      if (data.type === 'size') {
-        this.createElementSize({ ctx: this, size: data.data });
-      }
-      if (data.type === 'theme') {
-        this.createThemeColor(data.data);
-      }
-      if (data.type === 'refresh') {
-        this.refreshView({ path: this.$route.path });
-      }
-    },
   },
-  render() {
+  render(): JSXNode {
     if (isIframe(this.$route.path)) {
       return (
         <section class="iframe">
