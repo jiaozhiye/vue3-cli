@@ -8,6 +8,12 @@
     @finish="onFinish"
     @collapse="onCollapseChange"
   />
+  <qm-space :containerStyle="{ marginLeft: '80px', marginBottom: '10px' }">
+    <qm-button type="primary">按钮1</qm-button>
+    <qm-button type="primary">按钮2</qm-button>
+    <qm-button type="primary">按钮3</qm-button>
+    <qm-button type="primary">按钮4</qm-button>
+  </qm-space>
   <qm-table
     ref="table"
     uniqueKey="jzy_Demo"
@@ -48,7 +54,7 @@
  * @Author: 焦质晔
  * @Date: 2021-05-13 14:08:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-31 13:30:07
+ * @Last Modified time: 2021-06-11 12:53:26
  */
 import './lang'; // 多语言
 import { dictionary } from '@/mixins/dictMixin'; // 数据字典
