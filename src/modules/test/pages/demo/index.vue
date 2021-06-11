@@ -54,7 +54,7 @@
  * @Author: 焦质晔
  * @Date: 2021-05-13 14:08:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-11 12:53:26
+ * @Last Modified time: 2021-06-11 13:26:10
  */
 import './lang'; // 多语言
 import { dictionary } from '@/mixins/dictMixin'; // 数据字典
@@ -203,7 +203,6 @@ export default {
           label: '条件6',
           fieldName: 'f',
           request: {
-            fetchApi: getRegionData,
             fetchStreetApi: getSelectData,
             params: {},
             datakey: 'records',
