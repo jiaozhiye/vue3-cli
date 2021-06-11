@@ -45,7 +45,7 @@
             size="medium"
             :loading="loading"
             class="login-btn"
-            @click="() => this.bindPhoneHandle()"
+            @click="bindPhoneHandle"
             >进入系统</el-button
           >
           <el-button
@@ -54,12 +54,12 @@
             size="medium"
             :loading="loading"
             class="login-btn"
-            @click="() => this.loginHandle()"
+            @click="loginHandle"
             >登 录</el-button
           >
         </div>
         <WeChat />
-        <AppDownload />
+        <div style="height: 10px" />
       </div>
     </div>
     <!-- logo -->
@@ -110,7 +110,7 @@
         >谷歌浏览器</a
       >
     </div>
-    <BaseDialog
+    <qm-dialog
       v-model:visible="visible"
       title="忘记密码"
       width="400px"
@@ -118,7 +118,7 @@
       destroy-on-close
     >
       <BackPwd @close="backPwdColose" />
-    </BaseDialog>
+    </qm-dialog>
   </section>
 </template>
 
@@ -132,7 +132,6 @@ import { doLogin, bindPhone, getLoginBg } from '@common/api/login';
 import Account from './account';
 import Phone from './phone';
 import WeChat from './weChat';
-import AppDownload from './appDownload';
 import BackPwd from './backPwd';
 
 import defaultBg from './assets/login-default.jpg';
@@ -140,7 +139,7 @@ const localLoginBg = localStorage.getItem('login_bg');
 
 export default {
   name: 'Login',
-  components: { Account, Phone, WeChat, AppDownload, BackPwd },
+  components: { Account, Phone, WeChat, BackPwd },
   data() {
     this.labels = [
       { key: 'account', text: '用户名登录' },

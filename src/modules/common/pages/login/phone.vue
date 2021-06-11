@@ -15,7 +15,7 @@
         >
       </el-form-item>
     </el-form>
-    <BaseDialog
+    <qm-dialog
       v-model:visible="visible"
       title="滑动校验"
       width="420px"
@@ -23,7 +23,7 @@
       destroy-on-close
     >
       <Verify @success="successHandle" @fail="failHandle" />
-    </BaseDialog>
+    </qm-dialog>
   </div>
 </template>
 
