@@ -30,6 +30,9 @@ export const messageEvent = {
       if (data.type === 'refresh') {
         this.refreshView({ path: this.$route.path });
       }
+      if (data.type === 'open') {
+        this.$router.push(data.data);
+      }
     },
   },
 };

@@ -273,6 +273,12 @@ const actions = {
       data: params,
     });
   },
+  openView({ commit, state }, params: string): void {
+    window.parent.postMessage({ type: 'open', data: params }, '*');
+  },
+  refresCurrentView({ commit, state }, params): void {
+    window.parent.postMessage({ type: 'refresh', data: '' }, '*');
+  },
   refreshView({ dispatch, commit, state }, { path, query = {} }): void {
     let $iframe: Nullable<HTMLIFrameElement> = document.getElementById(path) as HTMLIFrameElement;
     if ($iframe) {
@@ -294,9 +300,6 @@ const actions = {
       router.replace({ path: `/redirect${path}`, query });
     }
     dispatch('removeKeepAliveCache', path);
-  },
-  refresParentView() {
-    window.parent?.postMessage({ type: 'refresh', data: '' }, '*');
   },
   emitLanguage({ commit, state }, params: string): void {
     state.iframeList.forEach((x) => {

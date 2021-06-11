@@ -46,7 +46,7 @@ export default defineComponent({
   watch: {
     $route: {
       handler(val) {
-        const { path, meta } = val;
+        const { path, meta, query } = val;
         if (path.startsWith('/redirect')) return;
         this.activeKey = path;
         this.addKeepAlive(val);
@@ -54,7 +54,7 @@ export default defineComponent({
           this.pages = [...this.pages, val];
         }
         if (meta.iframe) {
-          this.createIframeList({ key: path, value: meta.iframe });
+          this.createIframeList({ key: path, value: meta.iframe + this.createQueryParams(query) });
         }
       },
       immediate: true,
@@ -84,6 +84,16 @@ export default defineComponent({
     },
     getRouteComponent(route) {
       return route.matched[route.matched.length - 1].components.default;
+    },
+    createQueryParams(query) {
+      if (!Object.keys(query).length) {
+        return '';
+      }
+      let val = '?';
+      Object.entries(query).forEach((arr) => {
+        val += `${arr[0]}=${arr[1]}`;
+      });
+      return val;
     },
     getLocalTabNav() {
       const localTabNav = localStorage.getItem('tab_nav');
