@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-09 14:01:16
+ * @Last Modified time: 2021-06-11 10:57:03
  */
 import { uniqWith, isEqual } from 'lodash-es';
 import * as types from '../types';
@@ -276,7 +276,7 @@ const actions = {
   openView({ commit, state }, params: string): void {
     window.parent.postMessage({ type: 'open', data: params }, '*');
   },
-  refresCurrentView({ commit, state }, params): void {
+  reloadView({ commit, state }, params): void {
     window.parent.postMessage({ type: 'refresh', data: '' }, '*');
   },
   refreshView({ dispatch, commit, state }, { path, query = {} }): void {
