@@ -30,7 +30,7 @@
 <script>
 import { sleep } from '@/utils';
 import { phoneValidate } from '@/utils/validate';
-import { getCaptcha } from '@common/api/login';
+import { getCaptcha } from '@framework/api/login';
 
 import Verify from './verify';
 

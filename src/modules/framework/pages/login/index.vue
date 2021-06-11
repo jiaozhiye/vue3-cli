@@ -127,7 +127,7 @@ import { mapActions, mapState } from 'vuex';
 
 import { sleep } from '@/utils';
 import { setWechatAvatar } from '@/utils/cookies';
-import { doLogin, bindPhone, getLoginBg } from '@common/api/login';
+import { doLogin, bindPhone, getLoginBg } from '@framework/api/login';
 
 import Account from './account';
 import Phone from './phone';

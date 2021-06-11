@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { getCheckCode } from '@common/api/login';
+import { getCheckCode } from '@framework/api/login';
 
 export default {
   data() {

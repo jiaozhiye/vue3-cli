@@ -4,7 +4,7 @@
 
 <script>
 // https://tst-audiep.faw-vw.com/getAccessToken?code=031tj4Ga1399Iz00cZFa1LZJLN2tj4Gz&state=84281EA7EF300BA3EB9650E8689A539E77E22D1E443CAE594C21C49B26FC5F7C
-import { getWechatOpenId } from '@common/api/login';
+import { getWechatOpenId } from '@framework/api/login';
 
 export default {
   async created() {

@@ -48,7 +48,7 @@
 <script>
 import { isFormEmpty, sleep } from '@/utils';
 import { pwdValidate } from '@/utils/validate';
-import { getForgetCode, confirmPwdBack, resetPwd } from '@common/api/login';
+import { getForgetCode, confirmPwdBack, resetPwd } from '@framework/api/login';
 
 const isPhone = (val) => /^1[2-9]\d{9}$/.test(val);
 const isEmail = (val) => /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(val);

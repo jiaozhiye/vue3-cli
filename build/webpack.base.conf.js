@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-05 13:15:36
+ * @Last Modified time: 2021-06-11 14:01:02
  */
 'use strict';
 
@@ -45,7 +45,7 @@ module.exports = {
       vue$: 'vue/dist/vue.esm-bundler.js',
       '@': utils.resolve('src'),
       '@test': utils.resolve('src/modules/test'),
-      '@common': utils.resolve('src/modules/common'),
+      '@framework': utils.resolve('src/modules/framework'),
     },
     fallback: {
       crypto: false,

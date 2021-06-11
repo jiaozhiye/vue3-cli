@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { getWechatUrl } from '@common/api/login';
+import { getWechatUrl } from '@framework/api/login';
 import { messageAction } from '@/utils';
 
 export default {
