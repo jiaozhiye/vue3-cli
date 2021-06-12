@@ -27,7 +27,7 @@
     ]
   },
   "dependencies": {
-    "@jiaozhiye/qm-design": "^1.0.0-beta.8",
+    "@jiaozhiye/qm-design": "^1.0.0-beta.9",
     "add-dom-event-listener": "^1.1.0",
     "axios": "^0.21.1",
     "dayjs": "^1.10.4",
@@ -36,7 +36,7 @@
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
     "screenfull": "^5.1.0",
-    "vue": "3.0.11",
+    "vue": "3.1.1",
     "vue-i18n": "^9.1.6",
     "vue-router": "^4.0.8",
     "vuex": "^4.0.0"
@@ -52,7 +52,7 @@
     "@typescript-eslint/eslint-plugin": "^4.14.0",
     "@typescript-eslint/parser": "^4.14.0",
     "@vue/babel-plugin-jsx": "^1.0.6",
-    "@vue/compiler-sfc": "3.0.11",
+    "@vue/compiler-sfc": "3.1.1",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.2",
     "case-sensitive-paths-webpack-plugin": "^2.4.0",
