@@ -4,7 +4,7 @@
  * @Last Modified by: 焦质晔
  * @Last Modified time: 2021-02-15 20:17:52
  */
-import { VNode } from 'vue';
+import type { VNode } from 'vue';
 
 export type Nullable<T> = T | null;
 

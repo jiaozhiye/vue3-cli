@@ -16,7 +16,7 @@ export default {
   lang: 'zh-cn', // 语言
   size: SIZE_MAP, // 尺寸
   prefix: '/api', // ajax 请求前缀
-  useIframe: true, // 是否使用 iframe 承载路由页面
+  useIframe: false, // 是否使用 iframe 承载路由页面
   maxCacheNum: 10, // 路由组件最大缓存数量
   showBreadcrumb: false, // 是否显示面包屑
   showScreenFull: true, // 是否显示全屏按钮
