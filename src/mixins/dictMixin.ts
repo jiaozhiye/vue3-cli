@@ -2,12 +2,12 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 21:05:20
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-13 12:11:01
+ * @Last Modified time: 2021-06-14 06:57:18
  */
 import store from '@/store';
 import { Dictionary, Nullable } from '@/utils/types';
 
-const useDict = (): Record<string, Array<Dictionary>> => {
+const useDict = (): Record<string, Dictionary[]> => {
   return Object.keys(store.state.app.dict).length
     ? store.state.app.dict
     : JSON.parse(localStorage.getItem('dict') as string) || {};
@@ -26,10 +26,10 @@ export const dictionary = {
       code: string,
       excludes: string[] | string = [],
       showStoped = false
-    ): Array<Dictionary> {
+    ): Dictionary[] {
       const vals: string[] = Array.isArray(excludes) ? excludes : [excludes];
       const dict = useDict();
-      let res: Array<Dictionary> = [];
+      let res: Dictionary[] = [];
       if (Array.isArray(dict[code])) {
         // 过滤已停用的数据字典项
         res = !showStoped ? dict[code].filter((x) => (x as any).stoped !== '1') : dict[code];
@@ -53,7 +53,7 @@ export const dictionary = {
       const dict = useDict();
       if (Array.isArray(dict[code])) {
         // 过滤已停用的数据字典项
-        const dicts: Array<Dictionary> = !showStoped
+        const dicts: Dictionary[] = !showStoped
           ? dict[code].filter((x) => (x as any).stoped !== '1')
           : dict[code];
         const target: Nullable<Dictionary> = dicts.find((x) => x.value == val) || null;

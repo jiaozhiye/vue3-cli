@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 14:26:46
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-15 20:17:52
+ * @Last Modified time: 2021-06-14 06:50:56
  */
 import type { VNode } from 'vue';
 
@@ -23,6 +23,8 @@ export type AnyFunction<T> = (...args: any[]) => T;
 export type CustomizedHTMLElement<T> = HTMLElement & T;
 
 export type ComponentSize = 'large' | 'medium' | 'small';
+
+export type Language = 'en' | 'zh-cn';
 
 export enum SizeEnum {
   large = 'medium',

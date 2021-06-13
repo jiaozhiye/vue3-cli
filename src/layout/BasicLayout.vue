@@ -41,7 +41,7 @@ export default defineComponent({
       'createCommonMenuList',
       'refreshView',
     ]),
-    createIframeView(): JSXNode {
+    createIframeView(): JSXNode[] {
       return this.iframeList.map((x) => (
         <div key={x.key} class="iframe-wrapper" v-show={this.key === x.key}>
           <iframe id={x.key} src={x.value} width="100%" height="100%" frameborder="0" />

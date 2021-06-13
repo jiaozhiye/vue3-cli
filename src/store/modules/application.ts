@@ -2,8 +2,9 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-11 10:57:03
+ * @Last Modified time: 2021-06-14 07:42:00
  */
+import { RouteRecordRaw } from 'vue-router';
 import { uniqWith, isEqual } from 'lodash-es';
 import * as types from '../types';
 import config from '@/config';
@@ -29,14 +30,38 @@ import {
 // 自定义主题
 import client from 'webpack-custom-theme/client';
 import forElementUI from 'webpack-custom-theme/forElementUI';
+import { Dictionary, ComponentSize, Language, SizeEnum, AnyObject, Nullable } from '@/utils/types';
 
-import { Dictionary, ComponentSize, SizeEnum, Nullable } from '@/utils/types';
+type INavItem = {
+  key: string;
+  title: string;
+  icon?: string;
+  parentKey?: string;
+  hideInMenu?: boolean;
+  permission?: string[];
+  children?: INavItem[];
+};
 
-const deepMapRoute = (arr, mark) => {
-  let res = null;
+type IState = {
+  lang: Language;
+  size: ComponentSize;
+  theme: string;
+  navList: Array<Omit<INavItem, 'icon' | 'children'>>;
+  menuList: INavItem[];
+  tabNavList: Array<{ key: string; title: string }>;
+  starMenuList: Array<{ key: string; title: string }>;
+  commonMenuList: Array<{ key: string; title: string }>;
+  keepAliveList: Array<{ key: string; value: string }>;
+  iframeList: Array<{ key: string; value: string }>;
+  dict: Record<string, Dictionary[] | number>;
+  weChat: AnyObject<string>;
+};
+
+const deepMapRoute = (arr: RouteRecordRaw[], mark: string): Nullable<RouteRecordRaw> => {
+  let res: Nullable<RouteRecordRaw> = null;
   for (let i = 0; i < arr.length; i++) {
     if (Array.isArray(arr[i].children)) {
-      res = deepMapRoute(arr[i].children, mark);
+      res = deepMapRoute(arr[i].children as RouteRecordRaw[], mark);
     }
     if (res) {
       return res;
@@ -48,8 +73,8 @@ const deepMapRoute = (arr, mark) => {
   return res;
 };
 
-const createMenuList = (list) => {
-  const res: any[] = [];
+const createMenuList = (list: IState['menuList']) => {
+  const res: IState['navList'] = [];
   list.forEach((x) => {
     if (Array.isArray(x.children)) {
       res.push(...createMenuList(x.children));
@@ -60,7 +85,7 @@ const createMenuList = (list) => {
   return res;
 };
 
-const formatNavData = (list, routes) => {
+const formatNavData = (list: IState['menuList'], routes: RouteRecordRaw[]) => {
   list.forEach((x) => {
     if (Array.isArray(x.children) && x.children.length) {
       x.children.forEach((sub) => (sub.parentKey = x.key));
@@ -72,7 +97,7 @@ const formatNavData = (list, routes) => {
     const target = deepMapRoute(routes, x.key);
     if (target) {
       target.meta && (target.meta.title = x.title);
-      target.hideInMenu && (x.hideInMenu = true);
+      (target as any).hideInMenu && (x.hideInMenu = true);
     }
   });
 };
@@ -91,7 +116,7 @@ const state = {
   iframeList: [], // iframe 列表
   dict: {}, // 数据字典
   weChat: {}, // 微信登录信息
-};
+} as IState;
 
 // actions
 const actions = {
@@ -301,7 +326,7 @@ const actions = {
     }
     dispatch('removeKeepAliveCache', path);
   },
-  emitLanguage({ commit, state }, params: string): void {
+  emitLanguage({ commit, state }, params: Language): void {
     state.iframeList.forEach((x) => {
       const $iframe: HTMLIFrameElement = document.getElementById(x.key) as HTMLIFrameElement;
       if (!$iframe) return;
