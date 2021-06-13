@@ -2,14 +2,14 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 21:05:20
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-13 10:50:07
+ * @Last Modified time: 2021-06-13 12:11:01
  */
 import store from '@/store';
 import { Dictionary, Nullable } from '@/utils/types';
 
 const useDict = (): Record<string, Array<Dictionary>> => {
   return Object.keys(store.state.app.dict).length
-    ? { ...store.state.app.dict }
+    ? store.state.app.dict
     : JSON.parse(localStorage.getItem('dict') as string) || {};
 };
 

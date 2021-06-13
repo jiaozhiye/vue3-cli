@@ -2,21 +2,12 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 14:22:31
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-05-27 17:49:15
+ * @Last Modified time: 2021-06-13 12:17:32
  */
 import { ElMessageBox, ElNotification, ElMessage } from 'element-plus';
 import { debounce, throttle, round } from 'lodash-es';
 import { t } from '@/locale';
 import { AnyFunction } from './types';
-
-/**
- * @description 判断浏览器是否 IE11
- * @param
- * @returns {boolean}
- */
-export const isIE = (): boolean => {
-  return !!window.ActiveXObject || 'ActiveXObject' in window;
-};
 
 /**
  * @description 判断对象属性是否为自身属性

@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2020-04-23 15:16:36
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-03 16:52:28
+ * @Last Modified time: 2021-06-13 13:00:00
  */
 .el-notification {
   a {
@@ -146,5 +146,13 @@
   }
   .el-tabs__content {
     position: static;
+  }
+}
+.el-popper.is-dark {
+  background: #333;
+  .el-popper__arrow {
+    &::before {
+      background: #333;
+    }
   }
 }
