@@ -240,11 +240,12 @@ export default {
             setWechatAvatar(this.weChat.imgurl || '');
           }
           await sleep(0);
+          const { redirect } = this.$route.query;
           // grayCode -> 0 生产，1 灰度
           if (rData.grayCode) {
-            window.location = '/gray';
+            window.location = !redirect ? '/gray' : `/gray/#/${redirect.slice(1)}`;
           } else {
-            this.$router.push({ path: '/' });
+            this.$router.push({ path: !redirect ? '/' : redirect });
           }
           await sleep(1000);
         }
