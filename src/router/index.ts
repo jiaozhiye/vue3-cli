@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:53:34
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-11 14:01:52
+ * @Last Modified time: 2021-06-15 14:02:18
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import { t } from '@/locale';
@@ -36,6 +36,7 @@ const routes: Array<RouteRecordRaw> = [
     .flat()
     .map((x) => ({
       path: '/iframe' + x.path,
+      props: x.props,
       component: x.component,
     })),
   {
