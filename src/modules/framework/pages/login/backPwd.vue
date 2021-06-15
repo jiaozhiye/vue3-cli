@@ -31,7 +31,7 @@
         <el-form ref="formRest" size="medium" :model="formRest" :rules="rulesRest">
           <input type="password" name="no" class="hidden-input" />
           <el-form-item prop="newPwd">
-            <el-input v-model="formRest.newPwd" placeholder="新密码" />
+            <el-input v-model="formRest.newPwd" type="password" placeholder="新密码" />
           </el-form-item>
           <el-form-item prop="confirmPwd">
             <el-input v-model="formRest.confirmPwd" type="password" placeholder="确认密码" />

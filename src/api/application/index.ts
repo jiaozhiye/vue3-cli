@@ -1,8 +1,8 @@
 /*
  * @Author: 焦质晔
  * @Date: 2021-02-14 14:59:10
- * @Last Modified by:   焦质晔
- * @Last Modified time: 2021-02-14 14:59:10
+ * @Last Modified by: 焦质晔
+ * @Last Modified time: 2021-06-15 09:21:21
  */
 import axios from '@/api/fetch';
 import config from '@/config';
@@ -39,6 +39,3 @@ export const getUserInfo = (params) =>
 // 获取消息公告
 export const getMessageList = (params) =>
   axios.get(`${prefix}/dlmsys/notice/getNoticeInfo`, { params });
-
-// 获取待办列表
-export const getTodoList = (params) => axios.get(`${prefix}/sys/xxxx/xxxx`, { params });

@@ -1,7 +1,12 @@
 <template>
   <el-form ref="form" size="medium" class="v-form" :model="form" :rules="rules">
     <el-form-item prop="account">
-      <el-input v-model="form.account" placeholder="账号/手机号/邮箱" autocomplete="on" />
+      <el-input
+        v-model="form.account"
+        placeholder="账号/手机号/邮箱"
+        autocomplete="on"
+        @blur="trimHandle"
+      />
     </el-form-item>
     <el-form-item prop="password">
       <el-input
@@ -68,12 +73,18 @@ export default {
         this.passwordType = 'password';
       }
     },
+    trimHandle() {
+      this.form.account = this.form.account.trim();
+    },
     enterHandle() {
       this.$emit('enter');
     },
     async GET_VALUE() {
       const bool = await this.doValidate();
       return [!bool, this.form];
+    },
+    CLEAR_PWD() {
+      this.form.password = '';
     },
   },
 };

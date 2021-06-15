@@ -32,7 +32,6 @@ export default {
     };
   },
   methods: {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     onSuccess(times) {
       // console.log('验证通过');
       // this.msg = `login success, 耗时${(times / 1000).toFixed(1)}s`;
@@ -63,3 +62,5 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped></style>

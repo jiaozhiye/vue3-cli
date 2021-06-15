@@ -8,15 +8,22 @@ import { getWechatOpenId } from '@framework/api/login';
 
 export default {
   async created() {
-    const { code, state } = this.$route.query;
+    const { code, state, type } = this.$route.query;
     const res = await getWechatOpenId({ code, state });
     if (res.code === 200) {
       // res.data.wechatInfo -> openid , nickname , headimgurl
-      window.opener.$$setWeChat({
-        openid: res.data.wechatInfo.openid,
-        nickname: res.data.wechatInfo.nickname,
-        imgurl: res.data.wechatInfo.headimgurl,
-      });
+      // 登录
+      if (type.toString() === '1') {
+        window.opener.$$setWeChat({
+          openid: res.data.wechatInfo.openid,
+          nickname: res.data.wechatInfo.nickname,
+          imgurl: res.data.wechatInfo.headimgurl,
+        });
+      }
+      // 个人中心 微信解绑
+      if (type.toString() === '2') {
+        window.opener.$$bindingWeChat({ openid: res.data.wechatInfo.openid });
+      }
     }
     window.close();
   },

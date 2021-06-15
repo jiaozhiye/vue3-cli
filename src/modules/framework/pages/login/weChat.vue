@@ -21,28 +21,19 @@ import { messageAction } from '@/utils';
 
 export default {
   data() {
-    return {
-      wechatUrl: '',
-    };
-  },
-  created() {
-    this.getWechatLocation();
+    return {};
   },
   methods: {
-    clickHandle() {
-      if (!this.wechatUrl) {
-        return messageAction('获取微信登录二维码失败！', 'error');
-      }
-      window.open(
-        this.wechatUrl,
-        '_blank',
-        'top=200,left=300,width=600,height=550,menubar=no,toolbar=no,status=no,scrollbars=yes'
-      );
-    },
-    async getWechatLocation() {
-      const res = await getWechatUrl();
+    async clickHandle() {
+      const res = await getWechatUrl({ type: 1 });
       if (res.code === 200) {
-        this.wechatUrl = res.data.url;
+        window.open(
+          res.data.url,
+          '_blank',
+          'top=200,left=300,width=600,height=550,menubar=no,toolbar=no,status=no,scrollbars=yes'
+        );
+      } else {
+        messageAction('获取微信登录二维码失败！', 'error');
       }
     },
   },
