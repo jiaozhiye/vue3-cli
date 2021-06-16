@@ -27,7 +27,7 @@
     ]
   },
   "dependencies": {
-    "@jiaozhiye/qm-design": "^1.0.0-beta.10",
+    "@jiaozhiye/qm-design": "^1.0.0-beta.11",
     "add-dom-event-listener": "^1.1.0",
     "axios": "^0.21.1",
     "crypto-js": "^4.0.0",
