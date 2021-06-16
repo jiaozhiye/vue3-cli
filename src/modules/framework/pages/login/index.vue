@@ -290,7 +290,6 @@ export default {
             id: rData?.iD || '',
             name: rData?.vPersonName || '',
             token: jwt || 'jwt',
-            gray: rData?.grayCode || 0,
             vDealerName: rData?.vDealerName || '',
           });
           // 存储微信头像

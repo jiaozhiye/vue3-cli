@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-14 07:42:00
+ * @Last Modified time: 2021-06-16 14:45:31
  */
 import { RouteRecordRaw } from 'vue-router';
 import { uniqWith, isEqual } from 'lodash-es';
@@ -12,10 +12,8 @@ import { t } from '@/locale';
 import router from '@/router';
 import {
   setToken,
-  setGray,
   setUserName,
   removeToken,
-  removeGray,
   removeWechatAvatar,
   set_vDealerName,
 } from '@/utils/cookies';
@@ -122,7 +120,6 @@ const state = {
 const actions = {
   createLoginInfo({ commit, state }, params): void {
     setToken(params.token);
-    params.gray && setGray(params.gray);
     setUserName(params.name);
     set_vDealerName(params.vDealerName);
     commit({
@@ -132,7 +129,6 @@ const actions = {
   },
   createLogout({ dispatch, commit, state }, params): void {
     removeToken();
-    removeGray();
     removeWechatAvatar();
     commit({
       type: types.LOGOUT,
