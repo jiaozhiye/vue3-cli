@@ -1,20 +1,20 @@
 <script>
-let UserCenter = null;
+let UserSetting = null;
 
 try {
   const files = require.context('@/modules/system/pages/stm9001', true, /index\.vue$/);
   if (files.keys().length) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    UserCenter = require('@/modules/system/pages/stm9001').default;
+    UserSetting = require('@/modules/system/pages/stm9001').default;
   }
 } catch (err) {
   // ...
 }
 
 export default {
-  name: 'JzyUserCenter',
+  name: 'UserSetting',
   render() {
-    return UserCenter ? <UserCenter /> : null;
+    return UserSetting ? <UserSetting /> : null;
   },
 };
 </script>

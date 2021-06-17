@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2020-05-17 09:36:33
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-11 14:01:43
+ * @Last Modified time: 2021-06-17 16:53:11
  */
 export default {
   // webpackChunkName -> webpack 在打包编译时，生成的文件路径(名)，格式：模块名称/用例名称 service/spt1001
@@ -11,7 +11,7 @@ export default {
       path: '/user-center',
       meta: { title: '个人中心' },
       component: () =>
-        import(/* webpackChunkName: "framework/userCenter" */ '@framework/pages/userCenter'),
+        import(/* webpackChunkName: "framework/userSetting" */ '@framework/pages/userSetting'),
     },
   ],
   public: [],
