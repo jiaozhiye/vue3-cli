@@ -5,6 +5,24 @@
  * @Last Modified time: 2021-06-16 14:30:35
  */
 import { t } from '@/locale';
+import { ComponentSize, Language } from '@/utils/types';
+
+type IConfig = {
+  systemName: string;
+  baseUrl: string;
+  lang: Language;
+  size: ComponentSize;
+  prefix: string;
+  useIframe: boolean;
+  maxCacheNum: number;
+  showBreadcrumb: boolean;
+  showScreenFull: boolean;
+  showCustomTheme: boolean;
+  showLangSelect: boolean;
+  showSizeSelect: boolean;
+  showNotification: boolean;
+  openBuryPoint: boolean;
+};
 
 export default {
   systemName: t('app.global.title'),
@@ -21,4 +39,4 @@ export default {
   showSizeSelect: true, // 是否显示尺寸选择
   showNotification: true, // 是否显示通知
   openBuryPoint: false, // 是否开启埋点
-};
+} as IConfig;
