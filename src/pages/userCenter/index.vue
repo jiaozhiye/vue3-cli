@@ -11,7 +11,7 @@
       <div :class="userCenterCls">
         <div class="user-avatar">
           <span class="avatar">
-            <img class="img" :src="weChatAvatar || info.profileUrl || avatarImg" />
+            <img class="img" :src="info.profileUrl || avatarImg" />
           </span>
           <span class="name">{{ username }}</span>
         </div>
@@ -64,7 +64,7 @@
       </div>
       <template v-slot:reference>
         <span class="avatar">
-          <img class="img" :src="weChatAvatar || info.profileUrl || avatarImg" alt="" />
+          <img class="img" :src="info.profileUrl || avatarImg" alt="" />
         </span>
       </template>
     </el-popover>
@@ -80,7 +80,7 @@
  */
 import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
-import { getUserName, getWechatAvatar } from '@/utils/cookies';
+import { getUserName } from '@/utils/cookies';
 import { getUserInfo } from '@/api/application';
 import { currentSize } from '@/mixins/sizeMixin';
 
@@ -91,7 +91,6 @@ export default defineComponent({
     this.avatarImg = require('@/assets/img/avatar.jpg');
     return {
       username: getUserName() ?? '管理员',
-      weChatAvatar: getWechatAvatar() ?? '',
       info: {
         profileUrl: '', // 头像
         vEmail: '', // Email

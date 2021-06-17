@@ -147,7 +147,6 @@ import { mapActions, mapState } from 'vuex';
 import CryptoJS from 'crypto-js';
 
 import { sleep, loadScript } from '@/utils';
-import { setWechatAvatar } from '@/utils/cookies';
 import { doLogin, bindPhone, getLoginBg } from '@framework/api/login';
 
 import Account from './account';
@@ -292,10 +291,6 @@ export default {
             token: jwt || 'jwt',
             vDealerName: rData?.vDealerName || '',
           });
-          // 存储微信头像
-          if (loginType === 2) {
-            setWechatAvatar(this.weChat.imgurl || '');
-          }
           await sleep(0);
           const { redirect } = this.$route.query;
           // grayCode -> 0 生产，1 灰度

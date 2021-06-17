@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 13:47:03
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-16 14:45:31
+ * @Last Modified time: 2021-06-17 12:16:07
  */
 import { RouteRecordRaw } from 'vue-router';
 import { uniqWith, isEqual } from 'lodash-es';
@@ -10,13 +10,7 @@ import * as types from '../types';
 import config from '@/config';
 import { t } from '@/locale';
 import router from '@/router';
-import {
-  setToken,
-  setUserName,
-  removeToken,
-  removeWechatAvatar,
-  set_vDealerName,
-} from '@/utils/cookies';
+import { setToken, setUserName, removeToken, set_vDealerName } from '@/utils/cookies';
 import localDict from '@/utils/localDict';
 import {
   getNavList,
@@ -129,17 +123,13 @@ const actions = {
   },
   createLogout({ dispatch, commit, state }, params): void {
     removeToken();
-    removeWechatAvatar();
     commit({
       type: types.LOGOUT,
       data: {},
     });
-    dispatch('clearNavList');
+    dispatch('createTabNavList', []);
     // 刷新浏览器，释放内存
-    setTimeout(
-      () => (window.location.href = `/login?redirect=${router.currentRoute.value.path}`),
-      300
-    );
+    setTimeout(() => window.parent.postMessage({ type: 'logout', data: '' }, '*'), 400);
   },
   createWeChat({ commit, state }, params): void {
     commit({
@@ -175,13 +165,6 @@ const actions = {
     commit({ type: types.MENULIST, data: createMenuList(data) });
     // return bool
     return !0;
-  },
-  clearNavList({ dispatch, commit, state }, params): void {
-    commit({
-      type: types.NAVLIST,
-      data: [],
-    });
-    dispatch('createTabNavList', []);
   },
   async createStarMenuList({ commit, state }, params): Promise<void> {
     if (state.starMenuList.length) return;
