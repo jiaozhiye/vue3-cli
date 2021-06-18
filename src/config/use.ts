@@ -24,9 +24,19 @@ export const use = <T extends App>(app: T): T => {
     .use(store)
     .use(router)
     .use(directive)
-    .use(QmDesign, {
-      size: SizeEnum[store.state.app.size],
-      zIndex: 1000,
-    })
+    .use(
+      QmDesign,
+      {
+        size: SizeEnum[store.state.app.size],
+        zIndex: 1000,
+      },
+      {
+        print: {
+          leftLogo: require('../assets/img/logo_l.png'),
+          rightLogo: require('../assets/img/logo_r.png'),
+        },
+        tinymceScriptSrc: '/static/tinymce/tinymce.min.js',
+      }
+    )
     .use(CustomComps);
 };

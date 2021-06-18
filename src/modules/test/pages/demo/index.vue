@@ -34,6 +34,14 @@
         @click="addHandle"
         >新增</el-button
       >
+      <qm-print
+        uniqueKey="jzy_print1"
+        :dataSource="printDataList"
+        :templateRender="printTemplate"
+        :click="printHandle"
+        >按钮打印</qm-print
+      >
+      <qm-button type="primary" icon="el-icon-printer" :click="printHandle2">方法打印</qm-button>
       <qm-button type="danger" icon="el-icon-delete" :confirm="{}" :click="removeHandle"
         >删除</qm-button
       >
@@ -47,6 +55,12 @@
   >
     <AddInfo @close="closeHandle" />
   </qm-drawer>
+  <qm-print
+    ref="print"
+    uniqueKey="jzy_print2"
+    :dataSource="printDataList"
+    :templateRender="printTemplate"
+  />
 </template>
 
 <script>
@@ -58,10 +72,11 @@
  */
 import './lang'; // 多语言
 import { dictionary } from '@/mixins/dictMixin'; // 数据字典
-import { notifyAction } from '@/utils';
+import { sleep, notifyAction } from '@/utils';
 import { getTableData, getSelectData, getTreeData, getRegionData } from '@test/api/demo';
 import tableData from '@/mock/tableData';
 
+import PrintTemplate from '../printTemplate/print-template';
 import AddInfo from './addInfo';
 
 export default {
@@ -70,6 +85,7 @@ export default {
   mixins: [dictionary],
   data() {
     this.selectedKeys = [];
+    this.printTemplate = PrintTemplate;
     return {
       list: tableData.data.items,
       filterList: this.createFilterList(),
@@ -97,6 +113,7 @@ export default {
         fileName: '导出文件.xlsx',
       },
       visible: false,
+      printDataList: [],
     };
   },
   methods: {
@@ -503,6 +520,23 @@ export default {
     },
     onCollapseChange() {
       this.$refs[`table`].CALCULATE_HEIGHT();
+    },
+    async printHandle() {
+      await sleep(1000);
+      let res = [];
+      for (let i = 0; i < 20; i++) {
+        res[i] = i;
+      }
+      this.printDataList = res;
+    },
+    async printHandle2() {
+      await sleep(1000);
+      let res = [];
+      for (let i = 0; i < 60; i++) {
+        res[i] = i;
+      }
+      this.printDataList = res;
+      this.$refs[`print`].DO_PRINT();
     },
     async removeHandle() {
       if (!this.selectedKeys.length) {
