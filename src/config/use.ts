@@ -29,6 +29,7 @@ export const use = <T extends App>(app: T): T => {
       {
         size: SizeEnum[store.state.app.size],
         zIndex: 1000,
+        i18n: i18n.global.t,
       },
       {
         print: {
