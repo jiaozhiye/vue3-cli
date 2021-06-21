@@ -277,11 +277,19 @@ const actions = {
       data: params,
     });
   },
+  emitOutsideClick({ commit, state }, params): void {
+    window.parent.postMessage({ type: 'outside_click', data: '' }, '*');
+  },
   openView({ commit, state }, params: string): void {
     window.parent.postMessage({ type: 'open', data: params }, '*');
   },
   reloadView({ commit, state }, params): void {
     window.parent.postMessage({ type: 'refresh', data: '' }, '*');
+  },
+  createMouseEvent({ commit, state }, params): void {
+    document.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+    document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
+    document.body.click();
   },
   refreshView({ dispatch, commit, state }, { path, query = {} }): void {
     let $iframe: Nullable<HTMLIFrameElement> = document.getElementById(path) as HTMLIFrameElement;

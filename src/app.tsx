@@ -8,8 +8,8 @@ import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
 import { RouterView } from 'vue-router';
 import { messageEvent } from '@/mixins/messageMixin';
-import { isIframe } from './router/permission';
-import { JSXNode } from './utils/types';
+import { isIframe } from '@/router/permission';
+import { JSXNode } from '@/utils/types';
 
 import '@/assets/css/reset.scss';
 import '@/assets/css/style.scss';
@@ -28,13 +28,13 @@ export default defineComponent({
       this.createThemeColor(localTheme);
     }
   },
-  updated() {
+  mounted() {
     this.getDictData();
   },
   methods: {
     ...mapActions('app', ['createDictData', 'createThemeColor']),
     getDictData(): void {
-      if (!isIframe(this.$route.path)) return;
+      if (!isIframe(window.location.pathname)) return;
       this.createDictData();
     },
   },

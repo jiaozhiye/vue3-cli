@@ -6,16 +6,31 @@
  */
 import { mapActions } from 'vuex';
 import { changeLocale } from '@/locale';
+import { isIframe } from '@/router/permission';
 
 export const messageEvent = {
   mounted() {
     window.addEventListener('message', this.messageEventHandle, false);
+    if (isIframe(window.location.pathname)) {
+      document.addEventListener('click', this.clickEventHandle, false);
+    }
   },
   beforeUnmount() {
     window.removeEventListener('message', this.messageEventHandle);
+    document.removeEventListener('click', this.clickEventHandle);
   },
   methods: {
-    ...mapActions('app', ['createElementSize', 'createThemeColor', 'refreshView', 'createLogout']),
+    ...mapActions('app', [
+      'createElementSize',
+      'createThemeColor',
+      'emitOutsideClick',
+      'createMouseEvent',
+      'refreshView',
+      'createLogout',
+    ]),
+    clickEventHandle(): void {
+      this.emitOutsideClick();
+    },
     messageEventHandle({ data }): void {
       if (typeof data !== 'object') return;
       if (data.type === 'lang') {
@@ -26,6 +41,9 @@ export const messageEvent = {
       }
       if (data.type === 'theme') {
         this.createThemeColor(data.data);
+      }
+      if (data.type === 'outside_click') {
+        this.createMouseEvent();
       }
       if (data.type === 'refresh') {
         this.refreshView({ path: this.$route.path });

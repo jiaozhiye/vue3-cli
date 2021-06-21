@@ -7,8 +7,8 @@
  */
 import { defineComponent } from 'vue';
 import { mapActions } from 'vuex';
-import addEventListener from 'add-dom-event-listener';
 import { uniqBy } from 'lodash-es';
+import addEventListener from 'add-dom-event-listener';
 import { currentSize } from '@/mixins/sizeMixin';
 
 export default defineComponent({
@@ -235,7 +235,6 @@ export default defineComponent({
           ref="multiTab"
           type="card"
           class="multi-wrap"
-          v-focus-outside={this.closeContextMenu}
           modelValue={this.activeKey}
           onTabClick={this.handleClick}
           onTabRemove={this.removeTab}
@@ -247,17 +246,17 @@ export default defineComponent({
             class="contextmenu el-dropdown-menu--small"
             style={{ left: `${this.position.x + 10}px`, top: `${this.position.y + 2}px` }}
           >
-            <li class="el-dropdown-menu__item" onMousedown={this.refreshTagHandle}>
+            <li class="el-dropdown-menu__item" onClick={this.refreshTagHandle}>
               {this.$t('app.multiTab.refresh')}
             </li>
-            <li class="el-dropdown-menu__item" onMousedown={() => this.closeTagHandle('right')}>
+            <li class="el-dropdown-menu__item" onClick={() => this.closeTagHandle('right')}>
               {this.$t('app.multiTab.closeRight')}
             </li>
-            <li class="el-dropdown-menu__item" onMousedown={() => this.closeTagHandle('left')}>
+            <li class="el-dropdown-menu__item" onClick={() => this.closeTagHandle('left')}>
               {this.$t('app.multiTab.closeLeft')}
             </li>
             {this.pages.length > 1 && (
-              <li class="el-dropdown-menu__item" onMousedown={this.closeOtherTagHandle}>
+              <li class="el-dropdown-menu__item" onClick={this.closeOtherTagHandle}>
                 {this.$t('app.multiTab.closeOthers')}
               </li>
             )}
