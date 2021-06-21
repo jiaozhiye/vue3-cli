@@ -1004,16 +1004,16 @@
     "@intlify/runtime" "9.1.6"
     "@intlify/shared" "9.1.6"
 
-"@jiaozhiye/qm-design@^1.0.0-beta.14":
-  version "1.0.0-beta.14"
-  resolved "https://registry.nlark.com/@jiaozhiye/qm-design/download/@jiaozhiye/qm-design-1.0.0-beta.14.tgz#3d6f9d5105cfd84b3d60e7ef1db4e0459ed724b8"
-  integrity sha1-PW+dUQXP2Es9YOfvHbTgRZ7XJLg=
+"@jiaozhiye/qm-design@^1.0.0-beta.15":
+  version "1.0.0-beta.15"
+  resolved "https://registry.nlark.com/@jiaozhiye/qm-design/download/@jiaozhiye/qm-design-1.0.0-beta.15.tgz#f9eb12ae150c10a0da51a1d78663a835201b72aa"
+  integrity sha1-+esSrhUMEKDaUaHXhmOoNSAbcqo=
   dependencies:
     add-dom-event-listener "^1.1.0"
     axios "^0.21.1"
     classnames "^2.3.1"
     countup.js "^2.0.7"
-    cropperjs "^1.5.11"
+    cropperjs "^1.5.12"
     dayjs "^1.10.4"
     element-plus "^1.0.2-beta.48"
     exceljs "^4.2.1"
@@ -1022,7 +1022,7 @@
     resize-observer-polyfill "^1.5.1"
     scroll-into-view-if-needed "^2.2.28"
     vue "3.1.1"
-    vuedraggable "^4.0.1"
+    vuedraggable "^4.0.3"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -2421,10 +2421,10 @@ crc32-stream@^4.0.2:
     crc-32 "^1.2.0"
     readable-stream "^3.4.0"
 
-cropperjs@^1.5.11:
-  version "1.5.11"
-  resolved "https://registry.npm.taobao.org/cropperjs/download/cropperjs-1.5.11.tgz#502ae6d8ca098b124de6813601cca70015879fc0"
-  integrity sha1-UCrm2MoJixJN5oE2AcynABWHn8A=
+cropperjs@^1.5.12:
+  version "1.5.12"
+  resolved "https://registry.nlark.com/cropperjs/download/cropperjs-1.5.12.tgz?cache=0&sync_timestamp=1623485905627&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcropperjs%2Fdownload%2Fcropperjs-1.5.12.tgz#d9c0db2bfb8c0d769d51739e8f916bbc44e10f50"
+  integrity sha1-2cDbK/uMDXadUXOej5FrvEThD1A=
 
 cross-env@^7.0.2:
   version "7.0.3"
@@ -6892,10 +6892,10 @@ vue@3.1.1:
     "@vue/runtime-dom" "3.1.1"
     "@vue/shared" "3.1.1"
 
-vuedraggable@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.npm.taobao.org/vuedraggable/download/vuedraggable-4.0.1.tgz#3bcaab0808b7944030b7d9a29f9a63d59dfa12c5"
-  integrity sha1-O8qrCAi3lEAwt9min5pj1Z36EsU=
+vuedraggable@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.nlark.com/vuedraggable/download/vuedraggable-4.0.3.tgz?cache=0&sync_timestamp=1623379056800&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvuedraggable%2Fdownload%2Fvuedraggable-4.0.3.tgz#98832a3562d44c73bbe4e205cc2dafce07b6ca14"
+  integrity sha1-mIMqNWLUTHO75OIFzC2vzge2yhQ=
   dependencies:
     sortablejs "1.10.2"
 

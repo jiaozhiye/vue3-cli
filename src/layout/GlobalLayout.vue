@@ -3,10 +3,9 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 11:05:12
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-08 09:29:29
+ * @Last Modified time: 2021-06-21 08:20:13
  */
 import { defineComponent } from 'vue';
-import { JSXNode } from '@/utils/types';
 import SideMenu from './modules/SideMenu';
 import GlobalHeader from './modules/GlobalHeader';
 import MenuFold from './modules/MenuFold';
@@ -14,8 +13,9 @@ import HeadNavBar from './modules/HeadNavBar';
 import MultiTab from './modules/MultiTab';
 import Breadcrumb from './modules/Breadcrumb';
 import Watermark from './modules/Watermark';
-import { currentSize } from '@/mixins/sizeMixin';
 import config from '@/config';
+import { currentSize } from '@/mixins/sizeMixin';
+import { JSXNode } from '@/utils/types';
 
 export default defineComponent({
   name: 'GlobalLayout',
