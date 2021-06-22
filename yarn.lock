@@ -1004,10 +1004,10 @@
     "@intlify/runtime" "9.1.6"
     "@intlify/shared" "9.1.6"
 
-"@jiaozhiye/qm-design@^1.0.0-beta.15":
-  version "1.0.0-beta.15"
-  resolved "https://registry.nlark.com/@jiaozhiye/qm-design/download/@jiaozhiye/qm-design-1.0.0-beta.15.tgz#f9eb12ae150c10a0da51a1d78663a835201b72aa"
-  integrity sha1-+esSrhUMEKDaUaHXhmOoNSAbcqo=
+"@jiaozhiye/qm-design@^1.0.0-beta.16":
+  version "1.0.0-beta.16"
+  resolved "https://registry.nlark.com/@jiaozhiye/qm-design/download/@jiaozhiye/qm-design-1.0.0-beta.16.tgz?cache=0&sync_timestamp=1624321653341&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40jiaozhiye%2Fqm-design%2Fdownload%2F%40jiaozhiye%2Fqm-design-1.0.0-beta.16.tgz#b25cda263e75f3e37c8537d798d35889393626df"
+  integrity sha1-slzaJj518+N8hTfXmNNYiTk2Jt8=
   dependencies:
     add-dom-event-listener "^1.1.0"
     axios "^0.21.1"
