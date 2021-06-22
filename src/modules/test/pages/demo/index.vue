@@ -22,6 +22,7 @@
     :fetch="fetch"
     :rowKey="(row) => row.id"
     :rowSelection="selection"
+    :summation="summation"
     :tablePrint="tablePrint"
     :exportExcel="exportExcel"
     :columnsChange="(columns) => (this.columns = columns)"
@@ -68,12 +69,18 @@
  * @Author: 焦质晔
  * @Date: 2021-05-13 14:08:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-11 13:26:10
+ * @Last Modified time: 2021-06-22 15:01:28
  */
 import './lang'; // 多语言
 import { dictionary } from '@/mixins/dictMixin'; // 数据字典
 import { sleep, notifyAction } from '@/utils';
-import { getTableData, getSelectData, getTreeData, getRegionData } from '@test/api/demo';
+import {
+  getTableData,
+  getSummationData,
+  getSelectData,
+  getTreeData,
+  getRegionData,
+} from '@test/api/demo';
 import tableData from '@/mock/tableData';
 
 import PrintTemplate from '../printTemplate/print-template';
@@ -104,6 +111,11 @@ export default {
         },
         onChange: (val, rows) => {
           this.selectedKeys = val;
+        },
+      },
+      summation: {
+        fetch: {
+          api: getSummationData,
         },
       },
       tablePrint: {
@@ -384,6 +396,10 @@ export default {
           width: 150,
           required: true,
           sorter: true,
+          summation: {
+            dataKey: 'num',
+            unit: '个',
+          },
           groupSummary: {},
           filter: {
             type: 'number',
