@@ -44,7 +44,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-13 16:36:01
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-02-14 15:57:29
+ * @Last Modified time: 2021-06-22 18:42:58
  */
 import { defineComponent } from 'vue';
 import { mapState, mapActions } from 'vuex';
@@ -113,7 +113,7 @@ export default defineComponent({
     starClickHandle(star, key, title) {
       if (!star) {
         if (this.starMenuList.length >= 10) {
-          return notifyAction(this.$t('information.maxStar', { total: 10 }), 'warning');
+          return notifyAction(this.$t('app.information.maxStar', { total: 10 }), 'warning');
         }
         this.addStarMenuList({ key, title });
       } else {
