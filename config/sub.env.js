@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2020-12-03 09:16:26
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-09 15:37:18
+ * @Last Modified time: 2021-06-24 11:31:44
  */
 const config = {
   dev: {
@@ -13,22 +13,22 @@ const config = {
     tds: '//localhost:9022',
   },
   tst: {
-    app: '/',
+    app: '',
     dms: '/',
     tds: '/',
   },
   uat: {
-    app: '/',
+    app: '',
     dms: '/',
     tds: '/',
   },
   pre: {
-    app: '/',
+    app: '',
     dms: '/',
     tds: '/',
   },
   prod: {
-    app: '//localhost',
+    app: '',
     dms: '//localhost:9021',
     tds: '//localhost:9022',
   },
