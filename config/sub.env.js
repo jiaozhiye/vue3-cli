@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2020-12-03 09:16:26
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-24 11:31:44
+ * @Last Modified time: 2021-06-24 19:43:46
  */
 const config = {
   dev: {
@@ -14,18 +14,18 @@ const config = {
   },
   tst: {
     app: '',
-    dms: '/',
-    tds: '/',
+    dms: '',
+    tds: '',
   },
   uat: {
     app: '',
-    dms: '/',
-    tds: '/',
+    dms: '',
+    tds: '',
   },
   pre: {
     app: '',
-    dms: '/',
-    tds: '/',
+    dms: '',
+    tds: '',
   },
   prod: {
     app: '',
