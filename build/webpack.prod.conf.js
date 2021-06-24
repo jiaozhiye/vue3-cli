@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-24 15:28:02
+ * @Last Modified time: 2021-06-24 19:40:57
  */
 'use strict';
 
@@ -89,7 +89,6 @@ const webpackConfig = merge(baseWebpackConfig, {
     },
   },
   plugins: [
-    // extract css into its own file
     new MiniCssExtractPlugin({
       filename: utils.assetsPath('css/[name].[contenthash:8].css'),
       chunkFilename: utils.assetsPath('css/[name].[contenthash:8].css'),
