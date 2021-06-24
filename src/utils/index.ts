@@ -4,7 +4,7 @@
  * @Last Modified by: 焦质晔
  * @Last Modified time: 2021-06-13 12:17:32
  */
-import { ElMessageBox, ElNotification, ElMessage } from 'element-plus';
+import { QmMessageBox, QmNotification, QmMessage } from '@jiaozhiye/qm-design';
 import { debounce, throttle, round } from 'lodash-es';
 import { t } from '@/locale';
 import { AnyFunction } from './types';
@@ -113,7 +113,7 @@ export const notifyAction = (
   type: 'success' | 'warning' | 'info' | 'error' = 'success',
   delay = 4.5
 ): void => {
-  ElNotification({
+  QmNotification({
     title: t('app.information.title'),
     message: msg,
     type,
@@ -134,7 +134,7 @@ export const messageAction = (
   type: 'success' | 'warning' | 'info' | 'error' = 'info',
   delay = 4
 ): void => {
-  ElMessage({ message: msg, showClose: true, type, duration: delay * 1000 });
+  QmMessage({ message: msg, showClose: true, type, duration: delay * 1000 });
 };
 
 /**
@@ -147,7 +147,7 @@ export const confirmAction = async (
   msg = '',
   type: 'success' | 'warning' | 'info' | 'error' = 'warning'
 ) => {
-  return ElMessageBox.confirm(msg || t('app.information.confirm'), t('app.information.title'), {
+  return QmMessageBox.confirm(msg || t('app.information.confirm'), t('app.information.title'), {
     confirmButtonText: t('app.button.confirm'),
     cancelButtonText: t('app.button.cancel'),
     type,
