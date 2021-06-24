@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-05 13:16:08
+ * @Last Modified time: 2021-06-24 15:28:02
  */
 'use strict';
 
@@ -15,7 +15,8 @@ const baseWebpackConfig = require('./webpack.base.conf');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssnanoPlugin = require('@intervolga/optimize-cssnano-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const safePostCssParser = require('postcss-safe-parser');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -39,6 +40,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   optimization: {
     moduleIds: 'named',
     chunkIds: 'named',
+    minimize: true,
     minimizer: [
       new TerserPlugin({
         // cache: true,
@@ -49,6 +51,15 @@ const webpackConfig = merge(baseWebpackConfig, {
             drop_console: true,
             drop_debugger: true,
           },
+        },
+      }),
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: {
+          parser: safePostCssParser,
+          map: config.build.productionSourceMap,
+        },
+        cssProcessorPluginOptions: {
+          preset: ['default', { minifyFontValues: { removeQuotes: false } }],
         },
       }),
     ],
@@ -82,19 +93,6 @@ const webpackConfig = merge(baseWebpackConfig, {
     new MiniCssExtractPlugin({
       filename: utils.assetsPath('css/[name].[contenthash:8].css'),
       chunkFilename: utils.assetsPath('css/[name].[contenthash:8].css'),
-    }),
-    // css build and minimize
-    new OptimizeCssnanoPlugin({
-      sourceMap: config.build.productionSourceMap,
-      cssnanoOptions: {
-        preset: [
-          'default',
-          {
-            mergeLonghand: false,
-            cssDeclarationSorter: false,
-          },
-        ],
-      },
     }),
     new webpack.ids.HashedModuleIdsPlugin({
       hashDigest: 'hex',
