@@ -49,12 +49,15 @@
     </qm-space>
   </qm-table>
   <qm-drawer
+    ref="drawer"
     v-model:visible="visible"
     title="新增数据"
+    :loading="drawerLoading"
     destroyOnClose
     :containerStyle="{ paddingBottom: '60px' }"
+    :beforeClose="beforeCloseHandle"
   >
-    <AddInfo @close="closeHandle" />
+    <AddInfo ref="addinfo" @spin="loadingHandle" @close="closeHandle" />
   </qm-drawer>
   <qm-print
     ref="print"
@@ -69,11 +72,11 @@
  * @Author: 焦质晔
  * @Date: 2021-05-13 14:08:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-22 15:01:28
+ * @Last Modified time: 2021-06-25 19:44:45
  */
 import './lang'; // 多语言
 import { dictionary } from '@/mixins/dictMixin'; // 数据字典
-import { sleep, notifyAction } from '@/utils';
+import { sleep, notifyAction, confirmAction } from '@/utils';
 import {
   getTableData,
   getSummationData,
@@ -125,6 +128,7 @@ export default {
         fileName: '导出文件.xlsx',
       },
       visible: false,
+      drawerLoading: false,
       printDataList: [],
     };
   },
@@ -563,8 +567,23 @@ export default {
     addHandle() {
       this.visible = true;
     },
-    closeHandle(val) {
-      this.visible = val;
+    async beforeCloseHandle() {
+      const allowClose = !this.$refs[`addinfo`].getValueChange();
+      if (!allowClose) {
+        try {
+          await confirmAction();
+          return Promise.resolve();
+        } catch (err) {
+          return Promise.reject();
+        }
+      }
+      return Promise.resolve();
+    },
+    closeHandle() {
+      this.$refs[`drawer`].DO_CLOSE();
+    },
+    loadingHandle(val) {
+      this.drawerLoading = val;
     },
   },
 };

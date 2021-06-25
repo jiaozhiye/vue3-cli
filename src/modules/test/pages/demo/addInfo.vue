@@ -2,23 +2,11 @@
   <qm-anchor style="height: 100%">
     <qm-anchor-item label="标题名称">
       <div>
-        <qm-form ref="form" :list="formList" />
+        <qm-form ref="form" :list="formList" @valuesChange="formChangeHandle" />
       </div>
     </qm-anchor-item>
     <qm-anchor-item label="页签名称" showDivider>
       <div style="margin-bottom: 10px">
-        <qm-table
-          :columns="columns"
-          :fetch="fetch"
-          :rowKey="(row) => row.id"
-          :rowSelection="selection"
-          :columnsChange="(columns) => (this.columns = columns)"
-        >
-        </qm-table>
-      </div>
-    </qm-anchor-item>
-    <qm-anchor-item label="导航名称" showDivider>
-      <div>
         <qm-table
           ref="table"
           :height="400"
@@ -26,10 +14,23 @@
           :dataSource="list"
           :rowKey="(record) => record.id"
           :columnsChange="(columns) => (this.columns1 = columns)"
+          @dataChange="tableChangeHandle"
         >
           <qm-space>
             <el-button type="primary" icon="el-icon-plus" @click="insertHandle">新建</el-button>
           </qm-space>
+        </qm-table>
+      </div>
+    </qm-anchor-item>
+    <qm-anchor-item label="导航名称" showDivider>
+      <div>
+        <qm-table
+          :columns="columns"
+          :fetch="fetch"
+          :rowKey="(row) => row.id"
+          :rowSelection="selection"
+          :columnsChange="(columns) => (this.columns = columns)"
+        >
         </qm-table>
       </div>
     </qm-anchor-item>
@@ -45,7 +46,7 @@
  * @Author: 焦质晔
  * @Date: 2021-05-13 14:08:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-03 13:34:03
+ * @Last Modified time: 2021-06-25 19:43:24
  */
 import './lang'; // 多语言
 import { dictionary } from '@/mixins/dictMixin'; // 数据字典
@@ -55,7 +56,7 @@ import { getTableData, getSelectData, getTreeData, getRegionData } from '@test/a
 export default {
   name: 'AddInfo',
   mixins: [dictionary],
-  emits: ['close'],
+  emits: ['close', 'spin'],
   data() {
     return {
       formList: this.createFilterList(),
@@ -79,6 +80,12 @@ export default {
       columns1: this.createTableColumns1(),
       list: [],
     };
+  },
+  mounted() {
+    // 开启 drawer loading
+    this.$emit('spin', true);
+    // 关闭 drawer loading
+    setTimeout(() => this.$emit('spin', false), 2000);
   },
   methods: {
     findFormItem(val) {
@@ -642,6 +649,16 @@ export default {
           width: 300,
         },
       ];
+    },
+    formChangeHandle() {
+      this.formChanged = true;
+    },
+    tableChangeHandle() {
+      const { inserted, updated, removed } = this.$refs[`table`].GET_LOG();
+      this.tableChanged = inserted.length || updated.length || removed.length;
+    },
+    getValueChange() {
+      return this.formChanged || this.tableChanged;
     },
     insertHandle() {
       this.$refs[`table`].INSERT_RECORDS({ id: createUidKey('new-'), price: 1, num: 1 });

@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2021-02-12 21:38:08
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-09 12:46:16
+ * @Last Modified time: 2021-06-25 19:47:43
  */
 import { defineAsyncComponent } from 'vue';
 import ErrorComponent from '@/pages/errorLoad';
@@ -36,6 +36,11 @@ export default {
     {
       path: '/bjgl/cggl/tk',
       meta: { keepAlive: true },
+      component: () => import(/* webpackChunkName: "test/demo" */ '@test/pages/demo/index'),
+    },
+    {
+      path: '/test',
+      meta: { title: '测试页面', keepAlive: true },
       component: () => import(/* webpackChunkName: "test/demo" */ '@test/pages/demo/index'),
     },
   ],
