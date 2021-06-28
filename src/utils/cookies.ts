@@ -21,6 +21,3 @@ export const setUserName = (val: string) => Cookies.set('username', val, options
 export const removeUserName = (): void => Cookies.remove('username', options);
 
 // 业务 cookie
-export const get_vDealerName = (): string => Cookies.get('vDealerName', options) ?? '';
-export const set_vDealerName = (val: string) => Cookies.set('vDealerName', val, options);
-export const remove_vDealerName = (): void => Cookies.remove('vDealerName', options);

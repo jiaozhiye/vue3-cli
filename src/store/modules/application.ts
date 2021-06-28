@@ -10,7 +10,7 @@ import * as types from '../types';
 import config from '@/config';
 import { t } from '@/locale';
 import router from '@/router';
-import { setToken, setUserName, removeToken, set_vDealerName } from '@/utils/cookies';
+import { setToken, setUserName, removeToken } from '@/utils/cookies';
 import localDict from '@/utils/localDict';
 import {
   getNavList,
@@ -115,7 +115,6 @@ const actions = {
   createLoginInfo({ commit, state }, params): void {
     setToken(params.token);
     setUserName(params.name);
-    set_vDealerName(params.vDealerName);
     commit({
       type: types.LOGININFO,
       data: { name: params.name, dealerName: params.vDealerName },
