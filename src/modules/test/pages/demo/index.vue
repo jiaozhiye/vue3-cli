@@ -49,15 +49,13 @@
     </qm-space>
   </qm-table>
   <qm-drawer
-    ref="drawer"
     v-model:visible="visible"
     title="新增数据"
-    :loading="drawerLoading"
     destroyOnClose
     :containerStyle="{ paddingBottom: '60px' }"
     :beforeClose="beforeCloseHandle"
   >
-    <AddInfo ref="addinfo" @spin="loadingHandle" @close="closeHandle" />
+    <AddInfo ref="addinfo" @close="closeHandle" />
   </qm-drawer>
   <qm-print
     ref="print"
@@ -128,7 +126,6 @@ export default {
         fileName: '导出文件.xlsx',
       },
       visible: false,
-      drawerLoading: false,
       printDataList: [],
     };
   },
@@ -571,7 +568,7 @@ export default {
       const allowClose = !this.$refs[`addinfo`].getValueChange();
       if (!allowClose) {
         try {
-          await confirmAction();
+          await confirmAction(this.$t('app.global.leaveText'));
           return Promise.resolve();
         } catch (err) {
           return Promise.reject();
@@ -579,11 +576,8 @@ export default {
       }
       return Promise.resolve();
     },
-    closeHandle() {
-      this.$refs[`drawer`].DO_CLOSE();
-    },
-    loadingHandle(val) {
-      this.drawerLoading = val;
+    closeHandle(val, $$drawer) {
+      $$drawer.DO_CLOSE();
     },
   },
 };

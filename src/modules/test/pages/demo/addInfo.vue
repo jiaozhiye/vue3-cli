@@ -56,7 +56,8 @@ import { getTableData, getSelectData, getTreeData, getRegionData } from '@test/a
 export default {
   name: 'AddInfo',
   mixins: [dictionary],
-  emits: ['close', 'spin'],
+  inject: ['$$drawer'],
+  emits: ['close'],
   data() {
     return {
       formList: this.createFilterList(),
@@ -83,9 +84,11 @@ export default {
   },
   mounted() {
     // 开启 drawer loading
-    this.$emit('spin', true);
+    this.$$drawer.START_LOADING();
     // 关闭 drawer loading
-    setTimeout(() => this.$emit('spin', false), 2000);
+    setTimeout(() => {
+      this.$$drawer.STOP_LOADING();
+    }, 3000);
   },
   methods: {
     findFormItem(val) {
@@ -664,7 +667,7 @@ export default {
       this.$refs[`table`].INSERT_RECORDS({ id: createUidKey('new-'), price: 1, num: 1 });
     },
     cancelHandle() {
-      this.$emit('close', false);
+      this.$emit('close', false, this.$$drawer);
     },
     async saveHandle() {
       const [err, res] = await this.$refs[`form`].GET_FORM_DATA();

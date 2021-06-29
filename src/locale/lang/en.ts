@@ -14,6 +14,7 @@ export default {
       emptyText: '暂无数据',
       noMatch: '抱歉，你访问的页面不存在或仍在开发中',
       errorLoad: 'Loading error. Please refresh the page and try again',
+      leaveText: '数据尚未保存，确认离开吗？',
     },
     sidebar: {
       allNavTitle: 'All Nav',
