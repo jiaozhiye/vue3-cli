@@ -140,7 +140,7 @@ const actions = {
     if (state.navList.length) {
       return !1;
     }
-    let data = [];
+    let data = [{ title: t('app.global.dashboard'), key: '/home', hideInMenu: true }];
     if (process.env.MOCK_DATA === 'true') {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
       const res = require('@/mock/sideMenu').default;
@@ -149,14 +149,10 @@ const actions = {
       try {
         const res: any = await getNavList({});
         if (res.code === 200) {
-          data = res.data.length
-            ? res.data
-            : [{ title: t('app.global.dashboard'), key: '/home', icon: 'icon-linechart' }];
-        } else {
-          return dispatch('createLogout');
+          data = Array.isArray(res.data) && res.data.length ? res.data : data;
         }
       } catch (err) {
-        return dispatch('createLogout');
+        return !!dispatch('createLogout');
       }
     }
     formatNavData(data, router.options.routes);
