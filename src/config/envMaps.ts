@@ -6,31 +6,26 @@
  */
 import subEnv from '../../config/sub.env';
 
-type IEnvCongig = Record<'dev' | 'tst' | 'uat' | 'pre' | 'prod', Partial<{ host: string }>>;
+type IEnvCongig = Record<'dev' | 'tst' | 'uat' | 'pre' | 'prod', Record<string, string>>;
 
 const env: string = process.env.ENV_CONFIG || 'prod';
 
-const config: IEnvCongig = Object.assign({}, subEnv, {
+const config: IEnvCongig = {
   dev: {
-    host: '/',
     domain: '',
   },
   tst: {
-    host: '/',
     domain: '',
   },
   uat: {
-    host: '/',
     domain: '',
   },
   pre: {
-    host: '/',
     domain: '',
   },
   prod: {
-    host: '/',
     domain: '',
   },
-});
+};
 
 export default Object.assign({}, config[env], subEnv);

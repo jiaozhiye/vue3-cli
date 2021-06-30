@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-15 08:42:51
+ * @Last Modified time: 2021-06-30 10:32:17
  */
 'use strict';
 const path = require('path');
@@ -56,7 +56,8 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: process.env.ENV_CONFIG === 'gray' ? `${subEnv.app}/gray/` : `${subEnv.app}/`,
+    assetsPublicPath:
+      process.env.ENV_CONFIG === 'gray' ? `${subEnv.host}/gray/` : `${subEnv.host}/`,
 
     // Source Maps
     productionSourceMap: false,
