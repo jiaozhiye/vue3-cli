@@ -83,6 +83,7 @@ export default {
     };
   },
   mounted() {
+    // this.setFormInitValue();
     // 开启 drawer loading
     this.$$drawer.START_LOADING();
     // 关闭 drawer loading
@@ -91,6 +92,18 @@ export default {
     }, 3000);
   },
   methods: {
+    // async setFormInitValue() {
+    //   this.$$drawer.START_LOADING();
+    //   try {
+    //     const [res1, res2, res3] = await Promise.all([aaa1(), aaa2(), aaa3()]);
+    //     if (res1.code === 200 && res2.code === 200 && res3.code === 200) {
+    //       // ...
+    //       this.$refs[`form`].SET_INITIAL_VALUE(formData);
+    //       this.formChanged = false;
+    //     }
+    //   } catch (err) {}
+    //   this.$$drawer.STOP_LOADING();
+    // },
     findFormItem(val) {
       return this.formList.find((x) => x.fieldName === val);
     },
