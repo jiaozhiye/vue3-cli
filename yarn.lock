@@ -995,10 +995,10 @@
     "@intlify/runtime" "9.1.6"
     "@intlify/shared" "9.1.6"
 
-"@jiaozhiye/qm-design@^1.0.0-beta.25":
-  version "1.0.0-beta.25"
-  resolved "https://registry.nlark.com/@jiaozhiye/qm-design/download/@jiaozhiye/qm-design-1.0.0-beta.25.tgz#18a8aa522ec7c81b223b43a96890735c41d1ae6a"
-  integrity sha1-GKiqUi7HyBsiO0OpaJBzXEHRrmo=
+"@jiaozhiye/qm-design@^1.0.0-beta.26":
+  version "1.0.0-beta.26"
+  resolved "https://registry.nlark.com/@jiaozhiye/qm-design/download/@jiaozhiye/qm-design-1.0.0-beta.26.tgz?cache=0&sync_timestamp=1625119683410&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40jiaozhiye%2Fqm-design%2Fdownload%2F%40jiaozhiye%2Fqm-design-1.0.0-beta.26.tgz#adbcf9c0c4ef34d6eebc34e7005b315ae5719077"
+  integrity sha1-rbz5wMTvNNbuvDTnAFsxWuVxkHc=
   dependencies:
     add-dom-event-listener "^1.1.0"
     axios "^0.21.1"
@@ -1006,7 +1006,7 @@
     countup.js "^2.0.7"
     cropperjs "^1.5.12"
     dayjs "^1.10.4"
-    element-plus "^1.0.2-beta.52"
+    element-plus "1.0.2-beta.52"
     exceljs "^4.2.1"
     localforage "^1.9.0"
     lodash-es "^4.17.21"
@@ -2808,9 +2808,9 @@ electron-to-chromium@^1.3.723:
   resolved "https://registry.nlark.com/electron-to-chromium/download/electron-to-chromium-1.3.749.tgz#0ecebc529ceb49dd2a7c838ae425236644c3439a"
   integrity sha1-Ds68UpzrSd0qfIOK5CUjZkTDQ5o=
 
-element-plus@^1.0.2-beta.52:
+element-plus@1.0.2-beta.52:
   version "1.0.2-beta.52"
-  resolved "https://registry.nlark.com/element-plus/download/element-plus-1.0.2-beta.52.tgz?cache=0&sync_timestamp=1624509675317&other_urls=https%3A%2F%2Fregistry.nlark.com%2Felement-plus%2Fdownload%2Felement-plus-1.0.2-beta.52.tgz#c7ed94d498e390658478aa2438bc35247325b2d0"
+  resolved "https://registry.nlark.com/element-plus/download/element-plus-1.0.2-beta.52.tgz#c7ed94d498e390658478aa2438bc35247325b2d0"
   integrity sha1-x+2U1JjjkGWEeKokOLw1JHMlstA=
   dependencies:
     "@popperjs/core" "^2.4.4"
