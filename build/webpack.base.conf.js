@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-30 10:40:06
+ * @Last Modified time: 2021-07-02 08:38:26
  */
 'use strict';
 
@@ -98,7 +98,7 @@ module.exports = {
         type: 'asset',
         parser: {
           dataUrlCondition: {
-            maxSize: 2 * 1024 * 1024, // 小于 2M 表现形式为 baser64；大于 2M 文件会被生成到输出到目标目录
+            maxSize: 1024 * 1024, // 小于 1M 表现形式为 baser64；大于 2M 文件会被生成到输出到目标目录
           },
         },
         generator: {
@@ -111,7 +111,7 @@ module.exports = {
         type: 'asset',
         parser: {
           dataUrlCondition: {
-            maxSize: 2 * 1024 * 1024,
+            maxSize: 1024 * 1024,
           },
         },
         generator: {
@@ -124,7 +124,7 @@ module.exports = {
         type: 'asset',
         parser: {
           dataUrlCondition: {
-            maxSize: 2 * 1024 * 1024,
+            maxSize: 1024 * 1024,
           },
         },
         generator: {
