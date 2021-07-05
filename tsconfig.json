@@ -15,9 +15,6 @@
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
-    "types": [
-      "webpack-env"
-    ],
     "paths": {
       "@/*": [
         "src/*"
@@ -31,9 +28,7 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
+    "./src",
   ],
   "exclude": [
     "node_modules"
