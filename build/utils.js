@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-06-05 12:39:17
+ * @Last Modified time: 2021-07-05 16:07:15
  */
 'use strict';
 
@@ -130,21 +130,15 @@ exports.styleLoaders = function (options) {
 };
 
 exports.jsLoaders = function () {
-  const loaders = [
-    {
-      loader: 'babel-loader',
-    },
-  ];
+  const loaders = [{ loader: 'babel-loader' }];
   return process.env.NODE_ENV === 'production'
     ? [{ loader: 'thread-loader' }, ...loaders]
     : loaders;
 };
 
 exports.tsLoaders = function () {
-  const loaders = [
-    {
-      loader: 'babel-loader',
-    },
+  return [
+    ...exports.jsLoaders(),
     {
       loader: 'ts-loader',
       options: {
@@ -154,7 +148,4 @@ exports.tsLoaders = function () {
       },
     },
   ];
-  return process.env.NODE_ENV === 'production'
-    ? [{ loader: 'thread-loader' }, ...loaders]
-    : loaders;
 };
