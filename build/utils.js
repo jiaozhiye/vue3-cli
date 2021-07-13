@@ -2,7 +2,7 @@
  * @Author: 焦质晔
  * @Date: 2019-06-20 10:00:00
  * @Last Modified by: 焦质晔
- * @Last Modified time: 2021-07-05 16:07:15
+ * @Last Modified time: 2021-07-07 13:07:31
  */
 'use strict';
 
@@ -98,7 +98,7 @@ exports.cssLoaders = function (options) {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
-    sass: generateLoaders('sass', { indentedSyntax: true }),
+    sass: generateLoaders('sass'),
     scss: generateLoaders('sass', {
       additionalData: '$THEME_COLOR: ' + config.primaryColor + ';',
     }).concat({

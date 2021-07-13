@@ -78,7 +78,7 @@
     "prettier": "^2.2.0",
     "rimraf": "^2.7.0",
     "sass": "^1.34.0",
-    "sass-loader": "^12.0.0",
+    "sass-loader": "^12.1.0",
     "style-resources-loader": "^1.4.1",
     "terser-webpack-plugin": "^5.1.2",
     "thread-loader": "^3.0.4",
