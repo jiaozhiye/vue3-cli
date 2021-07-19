@@ -45,6 +45,7 @@ type IState = {
   commonMenuList: Array<{ key: string; title: string }>;
   keepAliveList: Array<{ key: string; value: string }>;
   iframeList: Array<{ key: string; value: string }>;
+  loginInfo: Record<string, string>;
   dict: Record<string, Dictionary[] | number>;
   weChat: AnyObject<string>;
 };
@@ -106,6 +107,7 @@ const state = {
   commonMenuList: [], // 常用导航
   keepAliveList: [], // 路由组件缓存列表
   iframeList: [], // iframe 列表
+  loginInfo: {}, // 用户信息
   dict: {}, // 数据字典
   weChat: {}, // 微信登录信息
 } as IState;
